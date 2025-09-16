@@ -15,28 +15,17 @@ logs
 
 # Misc
 .DS_Store
-.fleet
-.idea
-
-# Tools
-.yarn/*
-!.yarn/patches
-!.yarn/plugins
-!.yarn/releases
-!.yarn/sdks
-!.yarn/versions
-yarn-debug.log*
-yarn-error.log*
 
 # Local env files
 .env
 .env.*
 !.env.example
 
-.vscode
-
-.stylelintcache
-
-.yarn*
-
-.buildinfo.env
+# Tools
+.yarn/*
+!.yarn/cache
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
