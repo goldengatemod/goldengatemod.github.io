@@ -56,4 +56,7 @@ export default defineNuxtConfig({
       { name: 'Bebas Neue' },
     ],
   },
+  svgo: {
+    defaultImport: 'component',
+  },
 })

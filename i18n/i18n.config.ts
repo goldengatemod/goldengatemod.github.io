@@ -1,7 +1,6 @@
 export default defineI18nConfig(() => ({
   legacy: false,
-  locale: 'pl',
-  fallbackLocale: 'pl',
+  fallbackLocale: 'en',
   lazy: true,
   globalInjection: true,
 }))
