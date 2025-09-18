@@ -2814,6 +2814,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/node@npm:^24.5.2":
+  version: 24.5.2
+  resolution: "@types/node@npm:24.5.2"
+  dependencies:
+    undici-types: "npm:~7.12.0"
+  checksum: 10c0/96baaca6564d39c6f7f6eddd73ce41e2a7594ef37225cd52df3be36fad31712af8ae178387a72d0b80f2e2799e7fd30c014bc0ae9eb9f962d9079b691be00c48
+  languageName: node
+  linkType: hard
+
 "@types/parse-path@npm:^7.0.0":
   version: 7.0.3
   resolution: "@types/parse-path@npm:7.0.3"
@@ -5351,9 +5360,11 @@ __metadata:
     "@nuxt/image": "npm:1.11.0"
     "@nuxt/ui": "npm:^3.3.4"
     "@nuxtjs/i18n": "npm:10.1.0"
+    "@types/node": "npm:^24.5.2"
     nuxt: "npm:^4.1.1"
     nuxt-svgo: "npm:4.2.6"
     sass-embedded: "npm:^1.92.1"
+    typescript: "npm:^5.9.2"
     vue: "npm:^3.5.21"
     vue-router: "npm:^4.5.1"
   languageName: unknown
@@ -9269,6 +9280,13 @@ __metadata:
     magic-string: "npm:^0.30.17"
     unplugin: "npm:^2.1.0"
   checksum: 10c0/08d334fbe51ad4bad4c7b7cc5efec84e61b39ca44e20cda2750a37f20b8e122ed4ce525d6a152b4c463ca1545c38fb556049d8c4ee0299afba4fdb0057d711ee
+  languageName: node
+  linkType: hard
+
+"undici-types@npm:~7.12.0":
+  version: 7.12.0
+  resolution: "undici-types@npm:7.12.0"
+  checksum: 10c0/326e455bbc0026db1d6b81c76a1cf10c63f7e2f9821db2e24fdc258f482814e5bfa8481f8910d07c68e305937c5c049610fdc441c5e8b7bb0daca7154fb8a306
   languageName: node
   linkType: hard
 

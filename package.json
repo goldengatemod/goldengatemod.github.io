@@ -21,7 +21,9 @@
     "vue-router": "^4.5.1"
   },
   "devDependencies": {
-    "sass-embedded": "^1.92.1"
+    "@types/node": "^24.5.2",
+    "sass-embedded": "^1.92.1",
+    "typescript": "^5.9.2"
   },
   "packageManager": "yarn@4.9.4"
 }

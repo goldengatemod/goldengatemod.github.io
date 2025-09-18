@@ -1,4 +1,4 @@
-import { loadLocales } from './scripts/load-locale.mjs'
+import { loadLocales } from './i18n/utils/loadLocales'
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({

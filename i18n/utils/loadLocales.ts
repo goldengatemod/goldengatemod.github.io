@@ -1,8 +1,8 @@
-import { readdirSync, statSync } from 'fs'
-import { join } from 'path'
+import { readdirSync, statSync } from 'node:fs'
+import { join } from 'node:path'
 
 export const loadLocales = () => {
-  const localeNamesMap = {
+  const localeNamesMap: Record<string, string> = {
     en: 'English',
     pl: 'Polski',
   }
