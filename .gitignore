@@ -30,3 +30,6 @@ logs
 !.yarn/sdks
 !.yarn/versions
 .yarn*
+
+# VS Code
+.vscode
