@@ -1,7 +1,7 @@
-export const i18n = {
-  defaultLocale: 'pl',
-  locales: [
-    { code: 'en', name: 'English', file: 'en.json' },
-    { code: 'pl', name: 'Polski', file: 'pl.json' }
-  ]
-}
+export default defineI18nConfig(() => ({
+  legacy: false,
+  locale: 'pl',
+  fallbackLocale: 'pl',
+  lazy: true,
+  globalInjection: true,
+}))

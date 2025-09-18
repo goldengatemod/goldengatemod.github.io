@@ -1,4 +1,4 @@
-import { i18n } from "./i18n/i18n.config";
+import { loadLocales } from './scripts/load-locale.mjs'
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
@@ -31,9 +31,11 @@ export default defineNuxtConfig({
     'nuxt-svgo',
     '@nuxtjs/i18n'
   ],
-  i18n,
-  svgo: {
-    defaultImport: 'component',
+  i18n: {
+    locales: loadLocales(),
+    strategy: 'no_prefix',
+    defaultLocale: 'pl',
+    vueI18n: './i18n/i18n.config.ts',
   },
   fonts: {
     defaults: {
