@@ -175,7 +175,7 @@ export default {
       {
         question: 'Jaki będzie poziom trudności?',
         answer:
-          'Poziom trudności jest bazowany na tym z Gothica 2: Noc Kruka. Naszym celem było odpowiednie dostosowanie go pod naszą modyfikację, tak aby trudność rozgrywki była na zbliżonym poziomie. Ponadto w naszych planach jest umożliwienie gry na 3 poziomach trudności: łatwym, normalnym i trudnym. Nie możemy jednak obiecać, że poziomy łatwy i trudny będą dostępne na premierę, jako że normalny jest dla nas poziomem wyjściowym i dostosowanie pozostałych może zająć nam jeszcze nieco czasu.',
+          'Poziom trudności jest bazowany na tym z Gothica 2: Noc Kruka. Naszym celem było odpowiednie dostosowanie go pod naszą modyfikację, tak aby trudność rozgrywki była na zbliżonym poziomie. Ponadto w naszych planach jest umożliwienie gry na 4 poziomach trudności: łatwym, normalnym, trudnym i ekstremalnym! Nie możemy jednak obiecać, że poziomy łatwy, trudny i ekstremalny będą dostępne na premierę, jako że normalny jest dla nas poziomem wyjściowym i dostosowanie pozostałych może zająć nam jeszcze nieco czasu.',
       },
       {
         question: 'Jak duża jest mapa?',

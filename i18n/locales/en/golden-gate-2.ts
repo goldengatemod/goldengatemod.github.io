@@ -176,7 +176,7 @@ export default {
       {
         question: 'How difficult is the game going to be?',
         answer:
-          "Our difficulty level is based on this from Gothic 2: Night of the Raven. Our goal was to adapt it appropriately to our modification, so the gameplay difficulty would be at a similar level. Moreover, we're planning to allow you to play the mod at 3 difficulty levels: easy, normal and hard. We can't, however, promise that easy and hard levels will be available at the release date, as the normal difficulty level is a starting point for our balance, and tweaking the rest may take us some more time.",
+          "Our difficulty level is based on this from Gothic 2: Night of the Raven. Our goal was to adapt it appropriately to our modification, so the gameplay difficulty would be at a similar level. Moreover, we're planning to allow you to play the mod at 4 difficulty levels: easy, normal, hard and extreme! We can't, however, promise that easy, hard and extreme levels will be available at the release date, as the normal difficulty level is a starting point for our balance, and tweaking the rest may take us some more time.",
       },
       {
         question: 'How big is the map?',
