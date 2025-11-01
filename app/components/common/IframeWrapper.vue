@@ -22,7 +22,7 @@
       title="YouTube video player"
       frameborder="0"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-      referrerpolicy="no-referrer"
+      referrerpolicy="strict-origin-when-cross-origin"
       allowfullscreen
       style="box-shadow: 4px 5px 5px rgba(0, 0, 0, 0.3)"
       width="672"

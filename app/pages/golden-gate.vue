@@ -8,7 +8,7 @@
           <div class="container mx-auto max-w-5xl">
             <SectionDivider />
             <div v-show="!isPatch12Released" class="flex justify-center">
-              <ResponsiveIframe
+              <IframeWrapper
                 src="https://www.youtube.com/embed/ZOpE6UlLHPE?si=XWdHI9igJEXbDVdO"
               />
             </div>
@@ -35,7 +35,7 @@
 
 <script setup lang="ts">
 import Introduction from '~/components/golden-gate/Introduction.vue'
-import ResponsiveIframe from '~/components/common/ResponsiveIframe.vue'
+import IframeWrapper from '~/components/common/IframeWrapper.vue'
 
 const isPatch12Released = false
 

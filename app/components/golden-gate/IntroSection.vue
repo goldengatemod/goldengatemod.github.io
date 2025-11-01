@@ -7,7 +7,7 @@
         {{ t('goldenGate.intro.description') }}
       </p>
       <div class="flex justify-center">
-        <ResponsiveIframe
+        <IframeWrapper
           src="https://www.youtube.com/embed/Q4NIcGEF1XE?si=ilDFsjbAsfcqBFFO"
         />
       </div>
@@ -16,7 +16,7 @@
 </template>
 
 <script setup lang="ts">
-import ResponsiveIframe from '~/components/common/ResponsiveIframe.vue'
+import IframeWrapper from '~/components/common/IframeWrapper.vue'
 
 const { t } = useI18n()
 </script>

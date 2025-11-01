@@ -27,7 +27,7 @@
     </div>
 
     <div class="flex justify-center mt-10">
-      <ResponsiveIframe
+      <IframeWrapper
         src="https://www.youtube.com/embed/ZOpE6UlLHPE?si=XWdHI9igJEXbDVdO"
       />
     </div>
@@ -36,7 +36,7 @@
 
 <script setup lang="ts">
 import SectionHeader from '~/components/common/SectionHeader.vue'
-import ResponsiveIframe from '~/components/common/ResponsiveIframe.vue'
+import IframeWrapper from '~/components/common/IframeWrapper.vue'
 
 const { t } = useI18n()
 </script>

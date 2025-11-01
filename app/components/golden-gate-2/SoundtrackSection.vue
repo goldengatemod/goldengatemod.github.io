@@ -6,7 +6,7 @@
         {{ t('goldenGate2.music.description') }}
       </p>
       <div class="flex justify-center mt-10">
-        <ResponsiveIframe
+        <IframeWrapper
           src="https://www.youtube.com/embed/i9vDuDjLv-M?si=LiVFDpAsldwU2ImX"
         />
       </div>
@@ -16,7 +16,7 @@
 
 <script setup lang="ts">
 import SectionHeader from '~/components/common/SectionHeader.vue'
-import ResponsiveIframe from '~/components/common/ResponsiveIframe.vue'
+import IframeWrapper from '~/components/common/IframeWrapper.vue'
 
 const { t } = useI18n()
 </script>
