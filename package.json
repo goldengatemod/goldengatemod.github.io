@@ -1,0 +1,44 @@
+{
+  "name": "golden-gate-mod",
+  "version": "1.0.0",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "start": "node .output/server/index.mjs",
+    "dev": "nuxt dev",
+    "prod": "yarn build && yarn start",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "static:preview": "npx serve .output/public",
+    "static:build": "yarn generate && yarn static:preview",
+    "postinstall": "nuxt prepare",
+    "lint": "yarn lint:eslint && yarn lint:prettier",
+    "lint:eslint": "eslint .",
+    "lint:prettier": "prettier . --check",
+    "lintfix": "eslint . --fix && prettier --write --list-different ."
+  },
+  "dependencies": {
+    "@iconify-json/flag": "^1.2.10",
+    "@iconify-json/lucide": "^1.2.71",
+    "@iconify-json/mdi": "^1.2.3",
+    "@iconify-json/simple-icons": "^1.2.56",
+    "@nuxt/fonts": "^0.11.4",
+    "@nuxt/image": "^1.11.0",
+    "@nuxt/ui": "^4.1.0",
+    "@nuxtjs/i18n": "^10.1.2",
+    "nuxt": "^4.2.0",
+    "nuxt-svgo": "^4.2.6",
+    "vue": "^3.5.22",
+    "vue-router": "^4.6.3"
+  },
+  "devDependencies": {
+    "@nuxt/eslint": "^1.10.0",
+    "@types/node": "^24.9.2",
+    "eslint": "^9.38.0",
+    "prettier": "^3.6.2",
+    "sass-embedded": "^1.93.3",
+    "typescript": "^5.9.3"
+  },
+  "packageManager": "yarn@4.10.3"
+}

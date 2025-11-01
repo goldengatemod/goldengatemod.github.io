@@ -1,0 +1,9 @@
+export default {
+  common: {
+    learnMore: 'Learn more',
+    allRightsReserved: 'All rights reserved',
+    website: 'Website',
+    loading: 'Loading...',
+    download: 'Free download on',
+  },
+}
