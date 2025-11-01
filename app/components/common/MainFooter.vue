@@ -52,7 +52,7 @@
               >
                 <Icon
                   name="simple-icons:youtube"
-                  class="text-xl! text-amber-300 group-hover:text-white transition-colors duration-300"
+                  class="text-xl! text-amber-400 group-hover:text-white transition-colors duration-300"
                 />
                 <span
                   class="text-sm md:text-xs text-amber-200/70 group-hover:text-white transition-colors duration-300 font-medium"
@@ -69,7 +69,7 @@
               >
                 <Icon
                   name="simple-icons:discord"
-                  class="text-xl! text-amber-300 group-hover:text-white transition-colors duration-300"
+                  class="text-xl! text-amber-400 group-hover:text-white transition-colors duration-300"
                 />
                 <span
                   class="text-sm md:text-xs text-amber-200/70 group-hover:text-white transition-colors duration-300 font-medium"
@@ -86,7 +86,7 @@
               >
                 <Icon
                   name="mdi:wrench"
-                  class="text-xl! text-amber-300 group-hover:text-white transition-colors duration-300"
+                  class="text-xl! text-amber-400 group-hover:text-white transition-colors duration-300"
                 />
                 <span
                   class="text-sm md:text-xs text-amber-200/70 group-hover:text-white transition-colors duration-300 font-medium"
@@ -100,7 +100,7 @@
             <div
               class="inline-flex items-center gap-2 px-3 py-1.5 bg-amber-900/20 rounded-full"
             >
-              <UIcon name="lucide:mail" class="text-xl! text-amber-300" />
+              <UIcon name="lucide:mail" class="text-xl! text-amber-400" />
               <a
                 href="mailto:goldengatebox@gmail.com"
                 class="text-amber-200 hover:text-white transition-colors duration-300 text-sm font-medium"
