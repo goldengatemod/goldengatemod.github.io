@@ -84,6 +84,8 @@ const logoSrc = computed(() => `/gg-logo-${locale.value}.webp`)
   --bg-image-xs: url('~/assets/img/golden-gate/gg-background-xs.webp');
 
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
   position: relative;
   background-image: var(--bg-overlay), var(--bg-image-lg);
   background-size: cover;
