@@ -35,7 +35,7 @@
           :key="item.url"
           :to="item.url"
           class="mobile-menu-item"
-          :class="{ active: isActive(item.url) }"
+          active-class="active"
           @click="closeMobileMenu"
         >
           <span>{{ getLabel(item.label) }}</span>
@@ -70,8 +70,7 @@
           :key="item.url"
           class="nav-item"
           :to="item.url"
-          :class="{ 'active-tab': isActive(item.url) }"
-          :aria-current="isActive(item.url) ? 'page' : undefined"
+          active-class="active-tab"
         >
           <span class="nav-text">{{ getLabel(item.label) }}</span>
           <div class="nav-underline" />
@@ -117,11 +116,6 @@ const getLabel = (label: unknown): string => {
     return te(label) ? t(label).toUpperCase() : label.toUpperCase()
   }
   return ''
-}
-
-const isActive = (url: unknown): boolean => {
-  if (typeof url !== 'string') return false
-  return route.path === url || route.path.startsWith(url + '/')
 }
 
 const toggleMobileMenu = () => {
