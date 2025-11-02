@@ -23,7 +23,7 @@
         >
           <!-- Logo with enhanced interactions -->
           <div class="logo-container relative">
-            <NuxtLink
+            <NuxtLinkLocale
               to="/golden-gate"
               class="block transform transition-all duration-500 hover:scale-105 focus:scale-105 focus:outline-none focus-visible:ring-4 focus-visible:ring-yellow-400/50 rounded-lg"
             >
@@ -34,7 +34,7 @@
                 fetchpriority="high"
                 @contextmenu.prevent
               />
-            </NuxtLink>
+            </NuxtLinkLocale>
           </div>
 
           <!-- Description with improved typography -->
@@ -55,13 +55,13 @@
 
           <!-- Enhanced CTA button -->
           <div class="cta-container">
-            <NuxtLink
+            <NuxtLinkLocale
               to="/golden-gate"
               class="golden-gate-btn-primary flex items-center justify-center gap-2 cursor-pointer"
             >
               {{ t('common.learnMore') }}
               <Icon name="i-lucide-arrow-right" class="w-5 h-5" />
-            </NuxtLink>
+            </NuxtLinkLocale>
           </div>
         </div>
 
@@ -109,7 +109,7 @@
         >
           <!-- Logo with enhanced interactions -->
           <div class="logo-container relative">
-            <NuxtLink
+            <NuxtLinkLocale
               to="/golden-gate-2"
               class="block transform transition-all duration-500 hover:scale-105 focus:scale-105 focus:outline-none focus-visible:ring-4 focus-visible:ring-red-400/50 rounded-lg"
             >
@@ -120,7 +120,7 @@
                 fetchpriority="high"
                 @contextmenu.prevent
               />
-            </NuxtLink>
+            </NuxtLinkLocale>
           </div>
 
           <!-- Description with improved typography -->
@@ -141,13 +141,13 @@
 
           <!-- Enhanced CTA button -->
           <div class="cta-container">
-            <NuxtLink
+            <NuxtLinkLocale
               to="/golden-gate-2"
               class="golden-gate-2-btn-primary flex items-center justify-center gap-2 cursor-pointer"
             >
               {{ t('common.learnMore') }}
               <Icon name="i-lucide-arrow-right" class="w-5 h-5" />
-            </NuxtLink>
+            </NuxtLinkLocale>
           </div>
         </div>
 

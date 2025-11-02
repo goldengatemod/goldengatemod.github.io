@@ -19,18 +19,18 @@
   >
     <nav class="mobile-menu" @click.stop>
       <div class="mobile-logo">
-        <NuxtLink to="/" @click="closeMobileMenu">
+        <NuxtLinkLocale to="/" @click="closeMobileMenu">
           <img
             src="/gg-icon-96.webp"
             alt="Golden Gate logo icon"
             fetchpriority="high"
             @contextmenu.prevent
           />
-        </NuxtLink>
+        </NuxtLinkLocale>
       </div>
 
       <div class="mobile-menu-items">
-        <NuxtLink
+        <NuxtLinkLocale
           v-for="item in items"
           :key="item.url"
           :to="item.url"
@@ -39,7 +39,7 @@
           @click="closeMobileMenu"
         >
           <span>{{ getLabel(item.label) }}</span>
-        </NuxtLink>
+        </NuxtLinkLocale>
       </div>
 
       <div class="mobile-language-switcher">
@@ -51,7 +51,7 @@
   </div>
 
   <nav class="sticky-menubar hidden md:block">
-    <NuxtLink to="/">
+    <NuxtLinkLocale to="/">
       <div class="emblemat">
         <img
           src="/gg-icon-96.webp"
@@ -61,11 +61,11 @@
         />
         <div class="logo-glow" />
       </div>
-    </NuxtLink>
+    </NuxtLinkLocale>
 
     <div class="menubar-content">
       <div class="nav-items-container">
-        <NuxtLink
+        <NuxtLinkLocale
           v-for="item in items"
           :key="item.url"
           class="nav-item"
@@ -75,7 +75,7 @@
         >
           <span class="nav-text">{{ getLabel(item.label) }}</span>
           <div class="nav-underline" />
-        </NuxtLink>
+        </NuxtLinkLocale>
       </div>
 
       <div class="desktop-end-section">
