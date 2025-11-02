@@ -29,7 +29,7 @@ export default {
         town: {
           title: 'Miasteczko portowe',
           description:
-            'Ulokowane na południu wyspy. Utrzymuje się głównie z połowu ryb oraz eksportu drewna, chmielu i skór srebrzaków. Zarządzane przez królewskiego gubernatora Fissera. Sercem miasteczka jest miejska karczma. Do niedawna panował tutaj spokój, jednak ostatnie zarządzenie gubernatora dotyczące opodatkowania alkoholu wzburzyło mieszkańców.',
+            'Ulokowane na północy wyspy. Utrzymuje się głównie z połowu ryb oraz eksportu drewna, chmielu i skór srebrzaków. Zarządzane przez królewskiego gubernatora Fissera. Sercem miasteczka jest miejska karczma. Do niedawna panował tutaj spokój, jednak ostatnie zarządzenie gubernatora dotyczące opodatkowania alkoholu wzburzyło mieszkańców.',
         },
         huntersCamp: {
           title: 'Obóz myśliwych',
