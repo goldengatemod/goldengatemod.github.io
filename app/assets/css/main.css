@@ -1,10 +1,12 @@
 @import 'tailwindcss';
 @import '@nuxt/ui';
 
-@theme static {
+@theme {
   --font-poppins: 'Poppins', sans-serif;
   --font-bebas-neue: 'Bebas Neue', sans-serif;
+}
 
+:root {
   --ui-bg: #190c06 !important;
   --ui-border: rgba(245, 158, 11, 0.3) !important;
 }
