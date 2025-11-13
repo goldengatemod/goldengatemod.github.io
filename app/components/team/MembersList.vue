@@ -225,6 +225,7 @@ const members = ref<TeamMember[]>([
   },
   { nick: 'Adrian "VEQ" Fałkowski', roles: ['2D', '3D'], active: false },
   { nick: 'Żelazko', roles: ['translations'], active: false },
+  { nick: 'Szymon "Simon Said" Szkucik', roles: ['translations', 'tests'], active: false},
   { nick: 'Ksondar', roles: ['spacer'], active: false },
   { nick: 'Dragomir', roles: ['3D'], active: false },
   { nick: 'Jedaith', roles: ['2D', '3D'], active: false },
