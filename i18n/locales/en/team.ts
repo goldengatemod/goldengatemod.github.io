@@ -22,5 +22,11 @@ export default {
       movies: 'Movies',
       dubbingDirection: 'Dubbing Direction',
     },
+    summary: {
+      activeMembers: 'active members',
+      formerMembers: 'former members',
+      allMembers: 'people in total',
+      activityYears: 'years of activity',
+    },
   },
 }

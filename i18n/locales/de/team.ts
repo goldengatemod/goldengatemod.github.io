@@ -22,5 +22,11 @@ export default {
       movies: 'Filme',
       dubbingDirection: 'Regie Sprachausgabe',
     },
+    summary: {
+      activeMembers: 'aktive Mitglieder',
+      formerMembers: 'ehemalige Mitglieder',
+      allMembers: 'Personen insgesamt',
+      activityYears: 'Jahre Tätigkeit',
+    },
   },
 }
