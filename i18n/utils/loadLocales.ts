@@ -5,6 +5,7 @@ export const loadLocales = () => {
   const localeNamesMap: Record<string, string> = {
     en: 'English',
     pl: 'Polski',
+    de: 'Deutsch',
   }
 
   const localesRoot = join(process.cwd(), 'i18n/locales')
