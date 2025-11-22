@@ -30,7 +30,6 @@
 
 <script setup lang="ts">
 import Introduction from '~/components/golden-gate/Introduction.vue'
-import IframeWrapper from '~/components/common/IframeWrapper.vue'
 
 const { t } = useI18n()
 

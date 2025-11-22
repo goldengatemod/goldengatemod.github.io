@@ -43,7 +43,7 @@ export default {
         bandits: {
           title: 'Die Banditen',
           description:
-            "Nach Ravens Tod wurde das Lager vielen Veränderungen unterzogen. Jetzt wird es von Alvaro geleitet, der Ordnung geschaffen, das Lager in Kasten unterteilt und die Sklaverei in der Mine abgeschafft hat. Alvaro ist ein fähiger Verwalter, aber auch ein Idealist – er glaubt, dass seine Gruppe es verdient, begnadigt zu werden und ein neues Leben als freie Menschen beginnen zu dürfen.",
+            'Nach Ravens Tod wurde das Lager vielen Veränderungen unterzogen. Jetzt wird es von Alvaro geleitet, der Ordnung geschaffen, das Lager in Kasten unterteilt und die Sklaverei in der Mine abgeschafft hat. Alvaro ist ein fähiger Verwalter, aber auch ein Idealist – er glaubt, dass seine Gruppe es verdient, begnadigt zu werden und ein neues Leben als freie Menschen beginnen zu dürfen.',
         },
       },
     },
@@ -53,7 +53,7 @@ export default {
         paladin: {
           title: 'Paladine',
           description:
-            "Schließe dich Lord Hagens Expedition an, die ausgesandt wurde, um die Piratenbedrohung zu stoppen und Khorinis sicher zu machen.",
+            'Schließe dich Lord Hagens Expedition an, die ausgesandt wurde, um die Piratenbedrohung zu stoppen und Khorinis sicher zu machen.',
         },
         orcMerc: {
           title: 'Ork-Söldner',
@@ -63,7 +63,7 @@ export default {
         waterMage: {
           title: 'Wassermagier',
           description:
-            "Die Magier unter der Führung von Saturas sind nach Jharkendar zurückgekehrt, um das Wissen der Erbauer zu studieren und die Geheimnisse des Tempels von Adanos zu ergründen. Schließ dich ihnen an und hilf ihnen, ihre Mission zu erfüllen.",
+            'Die Magier unter der Führung von Saturas sind nach Jharkendar zurückgekehrt, um das Wissen der Erbauer zu studieren und die Geheimnisse des Tempels von Adanos zu ergründen. Schließ dich ihnen an und hilf ihnen, ihre Mission zu erfüllen.',
         },
       },
       description:

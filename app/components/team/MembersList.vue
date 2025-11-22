@@ -122,19 +122,25 @@
           <div class="text-2xl font-bebas-neue text-amber-200">
             {{ inactiveMembers.length }}
           </div>
-          <div class="text-sm text-gray-400 font-medium">{{ t('team.summary.formerMembers') }}</div>
+          <div class="text-sm text-gray-400 font-medium">
+            {{ t('team.summary.formerMembers') }}
+          </div>
         </div>
         <div class="space-y-2">
           <div class="text-2xl font-bebas-neue text-amber-400">
             {{ members.length }}
           </div>
-          <div class="text-sm text-gray-300 font-medium">{{ t('team.summary.allMembers') }}</div>
+          <div class="text-sm text-gray-300 font-medium">
+            {{ t('team.summary.allMembers') }}
+          </div>
         </div>
         <div class="space-y-2">
           <div class="text-2xl font-bebas-neue text-amber-400">
             {{ timeDuration }}
           </div>
-          <div class="text-sm text-gray-300 font-medium">{{ t('team.summary.activityYears') }}</div>
+          <div class="text-sm text-gray-300 font-medium">
+            {{ t('team.summary.activityYears') }}
+          </div>
         </div>
       </div>
     </div>
@@ -225,7 +231,11 @@ const members = ref<TeamMember[]>([
   },
   { nick: 'Adrian "VEQ" Fałkowski', roles: ['2D', '3D'], active: false },
   { nick: 'Żelazko', roles: ['translations'], active: false },
-  { nick: 'Szymon "Simon Said" Szkucik', roles: ['translations', 'tests'], active: false},
+  {
+    nick: 'Szymon "Simon Said" Szkucik',
+    roles: ['translations', 'tests'],
+    active: false,
+  },
   { nick: 'Ksondar', roles: ['spacer'], active: false },
   { nick: 'Dragomir', roles: ['3D'], active: false },
   { nick: 'Jedaith', roles: ['2D', '3D'], active: false },

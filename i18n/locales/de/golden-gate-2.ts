@@ -15,7 +15,7 @@ export default {
     lore: {
       title: 'Geschichte',
       description: [
-        "Das Königreich Elea liegt weit im Osten des östlichen Archipels, daher waren seine Kontakte zum Königreich Myrtana sehr begrenzt. Es wurde vor Jahrhunderten von den alten Erbauern gegründet, deren Einfluss auch in Jharkendar spürbar war. Das Königreich war durch den Krieg mit den Orks nicht gefährdet, aber das bedeutet nicht, dass es ein friedliches Land war. Vor etwa 500 Jahren erschien auf dem Gebiet von Elea eine Frau namens Hatiret, die sich selbst zur Göttin erklärte. Die Debatte über ihre wahre Natur dauert noch immer an, doch es lässt sich nicht leugnen, dass sie über enorme magische Kräfte und das Charisma einer geborenen Anführerin verfügte. All dies ermöglichte es ihr, zahlreiche Gruppen von Anhängern um sich zu scharen und eine Armee aufzubauen, mit der Hatiret versuchte, den König zu stürzen und selbst den Thron zu besteigen. Letztendlich verloren ihre Truppen, und die Männer des Königs zwangen ihre Armee zum Rückzug. Sie suchten Zuflucht auf einer abgelegenen Insel namens Samoa, wo sie den Bau einer Stadt anordnete und den Kult der Hasisianer gründete, dessen Mittelpunkt sie selbst war. Bald darauf verschwand sie auf mysteriöse Weise. Trotzdem entwickelte sich ihr Kult rasch weiter. Die Hasisianer entwarfen und bauten sehr schnelle Schiffe, sogenannte Drakkars. Mit ihnen verbreiteten sie in den folgenden Jahrhunderten Terror in den Herzen der Eleaner, kaperten ihre Schiffe und opferten versklavte Seeleute Hatiret.",
+        'Das Königreich Elea liegt weit im Osten des östlichen Archipels, daher waren seine Kontakte zum Königreich Myrtana sehr begrenzt. Es wurde vor Jahrhunderten von den alten Erbauern gegründet, deren Einfluss auch in Jharkendar spürbar war. Das Königreich war durch den Krieg mit den Orks nicht gefährdet, aber das bedeutet nicht, dass es ein friedliches Land war. Vor etwa 500 Jahren erschien auf dem Gebiet von Elea eine Frau namens Hatiret, die sich selbst zur Göttin erklärte. Die Debatte über ihre wahre Natur dauert noch immer an, doch es lässt sich nicht leugnen, dass sie über enorme magische Kräfte und das Charisma einer geborenen Anführerin verfügte. All dies ermöglichte es ihr, zahlreiche Gruppen von Anhängern um sich zu scharen und eine Armee aufzubauen, mit der Hatiret versuchte, den König zu stürzen und selbst den Thron zu besteigen. Letztendlich verloren ihre Truppen, und die Männer des Königs zwangen ihre Armee zum Rückzug. Sie suchten Zuflucht auf einer abgelegenen Insel namens Samoa, wo sie den Bau einer Stadt anordnete und den Kult der Hasisianer gründete, dessen Mittelpunkt sie selbst war. Bald darauf verschwand sie auf mysteriöse Weise. Trotzdem entwickelte sich ihr Kult rasch weiter. Die Hasisianer entwarfen und bauten sehr schnelle Schiffe, sogenannte Drakkars. Mit ihnen verbreiteten sie in den folgenden Jahrhunderten Terror in den Herzen der Eleaner, kaperten ihre Schiffe und opferten versklavte Seeleute Hatiret.',
         'Schließlich führte König Sireus V. von Elea vor etwa 100 Jahren einen Angriff auf Samoa aus, bei dem er die Verteidigungsanlagen der Hasisianer vollständig zerstörte und fast alle von ihnen auslöschte. Die Insel fiel in die Hände der Eleaner, doch einige Nachkommen der letzten überlebenden Hatiret-Anhänger sind noch immer dort zu finden. Während der Kämpfe haben verzweifelte Hasisianer einen Fluch über die Stadt Hasis verhängt, der jedes Lebewesen innerhalb der Stadtmauern tötete. Infolge dieser Ereignisse sind ihre Geheimnisse und Schätze bis heute unerforscht geblieben...',
         'Heute herrscht im Königreich Elea Chaos. Die Machtkämpfe zwischen Royalisten, Wassermagiern und Adligen haben das Land erheblich geschwächt. Schon bald beschlossen Piraten unter dem Kommando von Hannibal, ihre Chance zu nutzen und fielen in das Königreich ein.',
         'Der Krieg verwüstete Elea wie eine schwere Krankheit, doch in letzter Zeit richten sich immer mehr Augen auf die Insel Samoa – die nun ruhig und friedlich ist – und ihre verborgenen Reichtümer...',
@@ -59,7 +59,7 @@ export default {
         swamps: {
           title: 'Die Sümpfe',
           description:
-            "Angeblich entstanden sie aus den Tränen der Göttin Hatiret selbst – Tränen, die sie über den toten Körper ihrer Geliebten vergoss. Sie sind voller gefährlicher Kreaturen, und jüngsten Gerüchten zufolge soll dort kürzlich eine neue Art von Sumpfhaien aufgetaucht sein.",
+            'Angeblich entstanden sie aus den Tränen der Göttin Hatiret selbst – Tränen, die sie über den toten Körper ihrer Geliebten vergoss. Sie sind voller gefährlicher Kreaturen, und jüngsten Gerüchten zufolge soll dort kürzlich eine neue Art von Sumpfhaien aufgetaucht sein.',
         },
       },
     },
@@ -84,10 +84,10 @@ export default {
         ramsey:
           'Der beste Freund von Morris, ein großartiger und ehrgeiziger Jäger. Er liebt die Jagd und stellt sich ständig neuen Herausforderungen. Ramsey weiß, wie man feiert, und sagt zu einem oder zwei Drinks nie nein.',
         ashton:
-          "Einer der letzten Hasisianer, die noch auf Samoa leben, weithin als Sonderling und Einsiedler bekannt. Er ist ein glühender Anhänger der Göttin Hatiret, ein wandelndes Lexikon ihres Kultes und ein Freund von Morris. Er ist der örtliche Friedhofswärter und weiß viel über Kräuter, magische Rituale und die Traditionen seiner Vorfahren. Außerdem weiß er, wie man mit den Toten Kontakt aufnimmt. Ashton ist ein gutherziger, aber naiver Mann. Seine größte Schwäche ist das Kraut, mit dem er sich berauscht.",
+          'Einer der letzten Hasisianer, die noch auf Samoa leben, weithin als Sonderling und Einsiedler bekannt. Er ist ein glühender Anhänger der Göttin Hatiret, ein wandelndes Lexikon ihres Kultes und ein Freund von Morris. Er ist der örtliche Friedhofswärter und weiß viel über Kräuter, magische Rituale und die Traditionen seiner Vorfahren. Außerdem weiß er, wie man mit den Toten Kontakt aufnimmt. Ashton ist ein gutherziger, aber naiver Mann. Seine größte Schwäche ist das Kraut, mit dem er sich berauscht.',
         olsa: 'Eine rebellische Kräuterfrau. Sie ist eine Waise – ihre Eltern wurden von Banditen ermordet. Sie ist frech, schätzt ihre Unabhängigkeit und weiß sehr viel über Pflanzen und Kräuter. Neben der Hilfe für andere nutzt Olsa ihr Wissen, um ungewöhnliche Tränke zu brauen. Früher war sie in Morris verliebt, aber nach ihrem letzten Streit haben sie beschlossen, getrennte Wege zu gehen.',
         sylvia:
-          "Die Tochter von Gouverneur Fisser. Sie hat genug von ihrem überfürsorglichen Vater und davon, die Welt nur durch Buchseiten zu entdecken. Sie sehnt sich nach einem Leben voller Abenteuer und Risiken und möchte unbedingt nach Elea segeln, egal was kommt.",
+          'Die Tochter von Gouverneur Fisser. Sie hat genug von ihrem überfürsorglichen Vater und davon, die Welt nur durch Buchseiten zu entdecken. Sie sehnt sich nach einem Leben voller Abenteuer und Risiken und möchte unbedingt nach Elea segeln, egal was kommt.',
       },
     },
     quests: {
@@ -139,12 +139,12 @@ export default {
       {
         question: 'Wie lange dauert das Spiel?',
         answer:
-          "Um Das Goldene Tor 2 durchzuspielen, wirst du wahrscheinlich etwa 30 Stunden benötigen. Aufgrund der Vielzahl an Entscheidungen, die das Gameplay beeinflussen, empfiehlt es sich jedoch, das Spiel mindestens zweimal durchzuspielen, um alle Aspekte des vorbereiteten Inhalts zu erleben.",
+          'Um Das Goldene Tor 2 durchzuspielen, wirst du wahrscheinlich etwa 30 Stunden benötigen. Aufgrund der Vielzahl an Entscheidungen, die das Gameplay beeinflussen, empfiehlt es sich jedoch, das Spiel mindestens zweimal durchzuspielen, um alle Aspekte des vorbereiteten Inhalts zu erleben.',
       },
       {
         question: 'Muss man Das Goldene Tor 1 vorher gespielt haben?',
         answer:
-          "Nein, im Goldenen Tor 2 erlebst du eine neue Geschichte über einen Jäger namens Morris. Dennoch kannst du mit einigen Anspielungen auf das Goldene Tor 1 rechnen.",
+          'Nein, im Goldenen Tor 2 erlebst du eine neue Geschichte über einen Jäger namens Morris. Dennoch kannst du mit einigen Anspielungen auf das Goldene Tor 1 rechnen.',
       },
       {
         question: 'Wann spielt die Handlung?',
@@ -155,28 +155,29 @@ export default {
         question:
           'Werden Charaktere aus der ursprünglichen Gothic-Reihe auftreten?',
         answer:
-          "Ja, ein paar von ihnen. Unter anderem Gorn und Milten. Samoa liegt jedoch weit östlich von Myrtana oder Khorinis, sodass es nicht allzu viele solcher Charaktere geben wird und ihr Auftreten wird gut begründet sein.",
+          'Ja, ein paar von ihnen. Unter anderem Gorn und Milten. Samoa liegt jedoch weit östlich von Myrtana oder Khorinis, sodass es nicht allzu viele solcher Charaktere geben wird und ihr Auftreten wird gut begründet sein.',
       },
       {
-        question: 'Warum spielen wir als neuer Held und nicht als der Namenlose?',
+        question:
+          'Warum spielen wir als neuer Held und nicht als der Namenlose?',
         answer:
-          "Wir haben uns für einen neuen Charakter als Protagonisten entschieden, weil wir so eine interessantere und vielschichtigere Geschichte erzählen können. Morris ist ein komplexer Charakter, der bereits Verbindungen und Beziehungen zu Einheimischen aufgebaut hat. Dank dessen konnten wir unsere Handlung auf einzigartige Weise gestalten.",
+          'Wir haben uns für einen neuen Charakter als Protagonisten entschieden, weil wir so eine interessantere und vielschichtigere Geschichte erzählen können. Morris ist ein komplexer Charakter, der bereits Verbindungen und Beziehungen zu Einheimischen aufgebaut hat. Dank dessen konnten wir unsere Handlung auf einzigartige Weise gestalten.',
       },
       {
         question:
           'Wird das Schicksal des namenlosen Helden nach dem Ende des Goldenen Tors 1 erklärt werden?',
         answer:
-          "Ja, ihr werdet erfahren, wie sich seine Geschichte auf Elea entwickelt hat und wie seine Handlungen das gesamte Königreich beeinflusst haben.",
+          'Ja, ihr werdet erfahren, wie sich seine Geschichte auf Elea entwickelt hat und wie seine Handlungen das gesamte Königreich beeinflusst haben.',
       },
       {
         question: 'Werden wir als Magier spielen können?',
         answer:
-          "Nun, ja und nein. Obwohl ihr nicht die Möglichkeit haben werdet, einer Magiergilde beizutreten oder sogar magische Kreise zu erlernen, könnt ihr magische Schriftrollen und sogenannte Hasisianische Runen verwenden – vereinfacht gesagt handelt es sich dabei um eine Mischung aus Schriftrollen und Runen aus Gothic 2.",
+          'Nun, ja und nein. Obwohl ihr nicht die Möglichkeit haben werdet, einer Magiergilde beizutreten oder sogar magische Kreise zu erlernen, könnt ihr magische Schriftrollen und sogenannte Hasisianische Runen verwenden – vereinfacht gesagt handelt es sich dabei um eine Mischung aus Schriftrollen und Runen aus Gothic 2.',
       },
       {
         question: 'Wie schwierig wird das Spiel sein?',
         answer:
-          "Unser Schwierigkeitsgrad basiert auf dem von Gothic 2: Die Nacht des Raben. Unser Ziel war es, ihn entsprechend an unsere Modifikation anzupassen, damit der Schwierigkeitsgrad des Spiels auf einem ähnlichen Niveau liegt. Außerdem planen wir, euch die Möglichkeit zu geben, die Mod in 4 Schwierigkeitsstufen zu spielen: leicht, normal, schwer und extrem! Wir können jedoch nicht versprechen, dass die Stufen „leicht”, „schwer” und „extrem” zum Veröffentlichungstermin verfügbar sein werden, da die normale Schwierigkeitsstufe der Ausgangspunkt für unser Balancing ist und die Feinabstimmung der übrigen Stufen noch etwas Zeit in Anspruch nehmen könnte.",
+          'Unser Schwierigkeitsgrad basiert auf dem von Gothic 2: Die Nacht des Raben. Unser Ziel war es, ihn entsprechend an unsere Modifikation anzupassen, damit der Schwierigkeitsgrad des Spiels auf einem ähnlichen Niveau liegt. Außerdem planen wir, euch die Möglichkeit zu geben, die Mod in 4 Schwierigkeitsstufen zu spielen: leicht, normal, schwer und extrem! Wir können jedoch nicht versprechen, dass die Stufen „leicht”, „schwer” und „extrem” zum Veröffentlichungstermin verfügbar sein werden, da die normale Schwierigkeitsstufe der Ausgangspunkt für unser Balancing ist und die Feinabstimmung der übrigen Stufen noch etwas Zeit in Anspruch nehmen könnte.',
       },
       {
         question: 'Wie groß ist die Karte?',
@@ -185,12 +186,13 @@ export default {
       },
       {
         question: 'Sind die Romanzen obligatorisch?',
-        answer: "Nein, sie sind rein optional.",
+        answer: 'Nein, sie sind rein optional.',
       },
       {
-        question: 'Wird es die Möglichkeit geben, eine Romanze mit einem Mann zu beginnen?',
+        question:
+          'Wird es die Möglichkeit geben, eine Romanze mit einem Mann zu beginnen?',
         answer:
-          "Nein, diese Option wird es nicht geben. Morris ist, wie beispielsweise der Hexer Geralt, heterosexuell und interessiert sich nur für Frauen.",
+          'Nein, diese Option wird es nicht geben. Morris ist, wie beispielsweise der Hexer Geralt, heterosexuell und interessiert sich nur für Frauen.',
       },
       {
         question:

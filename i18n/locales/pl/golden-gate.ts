@@ -37,7 +37,7 @@ export default {
         orcs: {
           title: 'Orkowie',
           description:
-            'Przybyli z odległego królestwa Nach\'Dorr i rozbili obóz w kanionie. W przeciwieństwie do orków z kontynentu nie wyznają Beliara, lecz  tajemniczego Ducha Przodków i pokojowo koegzystują z ludźmi. Nikt nie wie po co dokładnie przybyli do Jarkendaru, ale wydaje się, że czegoś poszukują...',
+            "Przybyli z odległego królestwa Nach'Dorr i rozbili obóz w kanionie. W przeciwieństwie do orków z kontynentu nie wyznają Beliara, lecz  tajemniczego Ducha Przodków i pokojowo koegzystują z ludźmi. Nikt nie wie po co dokładnie przybyli do Jarkendaru, ale wydaje się, że czegoś poszukują...",
         },
         bandits: {
           title: 'Bandyci',
@@ -57,7 +57,7 @@ export default {
         orcMerc: {
           title: 'Orkowy najemnik',
           description:
-            'Poznaj kulturę orków z Nach\'Doru i ich wiarę w ducha przodków. Przekonaj się, czy naprawdę mają pokojowe zamiary...',
+            "Poznaj kulturę orków z Nach'Doru i ich wiarę w ducha przodków. Przekonaj się, czy naprawdę mają pokojowe zamiary...",
         },
         waterMage: {
           title: 'Mag Wody',

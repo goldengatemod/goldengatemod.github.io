@@ -3,7 +3,8 @@ export default {
     goldenGate: {
       description:
         'Kehre erneut als namenloser Held ins Tal von Jharkendar zurück und entdecke die Legende des Goldenen Tors.',
-      subtitle: 'Die legendäre Modifikation und die Rückkehr in die Welt von Gothic!',
+      subtitle:
+        'Die legendäre Modifikation und die Rückkehr in die Welt von Gothic!',
     },
     goldenGate2: {
       description:

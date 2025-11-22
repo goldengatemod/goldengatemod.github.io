@@ -11,8 +11,8 @@
           <path d="M8 5v14l11-7z" fill="currentColor" />
         </svg>
       </div>
-      <div v-if="title" class="video-title">
-        {{ title }}
+      <div v-if="props.title" class="video-title">
+        {{ props.title }}
       </div>
     </div>
 
