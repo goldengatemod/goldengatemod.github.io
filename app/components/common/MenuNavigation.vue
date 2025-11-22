@@ -29,6 +29,10 @@
         </NuxtLinkLocale>
       </div>
 
+      <div class="mobile-language-switcher">
+        <CommonLanguageSwitcher class="w-full" />
+      </div>
+
       <div class="mobile-menu-items">
         <NuxtLinkLocale
           v-for="item in items"
@@ -40,10 +44,6 @@
         >
           <span>{{ getLabel(item.label) }}</span>
         </NuxtLinkLocale>
-      </div>
-
-      <div class="mobile-language-switcher">
-        <CommonLanguageSwitcher />
       </div>
 
       <div class="mobile-menu-spacer" />
@@ -202,15 +202,13 @@ watch(
   padding: 2rem 1.5rem;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1rem;
   overflow-y: auto;
 }
 
 .mobile-logo {
   display: flex;
   justify-content: center;
-  padding-bottom: 1rem;
-  border-bottom: 1px solid rgba(245, 158, 11, 0.2);
 }
 
 .mobile-menu-items {
@@ -245,6 +243,8 @@ watch(
 .mobile-language-switcher {
   border-top: 1px solid rgba(245, 158, 11, 0.2);
   padding-top: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(245, 158, 11, 0.2);
 }
 
 .mobile-menu-spacer {

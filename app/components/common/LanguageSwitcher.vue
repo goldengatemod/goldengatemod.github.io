@@ -2,12 +2,13 @@
   <UPopover v-model:open="open">
     <button class="language-trigger">
       <Icon :name="getFlagIcon(locale)" class="flag-icon" />
+      <span class="language-name-mobile">{{ appLocales[locale]?.name }}</span>
     </button>
 
     <template #content>
       <div class="language-dropdown">
         <button
-          v-for="(localeData, code) in appLocales"
+          v-for="(localeData, code) in dropdownLanguages"
           :key="code"
           class="language-option"
           :class="{ active: locale === code }"
@@ -30,6 +31,7 @@ const { locale, setLocale, availableLocales } = useI18n()
 type AppLocale = (typeof availableLocales)[number]
 
 const open = ref(false)
+const isMobile = ref(false)
 
 const appLocales = computed(() =>
   Object.fromEntries(
@@ -38,6 +40,17 @@ const appLocales = computed(() =>
     ),
   ),
 )
+
+const dropdownLanguages = computed(() => {
+  if (isMobile.value) {
+    return Object.fromEntries(
+      Object.entries(appLocales.value).filter(
+        ([code]) => code !== locale.value,
+      ),
+    )
+  }
+  return appLocales.value
+})
 
 const getFlagIcon = (code: string) =>
   ({
@@ -52,6 +65,19 @@ const selectLanguage = (code: string) => {
   localStorage.setItem('locale', code)
   open.value = false
 }
+
+const checkMobile = () => {
+  isMobile.value = window.innerWidth <= 768
+}
+
+onMounted(() => {
+  checkMobile()
+  window.addEventListener('resize', checkMobile)
+})
+
+onBeforeUnmount(() => {
+  window.removeEventListener('resize', checkMobile)
+})
 
 onBeforeMount(() => {
   const savedLocale = localStorage.getItem('locale') || 'pl'
@@ -69,6 +95,7 @@ defineShortcuts({ o: () => (open.value = !open.value) })
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 12px;
   padding: 8px 12px;
   margin: 0 4px;
   color: #f3f4f6;
@@ -79,9 +106,21 @@ defineShortcuts({ o: () => (open.value = !open.value) })
   cursor: pointer;
   transition: all 0.3s ease;
 
+  @media (max-width: 768px) {
+    border: 1px solid rgba(245, 158, 11, 0.3);
+    background: rgba(245, 158, 11, 0.05);
+    padding: 12px 16px;
+    justify-content: flex-start;
+  }
+
   &:hover {
     color: var(--color-amber-400);
     background: rgba(245, 158, 11, 0.1);
+
+    @media (max-width: 768px) {
+      border-color: rgba(245, 158, 11, 0.5);
+      background: rgba(245, 158, 11, 0.15);
+    }
 
     .flag-icon {
       filter: brightness(1.2);
@@ -91,6 +130,17 @@ defineShortcuts({ o: () => (open.value = !open.value) })
   .flag-icon {
     font-size: 1.5rem;
     transition: filter 0.3s ease;
+  }
+
+  .language-name-mobile {
+    display: none;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.1rem;
+    letter-spacing: 0.05em;
+
+    @media (max-width: 768px) {
+      display: inline-block;
+    }
   }
 }
 
