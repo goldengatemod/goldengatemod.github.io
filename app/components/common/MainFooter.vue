@@ -104,6 +104,7 @@
               <a
                 href="mailto:goldengatebox@gmail.com"
                 class="text-amber-200 hover:text-white transition-colors duration-300 text-sm font-medium"
+                aria-label="Golden Gate Team mail"
               >
                 goldengatebox@gmail.com
               </a>

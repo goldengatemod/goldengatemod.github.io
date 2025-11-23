@@ -26,6 +26,7 @@
             <NuxtLinkLocale
               to="/golden-gate"
               class="block transform transition-all duration-500 hover:scale-105 focus:scale-105 focus:outline-none focus-visible:ring-4 focus-visible:ring-yellow-400/50 rounded-lg"
+              :aria-label="t('navigation.goldenGate')"
             >
               <img
                 class="w-full max-w-xl h-auto mx-auto golden-gate-logo drop-shadow-2xl"
@@ -58,6 +59,7 @@
             <NuxtLinkLocale
               to="/golden-gate"
               class="golden-gate-btn-primary flex items-center justify-center gap-2 cursor-pointer"
+              :aria-label="`${t('common.learnMore')}: ${t('navigation.goldenGate')}`"
             >
               {{ t('common.learnMore') }}
               <Icon name="i-lucide-arrow-right" class="w-5 h-5" />
@@ -112,6 +114,7 @@
             <NuxtLinkLocale
               to="/golden-gate-2"
               class="block transform transition-all duration-500 hover:scale-105 focus:scale-105 focus:outline-none focus-visible:ring-4 focus-visible:ring-red-400/50 rounded-lg"
+              :aria-label="t('navigation.goldenGate2')"
             >
               <img
                 class="w-full max-w-xl h-auto mx-auto golden-gate-2-logo drop-shadow-2xl"
@@ -144,6 +147,7 @@
             <NuxtLinkLocale
               to="/golden-gate-2"
               class="golden-gate-2-btn-primary flex items-center justify-center gap-2 cursor-pointer"
+              :aria-label="`${t('common.learnMore')}: ${t('navigation.goldenGate2')}`"
             >
               {{ t('common.learnMore') }}
               <Icon name="i-lucide-arrow-right" class="w-5 h-5" />

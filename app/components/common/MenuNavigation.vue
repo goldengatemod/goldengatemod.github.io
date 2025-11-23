@@ -19,7 +19,7 @@
   >
     <nav class="mobile-menu" @click.stop>
       <div class="mobile-logo">
-        <NuxtLinkLocale to="/" @click="closeMobileMenu">
+        <NuxtLinkLocale to="/" aria-label="Close mobile navigation menu" @click="closeMobileMenu">
           <img
             src="/gg-icon-96.webp"
             alt="Golden Gate logo icon"
@@ -40,6 +40,7 @@
           :to="item.url"
           class="mobile-menu-item"
           active-class="active"
+          aria-label="Close mobile navigation menu"
           @click="closeMobileMenu"
         >
           <span>{{ getLabel(item.label) }}</span>
@@ -51,7 +52,7 @@
   </div>
 
   <nav class="sticky-menubar hidden md:block">
-    <NuxtLinkLocale to="/">
+    <NuxtLinkLocale to="/" aria-label="Go to home page">
       <div class="emblemat">
         <img
           src="/gg-icon-96.webp"
@@ -71,6 +72,7 @@
           class="nav-item"
           :to="item.url"
           active-class="active-tab"
+          :aria-label="getLabel(item.label)"
         >
           <span class="nav-text">{{ getLabel(item.label) }}</span>
           <div class="nav-underline" />
