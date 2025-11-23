@@ -19,7 +19,11 @@
   >
     <nav class="mobile-menu" @click.stop>
       <div class="mobile-logo">
-        <NuxtLinkLocale to="/" aria-label="Close mobile navigation menu" @click="closeMobileMenu">
+        <NuxtLinkLocale
+          to="/"
+          aria-label="Close mobile navigation menu"
+          @click="closeMobileMenu"
+        >
           <img
             src="/gg-icon-96.webp"
             alt="Golden Gate logo icon"

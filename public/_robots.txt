@@ -3,4 +3,4 @@ Disallow:
 Content-Usage: ai=n
 Content-Usage: /public/ train-ai=y
 Content-Usage: /restricted/ ai=n train-ai=n
-Sitemap: https://goldengatemod.com/sitemap.xml
+Sitemap: https://goldengatemod.com/sitemap_index.xml

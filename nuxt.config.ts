@@ -43,9 +43,7 @@ export default defineNuxtConfig({
       htmlAttrs: {
         lang: 'en',
       },
-      link: [
-        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      ],
+      link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
       charset: 'utf-8',
       viewport: 'width=device-width, initial-scale=1, maximum-scale=1',
     },
@@ -61,9 +59,12 @@ export default defineNuxtConfig({
     '@nuxt/eslint',
     '@nuxtjs/seo',
   ],
-  site: { 
-    url: 'https://goldengatemod.com', 
+  site: {
+    url: 'https://goldengatemod.com',
     name: 'Złote Wrota',
+  },
+  sitemap: {
+    autoLastmod: true,
   },
   i18n: {
     locales: loadLocales(),
