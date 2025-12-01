@@ -20,9 +20,9 @@
   },
   "dependencies": {
     "@iconify-json/flag": "^1.2.10",
-    "@iconify-json/lucide": "^1.2.74",
+    "@iconify-json/lucide": "^1.2.77",
     "@iconify-json/mdi": "^1.2.3",
-    "@iconify-json/simple-icons": "^1.2.59",
+    "@iconify-json/simple-icons": "^1.2.61",
     "@nuxt/fonts": "^0.12.1",
     "@nuxt/image": "^2.0.0",
     "@nuxt/ui": "^4.2.1",
@@ -30,16 +30,16 @@
     "@nuxtjs/seo": "^3.2.2",
     "nuxt": "^4.2.1",
     "nuxt-svgo": "^4.2.6",
-    "vue": "^3.5.24",
+    "vue": "^3.5.25",
     "vue-router": "^4.6.3"
   },
   "devDependencies": {
-    "@nuxt/eslint": "^1.10.0",
+    "@nuxt/eslint": "^1.11.0",
     "@types/node": "^24.10.1",
     "eslint": "^9.39.1",
-    "prettier": "^3.6.2",
+    "prettier": "^3.7.3",
     "sass-embedded": "^1.93.3",
     "typescript": "^5.9.3"
   },
-  "packageManager": "yarn@4.10.3"
+  "packageManager": "yarn@4.12.0"
 }
