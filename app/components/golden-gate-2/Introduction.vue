@@ -21,24 +21,23 @@
           {{ t('common.comingSoon') }}
         </h2>
         <div class="download-buttons">
-          <button
-            disabled
+          <a
             class="download-btn opacity-50 cursor-not-allowed"
             aria-disabled="true"
             title="Not available"
           >
             <SteamIconLogo class="download-icon" />
             <span>Steam Workshop</span>
-          </button>
-          <button
-            href="https://www.moddb.com/mods/golden-gate-2-goddess-heart"
+          </a>
+          <a
+            href="https://www.gog.com/game/golden_gate_2_goddess_heart"
             target="_blank"
             class="download-btn"
           >
             <Icon name="simple-icons-gogdotcom" class="text-3xl text-white" />
             <span>GOG.com</span>
-          </button>
-          <button
+          </a>
+          <a
             href="https://www.moddb.com/mods/golden-gate-2-goddess-heart"
             target="_blank"
             class="download-btn"
@@ -50,7 +49,7 @@
               @contextmenu.prevent
             />
             <span>ModDB</span>
-          </button>
+          </a>
         </div>
       </div>
 
