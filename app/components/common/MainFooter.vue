@@ -14,7 +14,7 @@
           class="flex flex-col lg:flex-row justify-between items-center gap-6 pb-6 border-b border-amber-800/30"
         >
           <!-- Copyright Section - Left -->
-          <div class="text-center lg:text-left order-2 lg:order-1">
+          <div class="text-center lg:text-left order-3 lg:order-1">
             <p class="text-amber-200/70 font-bebas-neue text-lg tracking-wide">
               Copyright &copy; 2007-{{ currentYear }} Golden Gate Team
             </p>
@@ -23,8 +23,57 @@
             </p>
           </div>
 
+          <!-- Links Section - Center -->
+          <div class="text-center lg:text-left order-2 lg:order-2">
+            <div class="flex flex-wrap items-center justify-center sm:gap-1">
+              <UButton
+                color="primary"
+                size="xl"
+                variant="link"
+                href="mailto:goldengatebox@gmail.com"
+                :ui="{
+                  base: 'text-amber-400'
+                }"
+              >
+                {{ t('common.contact') }}
+              </UButton>
+
+              <span class="text-amber-200/30">•</span>
+
+              <UButton
+                color="primary"
+                size="xl"
+                variant="link"
+                href="https://drive.google.com/drive/folders/1IQJdgRi--4Mq_Vg1vI74wLuQ8yjIoCJ-?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
+                :ui="{
+                  base: 'text-amber-400'
+                }"
+              >
+                Press Kit
+              </UButton>
+
+              <span class="text-amber-200/30">•</span>
+              
+              <UButton
+                color="primary"
+                size="xl"
+                variant="link"
+                href="https://ko-fi.com/goldengateteam"
+                target="_blank"
+                rel="noopener noreferrer"
+                :ui="{
+                  base: 'text-amber-400'
+                }"
+              >
+                {{ t('common.donate') }}
+              </UButton>
+            </div>
+          </div>
+
           <!-- Social Media and Contact Section - Right -->
-          <div class="flex flex-col items-center gap-4 order-1 lg:order-2">
+          <div class="flex flex-col items-center gap-4 order-1 lg:order-3">
             <!-- Social Media -->
             <div class="flex gap-3">
               <!-- Facebook -->
@@ -35,7 +84,7 @@
               >
                 <Icon
                   name="simple-icons:facebook"
-                  class="text-xl! text-amber-300 group-hover:text-white transition-colors duration-300"
+                  class="text-xl! text-amber-400 group-hover:text-white transition-colors duration-300"
                 />
                 <span
                   class="text-sm md:text-xs text-amber-200/70 group-hover:text-white transition-colors duration-300 font-medium"
@@ -93,20 +142,6 @@
                 >
                   ModDB
                 </span>
-              </a>
-            </div>
-
-            <!-- Contact -->
-            <div
-              class="inline-flex items-center gap-2 px-3 py-1.5 bg-amber-900/20 rounded-full"
-            >
-              <UIcon name="lucide:mail" class="text-xl! text-amber-400" />
-              <a
-                href="mailto:goldengatebox@gmail.com"
-                class="text-amber-200 hover:text-white transition-colors duration-300 text-sm font-medium"
-                aria-label="Golden Gate Team mail"
-              >
-                goldengatebox@gmail.com
               </a>
             </div>
           </div>

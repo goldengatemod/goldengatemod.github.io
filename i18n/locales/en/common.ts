@@ -5,5 +5,8 @@ export default {
     website: 'Website',
     loading: 'Loading...',
     download: 'Free download on',
+    comingSoon: 'Coming soon on',
+    donate: 'Donate',
+    contact: 'Contact',
   },
 }
