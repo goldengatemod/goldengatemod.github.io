@@ -129,12 +129,12 @@ export default {
       {
         question: 'Kiedy premiera?',
         answer:
-          'Premiera Złotych Wrót 2 będzie miała miejsce w ostatnim kwartale tego roku.',
+          'Premiera Złotych Wrót 2 będzie miała miejsce 12 grudnia tego roku.',
       },
       {
         question: 'Skąd będzie można pobrać modyfikację?',
         answer:
-          'W dniu premiery modyfikację będzie można pobrać przez kartę warsztatu Steam powiązanego z Gothic 2 lub poprzez serwis ModDB.',
+          'W dniu premiery modyfikację będzie można pobrać bezpłatnie przez serwis GOG, kartę warsztatu Steam powiązanego z Gothic 2, lub poprzez serwis ModDB.',
       },
       {
         question: 'Na ile godzin przewidziana jest rozgrywka?',
@@ -175,7 +175,7 @@ export default {
       {
         question: 'Jaki będzie poziom trudności?',
         answer:
-          'Poziom trudności jest bazowany na tym z Gothica 2: Noc Kruka. Naszym celem było odpowiednie dostosowanie go pod naszą modyfikację, tak aby trudność rozgrywki była na zbliżonym poziomie. Ponadto w naszych planach jest umożliwienie gry na 4 poziomach trudności: łatwym, normalnym, trudnym i ekstremalnym! Nie możemy jednak obiecać, że poziomy łatwy, trudny i ekstremalny będą dostępne na premierę, jako że normalny jest dla nas poziomem wyjściowym i dostosowanie pozostałych może zająć nam jeszcze nieco czasu.',
+          'Poziom trudności jest bazowany na tym z Gothica 2: Noc Kruka. Naszym celem było odpowiednie dostosowanie go pod naszą modyfikację, tak aby trudność rozgrywki była na zbliżonym poziomie. Ponadto możliwa będzie gra na 4 poziomach trudności: łatwym, normalnym, trudnym i ekstremalnym.',
       },
       {
         question: 'Jak duża jest mapa?',

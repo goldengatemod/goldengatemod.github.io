@@ -129,12 +129,12 @@ export default {
       {
         question: 'When is the mod going to be released?',
         answer:
-          'Golden Gate 2 will be released in the last quarter of this year.',
+          'Golden Gate 2 will be released this year, on 12th December.',
       },
       {
         question: 'From where can I download this mod?',
         answer:
-          'Downloading this modification will be possible at the release date via Steam Workshop card linked to Gothic 2 or ModDB.',
+          'Downloading this modification will be possible for free at the release date via GOG, Steam Workshop card linked to Gothic 2, or ModDB.',
       },
       {
         question: 'How long is the game going to be?',
@@ -176,7 +176,7 @@ export default {
       {
         question: 'How difficult is the game going to be?',
         answer:
-          "Our difficulty level is based on this from Gothic 2: Night of the Raven. Our goal was to adapt it appropriately to our modification, so the gameplay difficulty would be at a similar level. Moreover, we're planning to allow you to play the mod at 4 difficulty levels: easy, normal, hard and extreme! We can't, however, promise that easy, hard and extreme levels will be available at the release date, as the normal difficulty level is a starting point for our balance, and tweaking the rest may take us some more time.",
+          "Our difficulty level is based on this from Gothic 2: Night of the Raven. Our goal was to adapt it appropriately to our modification, so the gameplay difficulty would be at a similar level. Moreover, you'll be able to play the mod at 4 difficulty levels: easy, normal, hard, and extreme.",
       },
       {
         question: 'How big is the map?',
