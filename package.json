@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "@iconify-json/flag": "^1.2.10",
-    "@iconify-json/lucide": "^1.2.77",
+    "@iconify-json/lucide": "^1.2.79",
     "@iconify-json/mdi": "^1.2.3",
     "@iconify-json/simple-icons": "^1.2.61",
     "@nuxt/fonts": "^0.12.1",
@@ -37,7 +37,7 @@
     "@nuxt/eslint": "^1.11.0",
     "@types/node": "^24.10.1",
     "eslint": "^9.39.1",
-    "prettier": "^3.7.3",
+    "prettier": "^3.7.4",
     "sass-embedded": "^1.93.3",
     "typescript": "^5.9.3"
   },

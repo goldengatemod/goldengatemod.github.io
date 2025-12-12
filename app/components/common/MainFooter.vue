@@ -32,7 +32,7 @@
                 variant="link"
                 href="mailto:goldengatebox@gmail.com"
                 :ui="{
-                  base: 'text-amber-400'
+                  base: 'text-amber-400',
                 }"
               >
                 {{ t('common.contact') }}
@@ -48,14 +48,14 @@
                 target="_blank"
                 rel="noopener noreferrer"
                 :ui="{
-                  base: 'text-amber-400'
+                  base: 'text-amber-400',
                 }"
               >
                 Press Kit
               </UButton>
 
               <span class="text-amber-200/30">•</span>
-              
+
               <UButton
                 color="primary"
                 size="xl"
@@ -64,7 +64,7 @@
                 target="_blank"
                 rel="noopener noreferrer"
                 :ui="{
-                  base: 'text-amber-400'
+                  base: 'text-amber-400',
                 }"
               >
                 {{ t('common.donate') }}

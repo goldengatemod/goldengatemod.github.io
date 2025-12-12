@@ -4,10 +4,8 @@ import withNuxt from './.nuxt/eslint.config.mjs'
 export default withNuxt({
   rules: {
     'linebreak-style': 0,
-    indent: ['error', 2],
-    semi: ['error', 'never'],
-    'comma-dangle': ['error', 'always-multiline'],
     '@stylistic/comma-dangle': 'off',
+    'vue/html-self-closing': 'off',
     'import/no-extraneous-dependencies': ['off'],
     'import/prefer-default-export': ['off'],
     'vue/valid-v-slot': [
@@ -33,7 +31,4 @@ export default withNuxt({
       },
     ],
   },
-}).prepend({
-  files: ['app/**/*.{js,ts,vue}'],
-  ignores: ['.nuxt', '.yarn', 'dist', 'node_modules'],
 })

@@ -128,8 +128,7 @@ export default {
     faq: [
       {
         question: 'When is the mod going to be released?',
-        answer:
-          'Golden Gate 2 will be released this year, on 12th December.',
+        answer: 'Golden Gate 2 will be released this year, on 12th December.',
       },
       {
         question: 'From where can I download this mod?',

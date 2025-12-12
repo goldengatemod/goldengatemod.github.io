@@ -22,9 +22,9 @@
         </h2>
         <div class="download-buttons">
           <a
-            class="download-btn opacity-50 cursor-not-allowed"
-            aria-disabled="true"
-            title="Not available"
+            href="https://steamcommunity.com/sharedfiles/filedetails/?id=3622283076"
+            target="_blank"
+            class="download-btn"
           >
             <SteamIconLogo class="download-icon" />
             <span>Steam Workshop</span>

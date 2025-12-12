@@ -201,7 +201,7 @@ const members = ref<TeamMember[]>([
   { nick: 'Yorick', roles: ['story'], active: false },
   { nick: 'Izaak "Verso" Nowak', roles: ['story', '2D'], active: true },
   { nick: 'kedart', roles: ['3D'], active: true },
-  { nick: 'Rafiss', roles: ['scripts'], active: true },
+  { nick: 'Rafał "Rafiss" Mastalerz', roles: ['scripts'], active: true },
   { nick: 'Rathgar', roles: ['3D', '2D', 'HTML'], active: false },
   { nick: 'Risepolak (Xardas17)', roles: ['animations'], active: true },
   { nick: 'Kereth', roles: ['spacer'], active: false },
