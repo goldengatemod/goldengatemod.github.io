@@ -18,7 +18,7 @@
 
       <div class="text-center mb-8">
         <h2 class="text-error uppercase text-base font-light pb-4">
-          {{ t('common.comingSoon') }}
+          {{ t('common.download') }}
         </h2>
         <div class="download-buttons">
           <a
