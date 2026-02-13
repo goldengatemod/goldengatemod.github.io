@@ -6,6 +6,7 @@ export const loadLocales = () => {
     en: 'English',
     pl: 'Polski',
     de: 'Deutsch',
+    it: 'Italiano',
   }
 
   const localesRoot = join(process.cwd(), 'i18n/locales')

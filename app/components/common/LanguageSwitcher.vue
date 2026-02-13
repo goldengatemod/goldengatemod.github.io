@@ -57,6 +57,7 @@ const getFlagIcon = (code: string) =>
     en: 'flag:gb-4x3',
     pl: 'flag:pl-4x3',
     de: 'flag:de-4x3',
+    it: 'flag:it-4x3',
   })[code] || 'flag:pl-4x3'
 
 const selectLanguage = (code: string) => {
