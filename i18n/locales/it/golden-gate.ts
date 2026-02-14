@@ -72,7 +72,7 @@ export default {
     patch12: {
       description: [
         'In occasione dell\'uscita di Golden Gate 2: Cuore della Dea, abbiamo preparato per te una nuova patch che aggiunge:',
-        'Gioca subito alla miglior versione di Golden Gate! - la versione italiana non è ancora disponibile',
+        'Gioca subito alla miglior versione di Golden Gate! - la versione italiana non è ancora disponibile.',
       ],
       changes: [
         'nuova introduzione',
@@ -81,7 +81,7 @@ export default {
         'bilanciamento carriera da mago corretto',
         'nuova interfaccia grafica',
         'nuova colonna sonora',
-        'correzioni alla qualità della vita',
+        'migliorie legate all\'esperienza di gioco',
       ],
     },
   },

@@ -8,5 +8,6 @@ export default {
     comingSoon: 'Bald verfügbar auf',
     donate: 'Spenden',
     contact: 'Kontakt',
+    translation: "Übersetzung",
   },
 }

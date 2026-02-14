@@ -147,7 +147,7 @@
           </div>
         </div>
 
-        <!-- Author Section - Center bottom -->
+        <!-- Author / Translators Section - Center bottom -->
         <div class="text-center pt-6">
           <p class="text-amber-200/50 text-sm">
             {{ t('common.website') }}
@@ -157,6 +157,18 @@
           >
             Radosław "Doick" Michalak
           </p>
+          
+          <!-- Translation credits -->
+          <div v-if="translatorName" class="mt-4">
+            <p class="text-amber-200/50 text-sm">
+              {{ t('common.translation') }}
+            </p>
+            <p
+              class="text-amber-200/70 text-lg font-bebas-neue tracking-wide mt-1"
+            >
+              {{ translatorName }}
+            </p>
+          </div>
         </div>
       </div>
     </div>
@@ -164,9 +176,17 @@
 </template>
 
 <script setup lang="ts">
-const { t } = useI18n()
+const { t, locale } = useI18n()
 
 const currentYear = new Date().getFullYear()
+
+const translators: Record<string, string> = {
+  en: 'Grzegorz "Jugoslavia" Andreasik',
+  de: 'Roland54',
+  it: 'Piranha Legacy Italia'
+}
+
+const translatorName = computed(() => translators[locale.value] || '')
 </script>
 
 <style lang="scss" scoped>

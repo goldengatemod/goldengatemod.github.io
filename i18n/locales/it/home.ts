@@ -2,7 +2,7 @@ export default {
   home: {
     goldenGate: {
       description:
-        'Torna nella Valle di Jarkendar nei panni dell\'Eroe Senza Nome e scopri la leggenda del Golden Gate.',
+        'Torna nella Valle di Jharkendar nei panni dell\'Eroe Senza Nome e scopri la leggenda del Golden Gate.',
       subtitle: 'L\'iconica modifica e il ritorno nel mondo di Gothic!',
     },
     goldenGate2: {
