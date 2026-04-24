@@ -89,6 +89,7 @@ export default defineNuxtConfig({
       maxAge: 31536000,
     },
   },
+  ogImage: { zeroRuntime: true },
   svgo: {
     defaultImport: 'component',
   },
