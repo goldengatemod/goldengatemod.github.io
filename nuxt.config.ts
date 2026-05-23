@@ -1,4 +1,4 @@
-import { loadLocales } from './i18n/utils/loadLocales'
+import { loadLocales } from './i18n/utils/loadLocales';
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
@@ -74,7 +74,7 @@ export default defineNuxtConfig({
     detectBrowserLanguage: false,
   },
   image: {
-    format: ['webp'],
+    format: ['avif', 'webp'],
     screens: {
       xs: 320,
       sm: 640,
@@ -98,4 +98,4 @@ export default defineNuxtConfig({
       sourcemap: false,
     },
   },
-})
+});
