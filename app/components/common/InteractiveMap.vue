@@ -36,73 +36,73 @@
 
 <script setup lang="ts">
 interface Marker {
-  id: string
-  x: number
-  y: number
-  title: string
-  description?: string
+  id: string;
+  x: number;
+  y: number;
+  title: string;
+  description?: string;
 }
 
 interface Props {
-  mapUrl: string
-  markers?: Marker[]
-  originalWidth?: number
-  originalHeight?: number
+  mapUrl: string;
+  markers?: Marker[];
+  originalWidth?: number;
+  originalHeight?: number;
 }
 
-const { t } = useI18n()
+const { t } = useI18n();
 
 const props = withDefaults(defineProps<Props>(), {
   markers: () => [],
   originalWidth: undefined,
   originalHeight: undefined,
-})
+});
 
-const mapContainerRef = ref<HTMLElement | null>(null)
-const mapImageRef = ref<HTMLImageElement | null>(null)
-const scale = ref(1)
+const mapContainerRef = ref<HTMLElement | null>(null);
+const mapImageRef = ref<HTMLImageElement | null>(null);
+const scale = ref(1);
 
 const updateScale = () => {
-  if (!mapImageRef.value) return
+  if (!mapImageRef.value) return;
 
-  const naturalWidth = props.originalWidth || mapImageRef.value.naturalWidth
-  const displayWidth = mapImageRef.value.clientWidth
+  const naturalWidth = props.originalWidth || mapImageRef.value.naturalWidth;
+  const displayWidth = mapImageRef.value.clientWidth;
 
-  scale.value = displayWidth / naturalWidth
-}
+  scale.value = displayWidth / naturalWidth;
+};
 
 const getMarkerStyle = (marker: Marker) => {
   return {
     left: `${marker.x * scale.value}px`,
     top: `${marker.y * scale.value}px`,
-  }
-}
+  };
+};
 
 onMounted(() => {
-  updateScale()
-  window.addEventListener('resize', updateScale)
-})
+  updateScale();
+  window.addEventListener('resize', updateScale);
+});
 
 onUnmounted(() => {
-  window.removeEventListener('resize', updateScale)
-})
+  window.removeEventListener('resize', updateScale);
+});
 
-let resizeObserver: ResizeObserver | null = null
+let resizeObserver: ResizeObserver | null = null;
 
 onMounted(() => {
   if (typeof ResizeObserver !== 'undefined' && mapContainerRef.value) {
     resizeObserver = new ResizeObserver(() => {
-      updateScale()
-    })
-    resizeObserver.observe(mapContainerRef.value)
+      updateScale();
+    });
+    resizeObserver.observe(mapContainerRef.value);
   }
-})
+});
 
 onUnmounted(() => {
   if (resizeObserver) {
-    resizeObserver.disconnect()
+    resizeObserver.disconnect();
   }
-})
+});
 </script>
 
 <style lang="scss" scoped>

@@ -24,14 +24,14 @@
 </template>
 
 <script setup lang="ts">
-import * as locales from '@nuxt/ui/locale'
+import * as locales from '@nuxt/ui/locale';
 
-const { locale, setLocale, availableLocales } = useI18n()
+const { locale, setLocale, availableLocales } = useI18n();
 
-type AppLocale = (typeof availableLocales)[number]
+type AppLocale = (typeof availableLocales)[number];
 
-const open = ref(false)
-const isMobile = ref(false)
+const open = ref(false);
+const isMobile = ref(false);
 
 const appLocales = computed(() =>
   Object.fromEntries(
@@ -39,7 +39,7 @@ const appLocales = computed(() =>
       availableLocales.includes(key as AppLocale),
     ),
   ),
-)
+);
 
 const dropdownLanguages = computed(() => {
   if (isMobile.value) {
@@ -47,10 +47,10 @@ const dropdownLanguages = computed(() => {
       Object.entries(appLocales.value).filter(
         ([code]) => code !== locale.value,
       ),
-    )
+    );
   }
-  return appLocales.value
-})
+  return appLocales.value;
+});
 
 const getFlagIcon = (code: string) =>
   ({
@@ -58,36 +58,36 @@ const getFlagIcon = (code: string) =>
     pl: 'flag:pl-4x3',
     de: 'flag:de-4x3',
     it: 'flag:it-4x3',
-  })[code] || 'flag:pl-4x3'
+  })[code] || 'flag:pl-4x3';
 
 const selectLanguage = (code: string) => {
-  if (!availableLocales.includes(code as AppLocale)) return
-  setLocale(code as AppLocale)
-  localStorage.setItem('locale', code)
-  open.value = false
-}
+  if (!availableLocales.includes(code as AppLocale)) return;
+  setLocale(code as AppLocale);
+  localStorage.setItem('locale', code);
+  open.value = false;
+};
 
 const checkMobile = () => {
-  isMobile.value = window.innerWidth <= 768
-}
+  isMobile.value = window.innerWidth <= 768;
+};
 
 onMounted(() => {
-  checkMobile()
-  window.addEventListener('resize', checkMobile)
-})
+  checkMobile();
+  window.addEventListener('resize', checkMobile);
+});
 
 onBeforeUnmount(() => {
-  window.removeEventListener('resize', checkMobile)
-})
+  window.removeEventListener('resize', checkMobile);
+});
 
 onBeforeMount(() => {
-  const savedLocale = localStorage.getItem('locale') || 'pl'
+  const savedLocale = localStorage.getItem('locale') || 'pl';
   if (availableLocales.includes(savedLocale as AppLocale)) {
-    setLocale(savedLocale as AppLocale)
+    setLocale(savedLocale as AppLocale);
   }
-})
+});
 
-defineShortcuts({ o: () => (open.value = !open.value) })
+defineShortcuts({ o: () => (open.value = !open.value) });
 </script>
 
 <style lang="scss" scoped>

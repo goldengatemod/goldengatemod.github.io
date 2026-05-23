@@ -16,7 +16,7 @@
 </template>
 
 <script setup lang="ts">
-import IframeWrapper from '~/components/common/IframeWrapper.vue'
+import IframeWrapper from '~/components/common/IframeWrapper.vue';
 
-const { t } = useI18n()
+const { t } = useI18n();
 </script>

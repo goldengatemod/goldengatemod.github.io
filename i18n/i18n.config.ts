@@ -3,4 +3,4 @@ export default defineI18nConfig(() => ({
   fallbackLocale: 'en',
   lazy: true,
   globalInjection: true,
-}))
+}));

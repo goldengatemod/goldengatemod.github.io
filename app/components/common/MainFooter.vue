@@ -157,7 +157,7 @@
           >
             Radosław "Doick" Michalak
           </p>
-          
+
           <!-- Translation credits -->
           <div v-if="translatorName" class="mt-4">
             <p class="text-amber-200/50 text-sm">
@@ -176,17 +176,17 @@
 </template>
 
 <script setup lang="ts">
-const { t, locale } = useI18n()
+const { t, locale } = useI18n();
 
-const currentYear = new Date().getFullYear()
+const currentYear = new Date().getFullYear();
 
 const translators: Record<string, string> = {
   en: 'Grzegorz "Jugoslavia" Andreasik',
   de: 'Roland54',
-  it: 'Piranha Legacy Italia'
-}
+  it: 'Piranha Legacy Italia',
+};
 
-const translatorName = computed(() => translators[locale.value] || '')
+const translatorName = computed(() => translators[locale.value] || '');
 </script>
 
 <style lang="scss" scoped>

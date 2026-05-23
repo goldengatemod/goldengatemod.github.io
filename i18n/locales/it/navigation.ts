@@ -6,4 +6,4 @@ export default {
     team: 'Team',
     joinUs: 'Unisciti a noi',
   },
-}
+};

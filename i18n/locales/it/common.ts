@@ -10,4 +10,4 @@ export default {
     contact: 'Contatti',
     translation: 'Traduzione',
   },
-}
+};

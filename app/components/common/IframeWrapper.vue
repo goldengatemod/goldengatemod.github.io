@@ -43,30 +43,30 @@
 
 <script lang="ts" setup>
 const props = defineProps<{
-  src: string
-  title?: string
-}>()
+  src: string;
+  title?: string;
+}>();
 
-const isIframeLoaded = ref(false)
+const isIframeLoaded = ref(false);
 
 const videoId = computed(() => {
-  const match = props.src.match(/embed\/([^?]+)/)
-  return match ? match[1] : ''
-})
+  const match = props.src.match(/embed\/([^?]+)/);
+  return match ? match[1] : '';
+});
 
 const thumbnailUrl = computed(
   () => `https://i.ytimg.com/vi/${videoId.value}/maxresdefault.jpg`,
-)
+);
 
 const fullSrc = computed(() => {
   return props.src.includes('?')
     ? `${props.src}&autoplay=1`
-    : `${props.src}?autoplay=1`
-})
+    : `${props.src}?autoplay=1`;
+});
 
 const loadIframe = () => {
-  isIframeLoaded.value = true
-}
+  isIframeLoaded.value = true;
+};
 </script>
 
 <style lang="scss" scoped>

@@ -173,14 +173,14 @@
 </template>
 
 <script setup lang="ts">
-const { locale, t } = useI18n()
+const { locale, t } = useI18n();
 
-const logoGG = computed(() => `/gg-logo-${locale.value}.webp`)
-const logoGG2 = computed(() => `/gg2-logo-${locale.value}.webp`)
+const logoGG = computed(() => `/gg-logo-${locale.value}.webp`);
+const logoGG2 = computed(() => `/gg2-logo-${locale.value}.webp`);
 
 useHead({
   title: computed(() => `${t('navigation.home')}`),
-})
+});
 </script>
 
 <style lang="scss" scoped>

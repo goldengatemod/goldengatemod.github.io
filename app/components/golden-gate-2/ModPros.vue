@@ -26,22 +26,22 @@
 </template>
 
 <script setup lang="ts">
-const { t } = useI18n()
+const { t } = useI18n();
 
 interface ProsBenefit {
-  label: string
-  icon: string
+  label: string;
+  icon: string;
 }
 
 interface Props {
-  benefits?: ProsBenefit[]
-  maxColumns?: number
+  benefits?: ProsBenefit[];
+  maxColumns?: number;
 }
 
 const props = withDefaults(defineProps<Props>(), {
   benefits: undefined,
   maxColumns: 5,
-})
+});
 
 const pros = computed<ProsBenefit[]>(
   () =>
@@ -67,7 +67,7 @@ const pros = computed<ProsBenefit[]>(
         icon: 'i-lucide-music',
       },
     ],
-)
+);
 </script>
 
 <style lang="scss" scoped>

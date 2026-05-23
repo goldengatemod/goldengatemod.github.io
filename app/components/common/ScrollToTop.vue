@@ -34,10 +34,10 @@
 
 <script setup lang="ts">
 interface Props {
-  threshold?: number
-  scrollDuration?: number
-  easingFunction?: (t: number) => number
-  showOnlyWhenScrollable?: boolean
+  threshold?: number;
+  scrollDuration?: number;
+  easingFunction?: (t: number) => number;
+  showOnlyWhenScrollable?: boolean;
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -45,71 +45,71 @@ const props = withDefaults(defineProps<Props>(), {
   scrollDuration: 800,
   easingFunction: (t: number) => (t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t),
   showOnlyWhenScrollable: true,
-})
+});
 
-const isVisible = ref(false)
-const isScrolling = ref(false)
+const isVisible = ref(false);
+const isScrolling = ref(false);
 
 const checkVisibility = () => {
-  const scrollTop = window.pageYOffset || document.documentElement.scrollTop
+  const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
   const canScroll = props.showOnlyWhenScrollable
     ? document.documentElement.scrollHeight > window.innerHeight
-    : true
+    : true;
 
-  isVisible.value = scrollTop > props.threshold && canScroll
-}
+  isVisible.value = scrollTop > props.threshold && canScroll;
+};
 
 const scrollToTop = async () => {
-  if (isScrolling.value) return
+  if (isScrolling.value) return;
 
-  isScrolling.value = true
-  const startPosition = window.pageYOffset
-  const startTime = performance.now()
+  isScrolling.value = true;
+  const startPosition = window.pageYOffset;
+  const startTime = performance.now();
 
   const animateScroll = (currentTime: number) => {
-    const timeElapsed = currentTime - startTime
-    const progress = Math.min(timeElapsed / props.scrollDuration, 1)
-    const ease = props.easingFunction(progress)
+    const timeElapsed = currentTime - startTime;
+    const progress = Math.min(timeElapsed / props.scrollDuration, 1);
+    const ease = props.easingFunction(progress);
 
-    window.scrollTo(0, startPosition * (1 - ease))
+    window.scrollTo(0, startPosition * (1 - ease));
 
     if (progress < 1) {
-      requestAnimationFrame(animateScroll)
+      requestAnimationFrame(animateScroll);
     } else {
-      isScrolling.value = false
+      isScrolling.value = false;
     }
-  }
+  };
 
-  requestAnimationFrame(animateScroll)
-}
+  requestAnimationFrame(animateScroll);
+};
 
-let ticking = false
+let ticking = false;
 const handleScroll = () => {
   if (!ticking) {
     requestAnimationFrame(() => {
-      checkVisibility()
-      ticking = false
-    })
-    ticking = true
+      checkVisibility();
+      ticking = false;
+    });
+    ticking = true;
   }
-}
+};
 
 onMounted(() => {
-  checkVisibility()
-  window.addEventListener('scroll', handleScroll, { passive: true })
-  window.addEventListener('resize', checkVisibility, { passive: true })
-})
+  checkVisibility();
+  window.addEventListener('scroll', handleScroll, { passive: true });
+  window.addEventListener('resize', checkVisibility, { passive: true });
+});
 
 onUnmounted(() => {
-  window.removeEventListener('scroll', handleScroll)
-  window.removeEventListener('resize', checkVisibility)
-})
+  window.removeEventListener('scroll', handleScroll);
+  window.removeEventListener('resize', checkVisibility);
+});
 
 defineExpose({
   scrollToTop,
   isVisible: readonly(isVisible),
   isScrolling: readonly(isScrolling),
-})
+});
 </script>
 
 <style scoped>

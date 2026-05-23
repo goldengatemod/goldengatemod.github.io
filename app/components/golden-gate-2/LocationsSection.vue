@@ -16,20 +16,20 @@
 </template>
 
 <script setup lang="ts">
-import SectionHeader from '~/components/common/SectionHeader.vue'
-import InteractiveMap from '~/components/common/InteractiveMap.vue'
-import SamoaMap from '~/assets/img/golden-gate-2/gg2-samoa-map.webp'
+import SectionHeader from '~/components/common/SectionHeader.vue';
+import InteractiveMap from '~/components/common/InteractiveMap.vue';
+import SamoaMap from '~/assets/img/golden-gate-2/gg2-samoa-map.webp';
 
-const { t } = useI18n()
+const { t } = useI18n();
 
 interface Marker {
-  id: string
-  x: number
-  y: number
-  title: string
-  description?: string
-  icon?: string
-  color?: string
+  id: string;
+  x: number;
+  y: number;
+  title: string;
+  description?: string;
+  icon?: string;
+  color?: string;
 }
 
 const markers = ref<Marker[]>([
@@ -82,7 +82,7 @@ const markers = ref<Marker[]>([
     title: 'goldenGate2.world.locations.swamps.title',
     description: 'goldenGate2.world.locations.swamps.description',
   },
-])
+]);
 </script>
 
 <style lang="css" scoped>

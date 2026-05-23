@@ -16,20 +16,20 @@
 </template>
 
 <script setup lang="ts">
-import SectionHeader from '~/components/common/SectionHeader.vue'
-import InteractiveMap from '~/components/common/InteractiveMap.vue'
-import JarkendarMap from '~/assets/img/golden-gate/gg-jarkendar-map.webp'
+import SectionHeader from '~/components/common/SectionHeader.vue';
+import InteractiveMap from '~/components/common/InteractiveMap.vue';
+import JarkendarMap from '~/assets/img/golden-gate/gg-jarkendar-map.webp';
 
-const { t } = useI18n()
+const { t } = useI18n();
 
 interface Marker {
-  id: string
-  x: number
-  y: number
-  title: string
-  description?: string
-  icon?: string
-  color?: string
+  id: string;
+  x: number;
+  y: number;
+  title: string;
+  description?: string;
+  icon?: string;
+  color?: string;
 }
 
 const markers = ref<Marker[]>([
@@ -68,5 +68,5 @@ const markers = ref<Marker[]>([
     title: 'goldenGate.world.fractions.bandits.title',
     description: 'goldenGate.world.fractions.bandits.description',
   },
-])
+]);
 </script>

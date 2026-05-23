@@ -27,10 +27,10 @@
 </template>
 
 <script setup lang="ts">
-import SectionHeader from '~/components/common/SectionHeader.vue'
-import type { AccordionItem } from '@nuxt/ui'
+import SectionHeader from '~/components/common/SectionHeader.vue';
+import type { AccordionItem } from '@nuxt/ui';
 
-const { t } = useI18n()
+const { t } = useI18n();
 
 const items = ref<AccordionItem[]>([
   { label: 'goldenGate2.faq.0.question', content: 'goldenGate2.faq.0.answer' },
@@ -59,7 +59,7 @@ const items = ref<AccordionItem[]>([
     label: 'goldenGate2.faq.13.question',
     content: 'goldenGate2.faq.13.answer',
   },
-])
+]);
 </script>
 
 <style lang="scss" scoped>

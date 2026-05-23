@@ -8,6 +8,6 @@
 </template>
 
 <script setup lang="ts">
-import MenuNavigation from '~/components/common/MenuNavigation.vue'
-import MainFooter from '~/components/common/MainFooter.vue'
+import MenuNavigation from '~/components/common/MenuNavigation.vue';
+import MainFooter from '~/components/common/MainFooter.vue';
 </script>

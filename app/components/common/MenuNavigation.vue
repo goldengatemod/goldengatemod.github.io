@@ -91,16 +91,16 @@
 </template>
 
 <script setup lang="ts">
-const { te, t } = useI18n()
+const { te, t } = useI18n();
 
 interface MenuItem {
-  label: string
-  url: string
+  label: string;
+  url: string;
 }
 
-const route = useRoute()
+const route = useRoute();
 
-const mobileMenuOpen = ref(false)
+const mobileMenuOpen = ref(false);
 
 const items = ref<MenuItem[]>([
   {
@@ -115,50 +115,50 @@ const items = ref<MenuItem[]>([
     label: 'navigation.team',
     url: '/team',
   },
-])
+]);
 
 const getLabel = (label: unknown): string => {
   if (typeof label === 'string') {
-    return te(label) ? t(label).toUpperCase() : label.toUpperCase()
+    return te(label) ? t(label).toUpperCase() : label.toUpperCase();
   }
-  return ''
-}
+  return '';
+};
 
 const toggleMobileMenu = () => {
-  mobileMenuOpen.value = !mobileMenuOpen.value
+  mobileMenuOpen.value = !mobileMenuOpen.value;
   if (mobileMenuOpen.value) {
-    document.body.style.overflow = 'hidden'
+    document.body.style.overflow = 'hidden';
   } else {
-    document.body.style.overflow = ''
+    document.body.style.overflow = '';
   }
-}
+};
 
 const closeMobileMenu = () => {
-  mobileMenuOpen.value = false
-  document.body.style.overflow = ''
-}
+  mobileMenuOpen.value = false;
+  document.body.style.overflow = '';
+};
 
 const handleEscape = (e: KeyboardEvent) => {
   if (e.key === 'Escape' && mobileMenuOpen.value) {
-    closeMobileMenu()
+    closeMobileMenu();
   }
-}
+};
 
 onMounted(() => {
-  document.addEventListener('keydown', handleEscape)
-})
+  document.addEventListener('keydown', handleEscape);
+});
 
 onUnmounted(() => {
-  document.removeEventListener('keydown', handleEscape)
-  document.body.style.overflow = ''
-})
+  document.removeEventListener('keydown', handleEscape);
+  document.body.style.overflow = '';
+});
 
 watch(
   () => route.path,
   () => {
-    closeMobileMenu()
+    closeMobileMenu();
   },
-)
+);
 </script>
 
 <style lang="scss" scoped>

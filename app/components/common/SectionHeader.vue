@@ -8,10 +8,10 @@
 </template>
 
 <script setup lang="ts">
-const { te, t } = useI18n()
+const { te, t } = useI18n();
 
 const props = defineProps<{
-  title: string
-  textClass?: string | string[] | Record<string, boolean>
-}>()
+  title: string;
+  textClass?: string | string[] | Record<string, boolean>;
+}>();
 </script>

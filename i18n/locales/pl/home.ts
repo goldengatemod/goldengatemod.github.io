@@ -11,4 +11,4 @@ export default {
       subtitle: 'Nowy bohater i przygoda w nieznanej krainie.',
     },
   },
-}
+};

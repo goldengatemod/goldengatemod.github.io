@@ -11,4 +11,4 @@ export default {
       subtitle: 'A new hero and an adventure in an unknown land.',
     },
   },
-}
+};

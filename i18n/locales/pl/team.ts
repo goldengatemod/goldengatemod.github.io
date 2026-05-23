@@ -29,4 +29,4 @@ export default {
       activityYears: 'lat działalności',
     },
   },
-}
+};

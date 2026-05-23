@@ -6,4 +6,4 @@ export default {
     team: 'Zespół',
     joinUs: 'Rekrutacja',
   },
-}
+};

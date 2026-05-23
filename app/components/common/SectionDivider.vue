@@ -7,7 +7,7 @@
 </template>
 
 <script setup lang="ts">
-import GGIcon from '~/assets/img/gg-icon.svg'
+import GGIcon from '~/assets/img/gg-icon.svg';
 </script>
 
 <style lang="scss" scoped>

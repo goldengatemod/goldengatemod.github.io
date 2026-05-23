@@ -27,9 +27,9 @@
 </template>
 
 <script setup lang="ts">
-import SectionHeader from '~/components/common/SectionHeader.vue'
+import SectionHeader from '~/components/common/SectionHeader.vue';
 
-const { t } = useI18n()
+const { t } = useI18n();
 
 const guildProps = [
   {
@@ -47,5 +47,5 @@ const guildProps = [
     description: 'goldenGate.guilds.array.waterMage.description',
     icon: 'i-lucide-droplet',
   },
-]
+];
 </script>

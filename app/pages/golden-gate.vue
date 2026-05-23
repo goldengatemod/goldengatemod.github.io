@@ -29,49 +29,49 @@
 </template>
 
 <script setup lang="ts">
-import Introduction from '~/components/golden-gate/Introduction.vue'
+import Introduction from '~/components/golden-gate/Introduction.vue';
 
-const { t } = useI18n()
+const { t } = useI18n();
 
 const SectionDivider = defineAsyncComponent({
   loader: () => import('~/components/common/SectionDivider.vue'),
   delay: 200,
   timeout: 10000,
-})
+});
 
 const IntroSection = defineAsyncComponent({
   loader: () => import('~/components/golden-gate/IntroSection.vue'),
   delay: 200,
   timeout: 10000,
-})
+});
 
 const LocationsSection = defineAsyncComponent({
   loader: () => import('~/components/golden-gate/LocationsSection.vue'),
   delay: 200,
   timeout: 10000,
-})
+});
 
 const GuildsSection = defineAsyncComponent({
   loader: () => import('~/components/golden-gate/GuildsSection.vue'),
   delay: 200,
   timeout: 10000,
-})
+});
 
 const PreviewGallery = defineAsyncComponent({
   loader: () => import('~/components/golden-gate/PreviewGallery.vue'),
   delay: 200,
   timeout: 10000,
-})
+});
 
 const PatchSection = defineAsyncComponent({
   loader: () => import('~/components/golden-gate/PatchSection.vue'),
   delay: 200,
   timeout: 10000,
-})
+});
 
 useHead({
   title: computed(() => `${t('navigation.goldenGate')}`),
-})
+});
 </script>
 
 <style lang="scss" scoped>

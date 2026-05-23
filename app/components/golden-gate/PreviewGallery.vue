@@ -3,7 +3,7 @@
 </template>
 
 <script lang="ts" setup>
-import ImageGallery from '~/components/common/ImageGallery.vue'
+import ImageGallery from '~/components/common/ImageGallery.vue';
 
 const images = ref([
   {
@@ -54,5 +54,5 @@ const images = ref([
   {
     thumbnailSrc: 'golden-gate/preview/gg-preview-16.webp',
   },
-])
+]);
 </script>

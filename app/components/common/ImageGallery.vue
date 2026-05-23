@@ -104,58 +104,58 @@
 
 <script setup lang="ts">
 interface GalleryImage {
-  thumbnailSrc: string
-  fullSrc?: string
-  alt?: string
+  thumbnailSrc: string;
+  fullSrc?: string;
+  alt?: string;
 }
 
 interface Props {
-  images?: GalleryImage[]
+  images?: GalleryImage[];
 }
 
-const props = defineProps<Props>()
-const images = computed(() => props.images ?? [])
+const props = defineProps<Props>();
+const images = computed(() => props.images ?? []);
 
-const isOpen = ref(false)
-const currentIndex = ref(0)
+const isOpen = ref(false);
+const currentIndex = ref(0);
 
 const openLightbox = (index: number) => {
-  if (!images.value || !images.value.length) return
-  currentIndex.value = index
-  isOpen.value = true
-}
+  if (!images.value || !images.value.length) return;
+  currentIndex.value = index;
+  isOpen.value = true;
+};
 
 const nextImage = () => {
   if (currentIndex.value < images.value.length - 1) {
-    currentIndex.value++
+    currentIndex.value++;
   }
-}
+};
 
 const previousImage = () => {
   if (currentIndex.value > 0) {
-    currentIndex.value--
+    currentIndex.value--;
   }
-}
+};
 
 const handleKeydown = (event: KeyboardEvent) => {
-  if (!isOpen.value) return
+  if (!isOpen.value) return;
 
   if (event.key === 'ArrowRight') {
-    nextImage()
+    nextImage();
   } else if (event.key === 'ArrowLeft') {
-    previousImage()
+    previousImage();
   } else if (event.key === 'Escape') {
-    isOpen.value = false
+    isOpen.value = false;
   }
-}
+};
 
 onMounted(() => {
-  window.addEventListener('keydown', handleKeydown)
-})
+  window.addEventListener('keydown', handleKeydown);
+});
 
 onUnmounted(() => {
-  window.removeEventListener('keydown', handleKeydown)
-})
+  window.removeEventListener('keydown', handleKeydown);
+});
 </script>
 
 <style lang="scss" scoped>

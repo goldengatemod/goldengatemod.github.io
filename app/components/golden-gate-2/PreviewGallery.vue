@@ -3,7 +3,7 @@
 </template>
 
 <script lang="ts" setup>
-import ImageGallery from '~/components/common/ImageGallery.vue'
+import ImageGallery from '~/components/common/ImageGallery.vue';
 
 const images = ref([
   {
@@ -54,7 +54,7 @@ const images = ref([
     thumbnailSrc: 'golden-gate-2/preview/gg2-preview-15-thumbnail.webp',
     fullSrc: 'golden-gate-2/preview/gg2-preview-15.webp',
   },
-])
+]);
 
 // const activeIndex = ref(0)
 // const displayCustom = ref(false)

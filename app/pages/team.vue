@@ -5,13 +5,13 @@
 </template>
 
 <script setup lang="ts">
-import MembersList from '~/components/team/MembersList.vue'
+import MembersList from '~/components/team/MembersList.vue';
 
-const { t } = useI18n()
+const { t } = useI18n();
 
 useHead({
   title: computed(() => `${t('navigation.team')}`),
-})
+});
 </script>
 
 <style lang="scss" scoped>

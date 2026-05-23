@@ -12,4 +12,4 @@ export default {
       subtitle: 'Ein neuer Held und ein Abenteuer in einem unbekannten Land.',
     },
   },
-}
+};

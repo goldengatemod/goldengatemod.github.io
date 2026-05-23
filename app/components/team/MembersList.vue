@@ -148,26 +148,26 @@
 </template>
 
 <script setup lang="ts">
-import SectionDivider from '~/components/common/SectionDivider.vue'
-import SectionHeader from '~/components/common/SectionHeader.vue'
-import { capitalize } from 'vue'
+import SectionDivider from '~/components/common/SectionDivider.vue';
+import SectionHeader from '~/components/common/SectionHeader.vue';
+import { capitalize } from 'vue';
 
-const { te, t } = useI18n()
+const { te, t } = useI18n();
 
-const now = new Date()
-const past = new Date(2007, 11, 15)
-const timeDuration = now.getFullYear() - past.getFullYear()
+const now = new Date();
+const past = new Date(2007, 11, 15);
+const timeDuration = now.getFullYear() - past.getFullYear();
 
 interface TeamMember {
-  nick: string
-  roles: string[]
-  active: boolean
+  nick: string;
+  roles: string[];
+  active: boolean;
 }
 
 const translateRole = (role: string): string => {
-  const key = `team.roles.${role}`
-  return te(key) ? t(key) : role
-}
+  const key = `team.roles.${role}`;
+  return te(key) ? t(key) : role;
+};
 
 const members = ref<TeamMember[]>([
   {
@@ -263,14 +263,14 @@ const members = ref<TeamMember[]>([
   { nick: 'Bubsejk', roles: ['animations'], active: true },
   { nick: 'AnonimowyLektor', roles: ['soundproducer'], active: true },
   { nick: 'Gizbor', roles: ['3D'], active: true },
-])
+]);
 
 const activeMembers = computed(() =>
   members.value.filter((member: TeamMember) => member.active),
-)
+);
 const inactiveMembers = computed(() =>
   members.value.filter((member: TeamMember) => !member.active).reverse(),
-)
+);
 </script>
 
 <style lang="scss" scoped>

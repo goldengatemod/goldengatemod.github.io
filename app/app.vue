@@ -9,15 +9,15 @@
 </template>
 
 <script setup lang="ts">
-const { t } = useI18n()
+const { t } = useI18n();
 
 useHead({
   titleTemplate: (titleChunk) => {
-    if (!titleChunk) return t('navigation.goldenGate', 'Złote Wrota')
-    return `${titleChunk} - ${t('navigation.goldenGate', 'Złote Wrota')}`
+    if (!titleChunk) return t('navigation.goldenGate', 'Złote Wrota');
+    return `${titleChunk} - ${t('navigation.goldenGate', 'Złote Wrota')}`;
   },
   title: `${t('navigation.goldenGate', 'Złote Wrota')}`,
-})
+});
 </script>
 
 <style lang="css">

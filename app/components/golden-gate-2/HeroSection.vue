@@ -23,9 +23,9 @@
 </template>
 
 <script setup lang="ts">
-import SectionHeader from '~/components/common/SectionHeader.vue'
+import SectionHeader from '~/components/common/SectionHeader.vue';
 
-const { t } = useI18n()
+const { t } = useI18n();
 </script>
 
 <style lang="css" scoped>

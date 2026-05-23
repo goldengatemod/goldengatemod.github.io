@@ -8,6 +8,6 @@ export default {
     comingSoon: 'Coming soon on',
     donate: 'Donate',
     contact: 'Contact',
-    translation: "Translation",
+    translation: 'Translation',
   },
-}
+};

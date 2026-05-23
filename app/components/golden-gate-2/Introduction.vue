@@ -70,12 +70,12 @@
 </template>
 
 <script setup lang="ts">
-import SteamIconLogo from '~/assets/img/steam-icon-logo.svg'
-import ModPros from '~/components/golden-gate-2/ModPros.vue'
+import SteamIconLogo from '~/assets/img/steam-icon-logo.svg';
+import ModPros from '~/components/golden-gate-2/ModPros.vue';
 
-const { locale, t } = useI18n()
+const { locale, t } = useI18n();
 
-const logoSrc = computed(() => `/gg2-logo-${locale.value}.webp`)
+const logoSrc = computed(() => `/gg2-logo-${locale.value}.webp`);
 </script>
 
 <style lang="scss" scoped>

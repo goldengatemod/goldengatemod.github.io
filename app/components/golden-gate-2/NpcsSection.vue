@@ -52,18 +52,18 @@
 </template>
 
 <script setup lang="ts">
-import SectionHeader from '~/components/common/SectionHeader.vue'
-import type { TabsItem } from '@nuxt/ui'
+import SectionHeader from '~/components/common/SectionHeader.vue';
+import type { TabsItem } from '@nuxt/ui';
 
-import AlrikRender from '~/assets/img/golden-gate-2/npcs/npc-alrik.webp'
-import RamseyRender from '~/assets/img/golden-gate-2/npcs/npc-ramsey.webp'
-import AshtonRender from '~/assets/img/golden-gate-2/npcs/npc-ashton.webp'
-import OlsaRender from '~/assets/img/golden-gate-2/npcs/npc-olsa.webp'
-import SylviaRender from '~/assets/img/golden-gate-2/npcs/npc-sylvia.webp'
+import AlrikRender from '~/assets/img/golden-gate-2/npcs/npc-alrik.webp';
+import RamseyRender from '~/assets/img/golden-gate-2/npcs/npc-ramsey.webp';
+import AshtonRender from '~/assets/img/golden-gate-2/npcs/npc-ashton.webp';
+import OlsaRender from '~/assets/img/golden-gate-2/npcs/npc-olsa.webp';
+import SylviaRender from '~/assets/img/golden-gate-2/npcs/npc-sylvia.webp';
 
-const { t } = useI18n()
+const { t } = useI18n();
 
-const isMobile = ref(false)
+const isMobile = ref(false);
 
 const items = ref([
   {
@@ -91,18 +91,18 @@ const items = ref([
     content: 'goldenGate2.npcs.list.sylvia',
     image: SylviaRender,
   },
-] satisfies TabsItem[])
+] satisfies TabsItem[]);
 
 const checkMobile = () => {
-  isMobile.value = window.innerWidth < 768
-}
+  isMobile.value = window.innerWidth < 768;
+};
 
 onMounted(() => {
-  checkMobile()
-  window.addEventListener('resize', checkMobile)
-})
+  checkMobile();
+  window.addEventListener('resize', checkMobile);
+});
 
 onUnmounted(() => {
-  window.removeEventListener('resize', checkMobile)
-})
+  window.removeEventListener('resize', checkMobile);
+});
 </script>
