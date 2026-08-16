@@ -128,8 +128,7 @@ export default {
     faq: [
       {
         question: 'Kiedy premiera?',
-        answer:
-          'Premiera Złotych Wrót 2 będzie miała miejsce 12 grudnia tego roku.',
+        answer: 'Premiera Złotych Wrót 2 miała miejsce 12 grudnia 2025.',
       },
       {
         question: 'Skąd będzie można pobrać modyfikację?',

@@ -128,8 +128,7 @@ export default {
     faq: [
       {
         question: 'Wann wird die Mod veröffentlicht?',
-        answer:
-          'Das Goldene Tor 2 wird im letzten Quartal dieses Jahres veröffentlicht.',
+        answer: 'Das Goldene Tor 2 wurde am 12. Dezember 2025 veröffentlicht.',
       },
       {
         question: 'Wo kann ich diese Mod herunterladen?',
