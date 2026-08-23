@@ -3,7 +3,7 @@ export default {
     description: [
       'Golden Gate 2: Cuore della Dea è una modifica gratuita per Gothic 2: La Notte del Corvo, creata da un gruppo di appassionati.',
       "Ti accompagneremo in un'avventura indimenticabile in una parte completamente nuova del mondo di Gothic: il Regno di Elea. Viaggerai attraverso la sua parte, l'Isola di Samoa, che anni fa era abitata da una setta sanguinaria di Hasisiani e che ancora oggi nasconde i loro oscuri segreti. Abbiamo lavorato duramente per offrirti una trama matura con molte scelte e conseguenze...",
-      'Durante il gioco, avrai a tua disposizione un mondo completamente nuovo creato da zero, con nuove meccaniche di gioco arricchito da una colonna sonora originale. Dalla data di uscita sono disponibili il doppiaggio completo in polacco e la localizzazione in inglese, tedesco e presto anche in italiano.',
+      'Durante il gioco, avrai a tua disposizione un mondo completamente nuovo creato da zero, con nuove meccaniche di gioco arricchito da una colonna sonora originale. Dalla data di uscita sono disponibili il doppiaggio completo in polacco e la localizzazione in inglese, tedesco e in italiano.',
     ],
     pros: [
       '30+ ore di gameplay',
