@@ -184,7 +184,7 @@ const members = ref<TeamMember[]>([
   {
     nick: 'Grzegorz "Jugoslavia" Andreasik',
     roles: ['story', 'scripts', 'spacer'],
-    active: true,
+    active: false,
   },
   {
     nick: 'Radosław "Doick" Michalak',
