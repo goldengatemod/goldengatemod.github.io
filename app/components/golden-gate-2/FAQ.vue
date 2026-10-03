@@ -1,5 +1,5 @@
 <template>
-  <section id="faq">
+  <section id="faq" class="text-white">
     <div class="container mx-auto">
       <SectionHeader title="FAQ" />
     </div>
