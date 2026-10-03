@@ -2,21 +2,21 @@
   <UPopover v-model:open="open">
     <button class="language-trigger">
       <Icon :name="getFlagIcon(locale)" class="flag-icon" />
-      <span class="language-name-mobile">{{ appLocales[locale]?.name }}</span>
+      <span class="language-name-mobile">{{ currentLanguageName }}</span>
     </button>
 
     <template #content>
       <div class="language-dropdown">
         <button
-          v-for="(localeData, code) in dropdownLanguages"
-          :key="code"
+          v-for="language in dropdownLanguages"
+          :key="language.code"
           class="language-option"
-          :class="{ active: locale === code }"
-          @click="selectLanguage(code as string)"
+          :class="{ active: locale === language.code }"
+          @click="selectLanguage(language.code)"
         >
-          <Icon :name="getFlagIcon(code as string)" class="flag-icon" />
-          <span class="language-label">{{ localeData.name }}</span>
-          <div v-if="locale === code" class="active-dot" />
+          <Icon :name="getFlagIcon(language.code)" class="flag-icon" />
+          <span class="language-label">{{ language.name }}</span>
+          <div v-if="locale === language.code" class="active-dot" />
         </button>
       </div>
     </template>
@@ -34,25 +34,21 @@ const open = ref(false);
 const isMobile = ref(false);
 
 const appLocales = computed(() =>
-  Object.fromEntries(
-    Object.entries(locales).filter(([key]) =>
-      availableLocales.includes(key as AppLocale),
-    ),
-  ),
+  availableLocales.map((code) => ({ code, name: locales[code].name })),
 );
 
-const dropdownLanguages = computed(() => {
-  if (isMobile.value) {
-    return Object.fromEntries(
-      Object.entries(appLocales.value).filter(
-        ([code]) => code !== locale.value,
-      ),
-    );
-  }
-  return appLocales.value;
-});
+const currentLanguageName = computed(
+  () =>
+    appLocales.value.find((language) => language.code === locale.value)?.name,
+);
 
-const getFlagIcon = (code: string) =>
+const dropdownLanguages = computed(() =>
+  isMobile.value
+    ? appLocales.value.filter((language) => language.code !== locale.value)
+    : appLocales.value,
+);
+
+const getFlagIcon = (code: AppLocale) =>
   ({
     en: 'flag:gb-4x3',
     pl: 'flag:pl-4x3',
@@ -60,10 +56,13 @@ const getFlagIcon = (code: string) =>
     it: 'flag:it-4x3',
   })[code] || 'flag:pl-4x3';
 
-const selectLanguage = (code: string) => {
-  if (!availableLocales.includes(code as AppLocale)) return;
-  setLocale(code as AppLocale);
-  localStorage.setItem('locale', code);
+const selectLanguage = async (code: AppLocale) => {
+  try {
+    localStorage.setItem('locale', code);
+  } catch {
+    // Switching languages still works when storage is unavailable.
+  }
+  await setLocale(code);
   open.value = false;
 };
 
@@ -78,13 +77,6 @@ onMounted(() => {
 
 onBeforeUnmount(() => {
   window.removeEventListener('resize', checkMobile);
-});
-
-onBeforeMount(() => {
-  const savedLocale = localStorage.getItem('locale') || 'pl';
-  if (availableLocales.includes(savedLocale as AppLocale)) {
-    setLocale(savedLocale as AppLocale);
-  }
 });
 
 defineShortcuts({ o: () => (open.value = !open.value) });

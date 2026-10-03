@@ -40,11 +40,7 @@ export default defineNuxtConfig({
   app: {
     head: {
       title: 'Złote Wrota',
-      htmlAttrs: {
-        lang: 'en',
-      },
       link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
-      charset: 'utf-8',
       viewport: 'width=device-width, initial-scale=1, maximum-scale=1',
     },
   },
@@ -66,11 +62,16 @@ export default defineNuxtConfig({
   sitemap: {
     autoLastmod: true,
   },
+  seo: {
+    // Every page supplies its own translated title.
+    fallbackTitle: false,
+  },
   i18n: {
+    baseUrl: 'https://goldengatemod.com',
     locales: loadLocales(),
-    strategy: 'prefix',
+    strategy: 'prefix_and_default',
     defaultLocale: 'pl',
-    vueI18n: './i18n/i18n.config.ts',
+    vueI18n: './i18n.config.ts',
     detectBrowserLanguage: false,
   },
   image: {

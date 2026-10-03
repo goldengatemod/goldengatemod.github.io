@@ -24,6 +24,7 @@ export const loadLocales = () => {
     );
     return {
       code: langFolder,
+      language: langFolder,
       name: localeNamesMap[langFolder] ?? 'Unregistered',
       files,
     };
