@@ -11,7 +11,7 @@
       <div class="px-6 lg:px-8">
         <!-- Main row -->
         <div
-          class="flex flex-col lg:flex-row justify-between items-center gap-6 pb-6 border-b border-amber-800/30"
+          class="flex flex-col lg:grid lg:grid-cols-3 items-center gap-6 pb-6 border-b border-amber-800/30"
         >
           <!-- Copyright Section - Left -->
           <div class="text-center lg:text-left order-3 lg:order-1">
@@ -24,7 +24,7 @@
           </div>
 
           <!-- Links Section - Center -->
-          <div class="text-center lg:text-left order-2 lg:order-2">
+          <div class="text-center order-2 lg:order-2">
             <div class="flex flex-wrap items-center justify-center sm:gap-1">
               <UButton
                 color="primary"
@@ -73,9 +73,11 @@
           </div>
 
           <!-- Social Media and Contact Section - Right -->
-          <div class="flex flex-col items-center gap-4 order-1 lg:order-3">
+          <div
+            class="flex flex-col items-center gap-4 order-1 lg:order-3 lg:justify-self-end max-w-full"
+          >
             <!-- Social Media -->
-            <div class="flex gap-3">
+            <div class="flex flex-wrap justify-center gap-3">
               <!-- Facebook -->
               <a
                 href="https://www.facebook.com/zlotewrotamod"
@@ -200,17 +202,6 @@ const translatorName = computed(() => translators[locale.value] || '');
 
 .consistent-footer:hover {
   border-top-color: rgba(245, 158, 11, 0.5);
-}
-
-@media (max-width: 1024px) {
-  .consistent-footer .flex.flex-col.lg\\:flex-row {
-    flex-direction: column;
-    gap: 2rem;
-  }
-
-  .consistent-footer .text-center.lg\\:text-left {
-    text-align: center;
-  }
 }
 
 @media (max-width: 640px) {

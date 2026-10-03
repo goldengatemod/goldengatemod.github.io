@@ -1,7 +1,36 @@
 <template>
   <section id="gallery">
+    <div class="container mx-auto max-w-screen-2xl">
+      <div
+        v-if="images && images.length"
+        class="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mx-auto pb-10 px-4 md:px-auto"
+      >
+        <button
+          v-for="(image, index) of images"
+          :key="image.thumbnailSrc"
+          type="button"
+          class="gallery-item"
+          @click="openLightbox(index)"
+        >
+          <NuxtImg
+            :src="image.thumbnailSrc"
+            :alt="image.alt || `Gallery image ${index + 1}`"
+            width="600"
+            height="450"
+            sizes="100vw sm:50vw md:33vw lg:25vw 2xl:360px"
+            densities="x1 x2"
+            class="gallery-thumbnail"
+            fetchpriority="low"
+            loading="lazy"
+            decoding="async"
+            @contextmenu.prevent
+          />
+        </button>
+      </div>
+    </div>
+
     <UModal
-      v-model="isOpen"
+      v-model:open="isOpen"
       fullscreen
       :ui="{
         content: 'bg-black/75',
@@ -9,39 +38,10 @@
         body: 'p-0!',
       }"
     >
-      <div class="container mx-auto max-w-screen-2xl">
-        <div
-          v-if="images && images.length"
-          class="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mx-auto pb-10 px-4 md:px-auto"
-        >
-          <div
-            v-for="(image, index) of images"
-            :key="index"
-            class="gallery-item"
-          >
-            <NuxtImg
-              :src="image.thumbnailSrc"
-              :alt="image.alt || `Gallery image ${index + 1}`"
-              class="gallery-thumbnail"
-              fetchpriority="low"
-              @click="openLightbox(index)"
-              @contextmenu.prevent
-            />
-
-            <NuxtImg
-              v-if="image.fullSrc"
-              :src="image.fullSrc"
-              :alt="image.alt || `Gallery image ${index + 1}`"
-              fetchpriority="low"
-              class="hidden"
-              @contextmenu.prevent
-            />
-          </div>
-        </div>
-      </div>
-
       <template #close>
         <button
+          type="button"
+          aria-label="Close gallery"
           class="absolute top-4 right-4 z-50 p-2 rounded-lg bg-[rgba(25,12,6,0.95)] hover:bg-[rgba(25,12,6,1)] hover:border-[rgba(245,158,11,0.5)] transition-colors flex items-center justify-center border border-default cursor-pointer"
           @click="isOpen = false"
         >
@@ -56,6 +56,8 @@
           <!-- Previous button -->
           <button
             v-if="images.length > 1"
+            type="button"
+            aria-label="Previous image"
             class="absolute left-4 z-50 p-3 rounded-lg bg-[rgba(25,12,6,0.95)] hover:bg-[rgba(25,12,6,1)] hover:border-[rgba(245,158,11,0.5)] transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center border border-default cursor-pointer"
             :disabled="currentIndex === 0"
             @click="previousImage"
@@ -87,6 +89,8 @@
           <!-- Next button -->
           <button
             v-if="images.length > 1"
+            type="button"
+            aria-label="Next image"
             class="absolute right-4 z-50 p-3 rounded-lg bg-[rgba(25,12,6,0.95)] hover:bg-[rgba(25,12,6,1)] hover:border-[rgba(245,158,11,0.5)] transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center border border-default cursor-pointer"
             :disabled="currentIndex === images.length - 1"
             @click="nextImage"
@@ -116,11 +120,19 @@ interface Props {
 const props = defineProps<Props>();
 const images = computed(() => props.images ?? []);
 
+if (import.meta.server) {
+  // Full-size images must exist on static hosting without preloading them in the browser.
+  const imageUrl = useImage();
+  prerenderRoutes(
+    images.value.map((image) => imageUrl(image.fullSrc || image.thumbnailSrc)),
+  );
+}
+
 const isOpen = ref(false);
 const currentIndex = ref(0);
 
 const openLightbox = (index: number) => {
-  if (!images.value || !images.value.length) return;
+  if (!images.value[index]) return;
   currentIndex.value = index;
   isOpen.value = true;
 };
@@ -141,16 +153,19 @@ const handleKeydown = (event: KeyboardEvent) => {
   if (!isOpen.value) return;
 
   if (event.key === 'ArrowRight') {
+    event.preventDefault();
     nextImage();
   } else if (event.key === 'ArrowLeft') {
+    event.preventDefault();
     previousImage();
   } else if (event.key === 'Escape') {
     isOpen.value = false;
   }
 };
 
-onMounted(() => {
-  window.addEventListener('keydown', handleKeydown);
+watch(isOpen, (open) => {
+  if (open) window.addEventListener('keydown', handleKeydown);
+  else window.removeEventListener('keydown', handleKeydown);
 });
 
 onUnmounted(() => {

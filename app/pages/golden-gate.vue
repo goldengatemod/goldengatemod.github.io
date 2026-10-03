@@ -2,72 +2,28 @@
   <main class="golden-gate-page pb-0!">
     <Introduction />
 
-    <Suspense>
-      <template #default>
-        <div>
-          <div class="container mx-auto max-w-5xl">
-            <SectionDivider />
-            <IntroSection />
-            <SectionDivider />
-            <LocationsSection />
-            <SectionDivider />
-            <GuildsSection />
-            <SectionDivider />
-            <PatchSection />
-            <SectionDivider />
-          </div>
-          <PreviewGallery />
-        </div>
-      </template>
-      <template #fallback>
-        <div class="loading-placeholder">
-          <p>{{ t('common.loading') }}</p>
-        </div>
-      </template>
-    </Suspense>
+    <div>
+      <div class="container mx-auto max-w-5xl">
+        <SectionDivider />
+        <GoldenGateIntroSection />
+        <SectionDivider />
+        <GoldenGateLocationsSection />
+        <SectionDivider />
+        <LazyGoldenGateGuildsSection hydrate-on-visible />
+        <SectionDivider />
+        <GoldenGatePatchSection />
+        <SectionDivider />
+      </div>
+      <GoldenGatePreviewGallery />
+    </div>
   </main>
 </template>
 
 <script setup lang="ts">
+import SectionDivider from '~/components/common/SectionDivider.vue';
 import Introduction from '~/components/golden-gate/Introduction.vue';
 
 const { t } = useI18n();
-
-const SectionDivider = defineAsyncComponent({
-  loader: () => import('~/components/common/SectionDivider.vue'),
-  delay: 200,
-  timeout: 10000,
-});
-
-const IntroSection = defineAsyncComponent({
-  loader: () => import('~/components/golden-gate/IntroSection.vue'),
-  delay: 200,
-  timeout: 10000,
-});
-
-const LocationsSection = defineAsyncComponent({
-  loader: () => import('~/components/golden-gate/LocationsSection.vue'),
-  delay: 200,
-  timeout: 10000,
-});
-
-const GuildsSection = defineAsyncComponent({
-  loader: () => import('~/components/golden-gate/GuildsSection.vue'),
-  delay: 200,
-  timeout: 10000,
-});
-
-const PreviewGallery = defineAsyncComponent({
-  loader: () => import('~/components/golden-gate/PreviewGallery.vue'),
-  delay: 200,
-  timeout: 10000,
-});
-
-const PatchSection = defineAsyncComponent({
-  loader: () => import('~/components/golden-gate/PatchSection.vue'),
-  delay: 200,
-  timeout: 10000,
-});
 
 useHead({
   title: computed(() => `${t('navigation.goldenGate')}`),

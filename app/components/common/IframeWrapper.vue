@@ -1,25 +1,38 @@
 <template>
   <div class="responsive-iframe mx-4 sm:mx-auto">
-    <div
+    <button
       v-if="!isIframeLoaded"
       class="youtube-facade"
-      :style="{ backgroundImage: `url(${thumbnailUrl})` }"
+      type="button"
+      :aria-label="props.title || 'Play video'"
       @click="loadIframe"
     >
-      <div class="play-button">
+      <img
+        class="youtube-thumbnail"
+        :src="thumbnailUrl"
+        :srcset="thumbnailSrcset"
+        sizes="(max-width: 704px) calc(100vw - 32px), 672px"
+        alt=""
+        width="1280"
+        height="720"
+        loading="lazy"
+        decoding="async"
+        fetchpriority="low"
+      />
+      <span class="play-button">
         <svg viewBox="0 0 24 24" width="68" height="48">
           <path d="M8 5v14l11-7z" fill="currentColor" />
         </svg>
-      </div>
-      <div v-if="props.title" class="video-title">
+      </span>
+      <span v-if="props.title" class="video-title">
         {{ props.title }}
-      </div>
-    </div>
+      </span>
+    </button>
 
     <iframe
       v-if="isIframeLoaded"
       :src="fullSrc"
-      title="YouTube video player"
+      :title="props.title || 'YouTube video player'"
       frameborder="0"
       allow="
         accelerometer;
@@ -51,12 +64,17 @@ const isIframeLoaded = ref(false);
 
 const videoId = computed(() => {
   const match = props.src.match(/embed\/([^?]+)/);
-  return match ? match[1] : '';
+  return match?.[1] ?? '';
 });
 
 const thumbnailUrl = computed(
-  () => `https://i.ytimg.com/vi/${videoId.value}/maxresdefault.jpg`,
+  () => `https://i.ytimg.com/vi/${videoId.value}/sddefault.jpg`,
 );
+
+const thumbnailSrcset = computed(() => {
+  const base = `https://i.ytimg.com/vi/${videoId.value}`;
+  return `${base}/mqdefault.jpg 320w, ${base}/sddefault.jpg 640w, ${base}/maxresdefault.jpg 1280w`;
+});
 
 const fullSrc = computed(() => {
   return props.src.includes('?')
@@ -67,12 +85,19 @@ const fullSrc = computed(() => {
 const loadIframe = () => {
   isIframeLoaded.value = true;
 };
+
+watch(
+  () => props.src,
+  () => {
+    isIframeLoaded.value = false;
+  },
+);
 </script>
 
 <style lang="scss" scoped>
 .responsive-iframe {
   aspect-ratio: 16 / 9;
-  width: 100%;
+  width: calc(100% - 2rem);
   max-width: 672px;
   contain: layout style paint;
   position: relative;
@@ -91,10 +116,10 @@ const loadIframe = () => {
 }
 
 .youtube-facade {
+  padding: 0;
+  border: 0;
   width: 100%;
   height: 100%;
-  background-size: cover;
-  background-position: center;
   background-color: #000;
   display: flex;
   flex-direction: column;
@@ -111,6 +136,7 @@ const loadIframe = () => {
     right: 0;
     bottom: 0;
     background: rgba(0, 0, 0, 0.3);
+    z-index: 1;
     transition: background 0.2s ease;
   }
 
@@ -124,6 +150,8 @@ const loadIframe = () => {
 }
 
 .play-button {
+  position: relative;
+  z-index: 2;
   background: rgba(0, 0, 0, 0.8);
   border-radius: 25%;
   padding: 18px 22px;
@@ -139,8 +167,17 @@ const loadIframe = () => {
   }
 }
 
+.youtube-thumbnail {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .video-title {
   position: absolute;
+  z-index: 2;
   bottom: 16px;
   left: 16px;
   right: 16px;

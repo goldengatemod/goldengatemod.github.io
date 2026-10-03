@@ -16,6 +16,7 @@
         isScrolling && 'loading',
       ]"
       :disabled="isScrolling"
+      aria-label="Scroll to top"
       @click="scrollToTop"
     >
       <Icon
@@ -49,9 +50,15 @@ const props = withDefaults(defineProps<Props>(), {
 
 const isVisible = ref(false);
 const isScrolling = ref(false);
+let animationFrame = 0;
+let visibilityFrame = 0;
 
 const checkVisibility = () => {
   const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  if (scrollTop <= props.threshold) {
+    isVisible.value = false;
+    return;
+  }
   const canScroll = props.showOnlyWhenScrollable
     ? document.documentElement.scrollHeight > window.innerHeight
     : true;
@@ -59,8 +66,16 @@ const checkVisibility = () => {
   isVisible.value = scrollTop > props.threshold && canScroll;
 };
 
-const scrollToTop = async () => {
+const scrollToTop = () => {
   if (isScrolling.value) return;
+
+  if (
+    props.scrollDuration <= 0 ||
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  ) {
+    window.scrollTo({ top: 0, behavior: 'instant' });
+    return;
+  }
 
   isScrolling.value = true;
   const startPosition = window.pageYOffset;
@@ -71,38 +86,39 @@ const scrollToTop = async () => {
     const progress = Math.min(timeElapsed / props.scrollDuration, 1);
     const ease = props.easingFunction(progress);
 
-    window.scrollTo(0, startPosition * (1 - ease));
+    window.scrollTo({ top: startPosition * (1 - ease), behavior: 'instant' });
 
     if (progress < 1) {
-      requestAnimationFrame(animateScroll);
+      animationFrame = requestAnimationFrame(animateScroll);
     } else {
       isScrolling.value = false;
+      animationFrame = 0;
     }
   };
 
-  requestAnimationFrame(animateScroll);
+  animationFrame = requestAnimationFrame(animateScroll);
 };
 
-let ticking = false;
 const handleScroll = () => {
-  if (!ticking) {
-    requestAnimationFrame(() => {
+  if (!visibilityFrame) {
+    visibilityFrame = requestAnimationFrame(() => {
+      visibilityFrame = 0;
       checkVisibility();
-      ticking = false;
     });
-    ticking = true;
   }
 };
 
 onMounted(() => {
   checkVisibility();
   window.addEventListener('scroll', handleScroll, { passive: true });
-  window.addEventListener('resize', checkVisibility, { passive: true });
+  window.addEventListener('resize', handleScroll, { passive: true });
 });
 
 onUnmounted(() => {
   window.removeEventListener('scroll', handleScroll);
-  window.removeEventListener('resize', checkVisibility);
+  window.removeEventListener('resize', handleScroll);
+  cancelAnimationFrame(animationFrame);
+  cancelAnimationFrame(visibilityFrame);
 });
 
 defineExpose({

@@ -1,20 +1,29 @@
 <template>
   <div class="map-wrapper">
     <div class="map-container">
-      <div ref="mapContainerRef" class="map-image-container">
+      <div class="map-image-container">
         <img
           ref="mapImageRef"
           :src="mapUrl"
           alt="Map"
           class="map-image"
-          @load="updateScale"
+          :width="originalWidth"
+          :height="originalHeight"
+          loading="lazy"
+          decoding="async"
+          @load="updateImageSize"
           @contextmenu.prevent
         />
 
         <UPopover v-for="marker in markers" :key="marker.id">
-          <div class="map-marker" :style="getMarkerStyle(marker)">
+          <button
+            type="button"
+            class="map-marker"
+            :style="getMarkerStyle(marker)"
+            :aria-label="t(marker.title)"
+          >
             <UIcon name="i-heroicons-map-pin-solid" class="marker-icon" />
-          </div>
+          </button>
 
           <template #content>
             <div class="marker-tooltip">
@@ -35,6 +44,8 @@
 </template>
 
 <script setup lang="ts">
+import type { CSSProperties } from 'vue';
+
 interface Marker {
   id: string;
   x: number;
@@ -58,51 +69,29 @@ const props = withDefaults(defineProps<Props>(), {
   originalHeight: undefined,
 });
 
-const mapContainerRef = ref<HTMLElement | null>(null);
 const mapImageRef = ref<HTMLImageElement | null>(null);
-const scale = ref(1);
+const imageSize = ref({ width: 0, height: 0 });
 
-const updateScale = () => {
+const updateImageSize = () => {
   if (!mapImageRef.value) return;
 
-  const naturalWidth = props.originalWidth || mapImageRef.value.naturalWidth;
-  const displayWidth = mapImageRef.value.clientWidth;
-
-  scale.value = displayWidth / naturalWidth;
-};
-
-const getMarkerStyle = (marker: Marker) => {
-  return {
-    left: `${marker.x * scale.value}px`,
-    top: `${marker.y * scale.value}px`,
+  imageSize.value = {
+    width: mapImageRef.value.naturalWidth,
+    height: mapImageRef.value.naturalHeight,
   };
 };
 
-onMounted(() => {
-  updateScale();
-  window.addEventListener('resize', updateScale);
-});
+const getMarkerStyle = (marker: Marker): CSSProperties => {
+  const width = props.originalWidth || imageSize.value.width;
+  const height = props.originalHeight || imageSize.value.height;
+  return {
+    left: width > 0 ? `${(marker.x / width) * 100}%` : '0%',
+    top: height > 0 ? `${(marker.y / height) * 100}%` : '0%',
+    visibility: width > 0 && height > 0 ? 'visible' : 'hidden',
+  };
+};
 
-onUnmounted(() => {
-  window.removeEventListener('resize', updateScale);
-});
-
-let resizeObserver: ResizeObserver | null = null;
-
-onMounted(() => {
-  if (typeof ResizeObserver !== 'undefined' && mapContainerRef.value) {
-    resizeObserver = new ResizeObserver(() => {
-      updateScale();
-    });
-    resizeObserver.observe(mapContainerRef.value);
-  }
-});
-
-onUnmounted(() => {
-  if (resizeObserver) {
-    resizeObserver.disconnect();
-  }
-});
+onMounted(updateImageSize);
 </script>
 
 <style lang="scss" scoped>

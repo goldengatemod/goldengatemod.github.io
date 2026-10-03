@@ -28,6 +28,8 @@
                 :alt="item.label"
                 width="300"
                 height="400"
+                loading="lazy"
+                decoding="async"
                 class="mx-auto rounded-lg w-full max-w-[300px] md:max-w-none md:max-h-[500px] h-auto object-contain"
                 @contextmenu.prevent
               />
@@ -63,7 +65,7 @@ import SylviaRender from '~/assets/img/golden-gate-2/npcs/npc-sylvia.webp';
 
 const { t } = useI18n();
 
-const isMobile = ref(false);
+const isMobile = useMediaQuery('(width < 768px)');
 
 const items = ref([
   {
@@ -92,17 +94,4 @@ const items = ref([
     image: SylviaRender,
   },
 ] satisfies TabsItem[]);
-
-const checkMobile = () => {
-  isMobile.value = window.innerWidth < 768;
-};
-
-onMounted(() => {
-  checkMobile();
-  window.addEventListener('resize', checkMobile);
-});
-
-onUnmounted(() => {
-  window.removeEventListener('resize', checkMobile);
-});
 </script>

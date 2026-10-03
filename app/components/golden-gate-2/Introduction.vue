@@ -7,11 +7,15 @@
   >
     <div class="container mx-auto max-w-5xl pt-8 pb-12 relative z-10">
       <div class="logo-container">
-        <img
+        <NuxtImg
           class="logo-image"
           :src="logoSrc"
           alt="Golden Gate 2 logo"
+          v-bind="logoDimensions.goldenGate2[locale]"
+          sizes="280px 481:600px"
+          densities="x1 x2"
           fetchpriority="high"
+          :preload="{ fetchPriority: 'high' }"
           @contextmenu.prevent
         />
       </div>
@@ -42,10 +46,15 @@
             target="_blank"
             class="download-btn"
           >
-            <img
+            <NuxtImg
               class="download-icon"
-              src="/assets/img/moddb-logo.png"
+              src="moddb-logo.png"
               alt="ModDB"
+              format="webp"
+              width="2048"
+              height="901"
+              sizes="64px"
+              densities="x1 x2"
               @contextmenu.prevent
             />
             <span>ModDB</span>
@@ -72,6 +81,7 @@
 <script setup lang="ts">
 import SteamIconLogo from '~/assets/img/steam-icon-logo.svg';
 import ModPros from '~/components/golden-gate-2/ModPros.vue';
+import { logoDimensions } from '~/utils/logoDimensions';
 
 const { locale, t } = useI18n();
 
@@ -163,12 +173,15 @@ const logoSrc = computed(() => `/gg2-logo-${locale.value}.webp`);
 }
 
 .logo-container {
+  width: 100%;
+  max-width: 600px;
   text-align: center;
 
   .logo-image {
     width: 100%;
     max-width: 600px;
     height: auto;
+    margin-inline: auto;
     border-radius: 0.75rem;
     filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.4));
   }

@@ -24,17 +24,22 @@
 </template>
 
 <script setup lang="ts">
-import * as locales from '@nuxt/ui/locale';
-
 const { locale, setLocale, availableLocales } = useI18n();
 
 type AppLocale = (typeof availableLocales)[number];
 
 const open = ref(false);
-const isMobile = ref(false);
+const isMobile = useMediaQuery('(max-width: 768px)');
+
+const localeNames: Record<AppLocale, string> = {
+  pl: 'Polski',
+  en: 'English',
+  de: 'Deutsch',
+  it: 'Italiano',
+};
 
 const appLocales = computed(() =>
-  availableLocales.map((code) => ({ code, name: locales[code].name })),
+  availableLocales.map((code) => ({ code, name: localeNames[code] })),
 );
 
 const currentLanguageName = computed(
@@ -65,19 +70,6 @@ const selectLanguage = async (code: AppLocale) => {
   await setLocale(code);
   open.value = false;
 };
-
-const checkMobile = () => {
-  isMobile.value = window.innerWidth <= 768;
-};
-
-onMounted(() => {
-  checkMobile();
-  window.addEventListener('resize', checkMobile);
-});
-
-onBeforeUnmount(() => {
-  window.removeEventListener('resize', checkMobile);
-});
 
 defineShortcuts({ o: () => (open.value = !open.value) });
 </script>

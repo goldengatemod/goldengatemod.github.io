@@ -22,17 +22,21 @@
           class="relative z-10 flex flex-col items-center justify-center gap-6 max-w-2xl mx-auto"
         >
           <!-- Logo with enhanced interactions -->
-          <div class="logo-container relative">
+          <div class="logo-container relative w-full max-w-xl">
             <NuxtLinkLocale
               to="/golden-gate"
               class="block transform transition-all duration-500 hover:scale-105 focus:scale-105 focus:outline-none focus-visible:ring-4 focus-visible:ring-yellow-400/50 rounded-lg"
               :aria-label="t('navigation.goldenGate')"
             >
-              <img
+              <NuxtImg
                 class="w-full max-w-xl h-auto mx-auto golden-gate-logo drop-shadow-2xl"
                 :src="logoGG"
                 alt="Golden Gate logo"
+                v-bind="logoDimensions.goldenGate[locale]"
+                sizes="100vw sm:576px"
+                densities="x1 x2"
                 fetchpriority="high"
+                :preload="{ fetchPriority: 'high' }"
                 @contextmenu.prevent
               />
             </NuxtLinkLocale>
@@ -110,16 +114,19 @@
           class="relative z-10 flex flex-col items-center justify-center gap-6 max-w-2xl mx-auto"
         >
           <!-- Logo with enhanced interactions -->
-          <div class="logo-container relative">
+          <div class="logo-container relative w-full max-w-xl">
             <NuxtLinkLocale
               to="/golden-gate-2"
               class="block transform transition-all duration-500 hover:scale-105 focus:scale-105 focus:outline-none focus-visible:ring-4 focus-visible:ring-red-400/50 rounded-lg"
               :aria-label="t('navigation.goldenGate2')"
             >
-              <img
+              <NuxtImg
                 class="w-full max-w-xl h-auto mx-auto golden-gate-2-logo drop-shadow-2xl"
                 :src="logoGG2"
                 alt="Golden Gate 2 logo"
+                v-bind="logoDimensions.goldenGate2[locale]"
+                sizes="100vw sm:576px"
+                densities="x1 x2"
                 fetchpriority="high"
                 @contextmenu.prevent
               />
@@ -173,6 +180,8 @@
 </template>
 
 <script setup lang="ts">
+import { logoDimensions } from '~/utils/logoDimensions';
+
 const { locale, t } = useI18n();
 
 const logoGG = computed(() => `/gg-logo-${locale.value}.webp`);

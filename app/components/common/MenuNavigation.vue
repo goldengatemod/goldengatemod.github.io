@@ -27,6 +27,8 @@
           <img
             src="/gg-icon-96.webp"
             alt="Golden Gate logo icon"
+            width="96"
+            height="96"
             fetchpriority="high"
             @contextmenu.prevent
           />
@@ -61,6 +63,8 @@
         <img
           src="/gg-icon-96.webp"
           alt="Golden Gate logo icon"
+          width="96"
+          height="96"
           fetchpriority="high"
           @contextmenu.prevent
         />
@@ -101,6 +105,8 @@ interface MenuItem {
 const route = useRoute();
 
 const mobileMenuOpen = ref(false);
+const isDesktop = useMediaQuery('(min-width: 768px)');
+let previousOverflow = '';
 
 const items = ref<MenuItem[]>([
   {
@@ -127,15 +133,17 @@ const getLabel = (label: unknown): string => {
 const toggleMobileMenu = () => {
   mobileMenuOpen.value = !mobileMenuOpen.value;
   if (mobileMenuOpen.value) {
+    previousOverflow = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
   } else {
-    document.body.style.overflow = '';
+    document.body.style.overflow = previousOverflow;
   }
 };
 
 const closeMobileMenu = () => {
+  if (!mobileMenuOpen.value) return;
   mobileMenuOpen.value = false;
-  document.body.style.overflow = '';
+  document.body.style.overflow = previousOverflow;
 };
 
 const handleEscape = (e: KeyboardEvent) => {
@@ -150,7 +158,7 @@ onMounted(() => {
 
 onUnmounted(() => {
   document.removeEventListener('keydown', handleEscape);
-  document.body.style.overflow = '';
+  closeMobileMenu();
 });
 
 watch(
@@ -159,6 +167,10 @@ watch(
     closeMobileMenu();
   },
 );
+
+watch(isDesktop, (desktop) => {
+  if (desktop) closeMobileMenu();
+});
 </script>
 
 <style lang="scss" scoped>

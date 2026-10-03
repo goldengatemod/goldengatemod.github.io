@@ -2,120 +2,40 @@
   <main>
     <Introduction />
 
-    <Suspense>
-      <template #default>
-        <div>
-          <div class="container mx-auto max-w-5xl">
-            <SectionDivider />
-            <LoreSection />
-            <SectionDivider />
-            <LocationsSection />
-            <SectionDivider />
-            <NpcsSection />
-            <SectionDivider />
-            <QuestsSection />
-            <SectionDivider />
-            <HeroSection />
-            <SectionDivider />
-            <SoundtrackSection />
-            <SectionDivider />
-            <DubbingSection />
-            <SectionDivider />
-            <MechanicsSection />
-            <SectionDivider />
-            <VisualsSection />
-            <SectionDivider />
-            <FAQ />
-            <SectionDivider />
-          </div>
-          <PreviewGallery />
-        </div>
-      </template>
-      <template #fallback>
-        <div class="loading-placeholder">
-          <p>{{ t('common.loading') }}</p>
-        </div>
-      </template>
-    </Suspense>
+    <div>
+      <div class="container mx-auto max-w-5xl">
+        <SectionDivider />
+        <GoldenGate2LoreSection />
+        <SectionDivider />
+        <GoldenGate2LocationsSection />
+        <SectionDivider />
+        <GoldenGate2NpcsSection />
+        <SectionDivider />
+        <LazyGoldenGate2QuestsSection hydrate-on-visible />
+        <SectionDivider />
+        <LazyGoldenGate2HeroSection hydrate-on-visible />
+        <SectionDivider />
+        <GoldenGate2SoundtrackSection />
+        <SectionDivider />
+        <GoldenGate2DubbingSection />
+        <SectionDivider />
+        <GoldenGate2MechanicsSection />
+        <SectionDivider />
+        <LazyGoldenGate2VisualsSection hydrate-on-visible />
+        <SectionDivider />
+        <GoldenGate2FAQ />
+        <SectionDivider />
+      </div>
+      <GoldenGate2PreviewGallery />
+    </div>
   </main>
 </template>
 
 <script setup lang="ts">
+import SectionDivider from '~/components/common/SectionDivider.vue';
 import Introduction from '~/components/golden-gate-2/Introduction.vue';
 
 const { t } = useI18n();
-
-const SectionDivider = defineAsyncComponent({
-  loader: () => import('~/components/common/SectionDivider.vue'),
-  delay: 200,
-  timeout: 10000,
-});
-
-const LoreSection = defineAsyncComponent({
-  loader: () => import('~/components/golden-gate-2/LoreSection.vue'),
-  delay: 200,
-  timeout: 10000,
-});
-
-const LocationsSection = defineAsyncComponent({
-  loader: () => import('~/components/golden-gate-2/LocationsSection.vue'),
-  delay: 200,
-  timeout: 10000,
-});
-
-const NpcsSection = defineAsyncComponent({
-  loader: () => import('~/components/golden-gate-2/NpcsSection.vue'),
-  delay: 200,
-  timeout: 10000,
-});
-
-const QuestsSection = defineAsyncComponent({
-  loader: () => import('~/components/golden-gate-2/QuestsSection.vue'),
-  delay: 200,
-  timeout: 10000,
-});
-
-const HeroSection = defineAsyncComponent({
-  loader: () => import('~/components/golden-gate-2/HeroSection.vue'),
-  delay: 200,
-  timeout: 10000,
-});
-
-const SoundtrackSection = defineAsyncComponent({
-  loader: () => import('~/components/golden-gate-2/SoundtrackSection.vue'),
-  delay: 200,
-  timeout: 10000,
-});
-
-const DubbingSection = defineAsyncComponent({
-  loader: () => import('~/components/golden-gate-2/DubbingSection.vue'),
-  delay: 200,
-  timeout: 10000,
-});
-
-const MechanicsSection = defineAsyncComponent({
-  loader: () => import('~/components/golden-gate-2/MechanicsSection.vue'),
-  delay: 200,
-  timeout: 10000,
-});
-
-const VisualsSection = defineAsyncComponent({
-  loader: () => import('~/components/golden-gate-2/VisualsSection.vue'),
-  delay: 200,
-  timeout: 10000,
-});
-
-const FAQ = defineAsyncComponent({
-  loader: () => import('~/components/golden-gate-2/FAQ.vue'),
-  delay: 200,
-  timeout: 10000,
-});
-
-const PreviewGallery = defineAsyncComponent({
-  loader: () => import('~/components/golden-gate-2/PreviewGallery.vue'),
-  delay: 200,
-  timeout: 10000,
-});
 
 useHead({
   title: computed(() => `${t('navigation.goldenGate2')}`),

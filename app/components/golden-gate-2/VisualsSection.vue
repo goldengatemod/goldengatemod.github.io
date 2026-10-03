@@ -6,8 +6,13 @@
         <NuxtImg
           src="golden-gate-2/preview/gg2-preview-06-thumbnail.webp"
           alt="Morris and Sara"
+          width="1920"
+          height="1080"
+          sizes="100vw sm:672px"
+          densities="x1 x2"
           class="w-full max-w-2xl h-auto mx-4 md:mx-auto rounded-xl"
-          lazy
+          loading="lazy"
+          decoding="async"
           @contextmenu.prevent
         />
       </div>

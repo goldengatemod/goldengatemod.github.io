@@ -8,7 +8,12 @@
           class="w-full max-w-2xl h-auto mx-4 md:mx-auto rounded-xl"
           src="golden-gate-2/preview/gg2-preview-01-thumbnail.webp"
           alt="Morris in trouble"
-          lazy
+          width="1920"
+          height="1080"
+          sizes="100vw sm:672px"
+          densities="x1 x2"
+          loading="lazy"
+          decoding="async"
           @contextmenu.prevent
         />
       </div>

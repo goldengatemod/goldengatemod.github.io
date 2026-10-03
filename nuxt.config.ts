@@ -1,40 +1,25 @@
 import { loadLocales } from './i18n/utils/loadLocales';
+import { fileURLToPath } from 'node:url';
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
-  hooks: {},
+  hooks: {
+    'build:manifest': (manifest) => {
+      // Load deferred chunks on demand; CSS and srcset select image variants.
+      for (const asset of Object.values(manifest)) {
+        if (asset.resourceType === 'image' || asset.resourceType === 'script') {
+          asset.prefetch = false;
+        }
+      }
+    },
+  },
   nitro: {
     preset: 'static',
     compressPublicAssets: true,
     minify: true,
-    publicAssets: [
-      {
-        maxAge: 60 * 60 * 24 * 30,
-      },
-    ],
     routeRules: {
       '/': { prerender: true },
-      '/_ipx/q_80/**': {
-        headers: {
-          'cache-control': 'public, max-age=31536000, immutable',
-        },
-      },
-      '/_fonts/**': {
-        headers: {
-          'cache-control': 'public, max-age=31536000, immutable',
-        },
-      },
-      '/*.webp': {
-        headers: {
-          'cache-control': 'public, max-age=31536000, immutable',
-        },
-      },
-      '/**': {
-        headers: {
-          'cache-control': 'public, max-age=3600, must-revalidate',
-        },
-      },
     },
   },
   app: {
@@ -45,6 +30,11 @@ export default defineNuxtConfig({
     },
   },
   css: ['~/assets/css/main.css'],
+  ui: {
+    experimental: {
+      componentDetection: true,
+    },
+  },
   devtools: { enabled: true },
   modules: [
     'nuxt-svgo',
@@ -86,8 +76,11 @@ export default defineNuxtConfig({
       '2xl': 1536,
     },
     dir: 'assets/img',
-    ipx: {
-      maxAge: 31536000,
+    dirs: [fileURLToPath(new URL('./public', import.meta.url))],
+  },
+  icon: {
+    clientBundle: {
+      scan: true,
     },
   },
   ogImage: { zeroRuntime: true },
