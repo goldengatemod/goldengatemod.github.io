@@ -5,7 +5,7 @@
 
       <div class="flex justify-center">
         <NuxtImg
-          class="w-full max-w-2xl h-auto mx-4 md:mx-auto rounded-xl"
+          class="w-full max-w-2xl h-auto rounded-xl"
           src="golden-gate-2/preview/gg2-preview-01-thumbnail.webp"
           alt="Morris in trouble"
           width="1920"
@@ -18,7 +18,7 @@
         />
       </div>
 
-      <div class="mt-10 text-gray-200 text-base md:text-lg mx-4 md:mx-auto">
+      <div class="gg-media-gap gg-copy">
         <p v-for="i in 4" :key="i" :class="{ 'mb-3': i < 4 }">
           {{ t(`goldenGate2.hero.description.${i - 1}`) }}
         </p>
@@ -37,8 +37,6 @@ const { t } = useI18n();
 img {
   position: relative;
   overflow: hidden;
-  box-shadow:
-    0 20px 25px -5px rgba(0, 0, 0, 0.3),
-    0 10px 10px -5px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--gg-shadow-media);
 }
 </style>

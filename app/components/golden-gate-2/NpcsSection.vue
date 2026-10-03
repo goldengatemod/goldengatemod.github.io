@@ -3,7 +3,7 @@
     <div class="mx-auto">
       <SectionHeader title="goldenGate2.npcs.title" />
 
-      <div class="text-gray-200 text-base md:text-lg mb-3 mx-4 md:mx-auto">
+      <div class="gg-copy mb-3">
         <p v-for="i in 2" :key="i" :class="{ 'mb-3': i < 2 }">
           {{ t(`goldenGate2.npcs.description.${i - 1}`) }}
         </p>
@@ -11,11 +11,12 @@
 
       <UTabs
         :orientation="isMobile ? 'horizontal' : 'vertical'"
-        color="error"
+        color="primary"
         variant="link"
         size="xl"
         :items="items"
-        class="w-full px-4 md:px-0"
+        class="gg-accent-red w-full"
+        :ui="{ list: 'max-w-full border-(--gg-section-border)' }"
       >
         <template #content="{ item }">
           <div
@@ -36,13 +37,11 @@
             </div>
             <div>
               <h3
-                class="px-4 md:px-0 text-2xl md:text-3xl font-bebas-neue mb-4"
+                class="text-2xl md:text-3xl font-bebas-neue text-highlighted mb-4"
               >
                 {{ item.label }}
               </h3>
-              <p
-                class="px-4 md:px-0 text-gray-200 md:text-lg md:leading-relaxed"
-              >
+              <p class="gg-copy">
                 {{ t(item.content ?? '') }}
               </p>
             </div>

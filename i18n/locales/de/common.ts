@@ -1,5 +1,11 @@
 export default {
   common: {
+    gallery: 'Galerie',
+    features: 'Spielmerkmale',
+    navigation: 'Navigation',
+    openMenu: 'Navigationsmenü öffnen',
+    closeMenu: 'Navigationsmenü schließen',
+    language: 'Sprache auswählen',
     learnMore: 'Mehr erfahren',
     allRightsReserved: 'Alle Rechte vorbehalten',
     website: 'Webseite',

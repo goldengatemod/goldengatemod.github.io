@@ -3,7 +3,7 @@
     <div class="container mx-auto">
       <SectionHeader title="goldenGate2.mechanics.title" />
 
-      <p class="text-gray-200 text-base md:text-lg mx-4 md:mx-auto">
+      <p class="gg-copy">
         {{ t('goldenGate2.mechanics.description') }}
       </p>
 
@@ -15,13 +15,13 @@
         >
           <UIcon
             name="i-lucide-check-circle"
-            class="w-5 h-5 text-error shrink-0 mt-0.5"
+            class="w-5 h-5 text-(--gg-red) shrink-0 mt-0.5"
           />
           <span>{{ t(`goldenGate2.mechanics.list.${i - 1}`) }}</span>
         </li>
       </ul>
 
-      <div class="flex justify-center mt-10">
+      <div class="flex justify-center gg-media-gap">
         <IframeWrapper
           src="https://www.youtube.com/embed/wx3JItpg8ps?si=fGNPwi6wi21BmohG"
         />

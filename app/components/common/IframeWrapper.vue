@@ -1,5 +1,5 @@
 <template>
-  <div class="responsive-iframe mx-4 sm:mx-auto">
+  <div class="responsive-iframe mx-auto">
     <button
       v-if="!isIframeLoaded"
       class="youtube-facade"
@@ -45,7 +45,6 @@
       "
       referrerpolicy="strict-origin-when-cross-origin"
       allowfullscreen
-      style="box-shadow: 4px 5px 5px rgba(0, 0, 0, 0.3)"
       width="672"
       height="378"
       fetchpriority="low"
@@ -97,18 +96,17 @@ watch(
 <style lang="scss" scoped>
 .responsive-iframe {
   aspect-ratio: 16 / 9;
-  width: calc(100% - 2rem);
+  width: 100%;
   max-width: 672px;
   contain: layout style paint;
   position: relative;
-  border-radius: 12px;
+  border-radius: var(--gg-radius-panel);
   overflow: hidden;
-  box-shadow:
-    0 20px 25px -5px rgba(0, 0, 0, 0.3),
-    0 10px 10px -5px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--gg-shadow-media);
 }
 
 .responsive-iframe iframe {
+  box-shadow: 4px 5px 5px rgba(0, 0, 0, 0.3);
   width: 100%;
   height: 100%;
   border: 0;
@@ -140,6 +138,11 @@ watch(
     transition: background 0.2s ease;
   }
 
+  &:focus-visible {
+    outline-offset: -4px;
+    z-index: 3;
+  }
+
   &:hover .play-button {
     transform: scale(1.05);
   }
@@ -156,7 +159,9 @@ watch(
   border-radius: 25%;
   padding: 18px 22px;
   color: #fff;
-  transition: all 0.2s ease;
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
 
   svg {
     display: block;
@@ -188,5 +193,15 @@ watch(
   font-size: 14px;
   font-weight: 600;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+@media (prefers-reduced-motion: reduce) {
+  .play-button,
+  .youtube-facade::before {
+    transition: none;
+  }
+
+  .youtube-facade:hover .play-button {
+    transform: none;
+  }
 }
 </style>

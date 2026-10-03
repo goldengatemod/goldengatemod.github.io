@@ -11,7 +11,7 @@
         />
       </div>
 
-      <div class="mt-10 text-gray-200 text-base md:text-lg mx-4 md:mx-auto">
+      <div class="gg-media-gap gg-copy">
         <p v-for="i in 4" :key="i" :class="{ 'mb-3': i < 4 }">
           {{ t(`goldenGate2.lore.description.${i - 1}`) }}
         </p>

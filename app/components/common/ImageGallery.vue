@@ -1,9 +1,10 @@
 <template>
   <section id="gallery">
+    <h2 class="sr-only">{{ t('common.gallery') }}</h2>
     <div class="container mx-auto max-w-screen-2xl">
       <div
         v-if="images && images.length"
-        class="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mx-auto pb-10 px-4 md:px-auto"
+        class="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mx-auto pb-10 px-4"
       >
         <button
           v-for="(image, index) of images"
@@ -32,6 +33,7 @@
     <UModal
       v-model:open="isOpen"
       fullscreen
+      :title="t('common.gallery')"
       :ui="{
         content: 'bg-black/75',
         header: 'border-none',
@@ -117,6 +119,7 @@ interface Props {
   images?: GalleryImage[];
 }
 
+const { t } = useI18n();
 const props = defineProps<Props>();
 const images = computed(() => props.images ?? []);
 
@@ -214,9 +217,14 @@ onUnmounted(() => {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  * {
-    transition: none !important;
-    animation: none !important;
+  .gallery-item,
+  .gallery-thumbnail {
+    transition: none;
+  }
+
+  .gallery-item:hover,
+  .gallery-item:active {
+    transform: none;
   }
 }
 </style>

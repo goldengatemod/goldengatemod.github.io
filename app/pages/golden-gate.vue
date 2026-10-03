@@ -1,9 +1,12 @@
 <template>
-  <main class="golden-gate-page pb-0!">
+  <main class="golden-gate-page gg-page-gold">
+    <h1 id="introduction-title" class="sr-only">
+      {{ t('navigation.goldenGate') }}
+    </h1>
     <Introduction />
 
     <div>
-      <div class="container mx-auto max-w-5xl">
+      <div class="gg-content">
         <SectionDivider />
         <GoldenGateIntroSection />
         <SectionDivider />
@@ -32,86 +35,8 @@ useHead({
 
 <style lang="scss" scoped>
 main {
-  background: linear-gradient(180deg, #190c06 0%, #0f0804 100%);
+  background: var(--gg-gradient);
   contain: layout style paint;
   will-change: scroll-position;
-}
-
-.intro-overlay {
-  position: relative;
-  z-index: 2;
-}
-
-.gallery-section {
-  position: relative;
-  z-index: 2;
-  background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.1));
-}
-
-:deep(.gg-icon) {
-  fill: var(--color-amber-400) !important;
-  filter: drop-shadow(0 4px 8px rgba(219, 184, 119, 0.3)) !important;
-}
-
-:deep(.gg-header-text) {
-  color: var(--color-amber-400) !important;
-}
-
-:deep(.gg-divider > div) {
-  border-color: rgba(245, 158, 11, 0.3) !important;
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.video-section,
-.section-spacing {
-  animation: fadeInUp 0.8s ease-out forwards;
-}
-
-@media (max-width: 768px) {
-  .video-section,
-  .section-spacing {
-    animation-duration: 0.4s;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
-
-  .golden-gate-page {
-    background-attachment: scroll !important;
-  }
-
-  .intro-overlay {
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
-  }
-}
-
-@media (prefers-contrast: high) {
-  .golden-gate-page {
-    background-image:
-      linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
-      url('~/assets/img/golden-gate/gg-background-lg.webp');
-  }
-}
-
-@media (max-width: 375px) {
-  .golden-gate-page {
-    background-position: center top;
-  }
 }
 </style>

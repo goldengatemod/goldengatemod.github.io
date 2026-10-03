@@ -1,13 +1,13 @@
 <template>
-  <section id="locations">
+  <section id="patch">
     <div class="container mx-auto">
       <SectionHeader title="Patch 1.2" />
 
-      <p class="text-gray-200 text-base md:text-lg mx-4 md:mx-auto">
+      <p class="gg-copy">
         {{ t('goldenGate.patch12.description.0') }}
       </p>
 
-      <ul class="mt-6 space-y-3 list-none text-base md:text-lg mx-4 md:mx-auto">
+      <ul class="mt-6 space-y-3 list-none text-base md:text-lg">
         <li
           v-for="i in 7"
           :key="`changes-${i}`"
@@ -21,12 +21,12 @@
         </li>
       </ul>
 
-      <p class="text-gray-200 text-base md:text-lg mx-4 md:mx-auto mt-6">
+      <p class="gg-copy mt-6">
         {{ t('goldenGate.patch12.description.1') }}
       </p>
     </div>
 
-    <div class="flex justify-center mt-10">
+    <div class="flex justify-center gg-media-gap">
       <IframeWrapper
         src="https://www.youtube.com/embed/ZOpE6UlLHPE?si=XWdHI9igJEXbDVdO"
       />

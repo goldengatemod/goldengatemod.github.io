@@ -4,10 +4,10 @@
       <SectionHeader title="Dubbing" />
     </div>
     <div class="container mx-auto">
-      <p class="text-gray-200 text-base md:text-lg mx-4 sm:mx-auto">
+      <p class="gg-copy">
         {{ t('goldenGate2.dubbing') }}
       </p>
-      <div class="flex justify-center mt-10">
+      <div class="flex justify-center gg-media-gap">
         <IframeWrapper
           src="https://www.youtube.com/embed/4Cft9E1ttHA?si=jpXcmFrgNB9kPLpF"
         />

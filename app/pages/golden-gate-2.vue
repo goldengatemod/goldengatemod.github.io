@@ -1,9 +1,12 @@
 <template>
   <main>
+    <h1 id="introduction-title" class="sr-only">
+      {{ t('navigation.goldenGate2') }}
+    </h1>
     <Introduction />
 
     <div>
-      <div class="container mx-auto max-w-5xl">
+      <div class="gg-content">
         <SectionDivider />
         <GoldenGate2LoreSection />
         <SectionDivider />
@@ -63,10 +66,6 @@ main {
   contain: layout style paint;
   will-change: scroll-position;
 
-  @container (max-width: 1024px) {
-    background-image: var(--bg-overlay), var(--bg-image-md);
-  }
-
   @media (max-width: 1024px) {
     background-image: var(--bg-overlay), var(--bg-image-md);
   }
@@ -84,10 +83,5 @@ main {
   @media (prefers-reduced-motion: reduce) {
     background-attachment: scroll;
   }
-}
-
-:deep(.gg-icon) {
-  fill: white;
-  filter: drop-shadow(0 4px 8px rgba(255, 255, 255, 0.3));
 }
 </style>

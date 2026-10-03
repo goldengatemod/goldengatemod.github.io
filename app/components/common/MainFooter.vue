@@ -18,7 +18,7 @@
             <p class="text-amber-200/70 font-bebas-neue text-lg tracking-wide">
               Copyright &copy; 2007-{{ currentYear }} Golden Gate Team
             </p>
-            <p class="text-amber-200/50 text-sm font-medium mt-1">
+            <p class="text-(--gg-text-muted) text-sm font-medium mt-1">
               {{ t('common.allRightsReserved') }}.
             </p>
           </div>
@@ -77,11 +77,11 @@
             class="flex flex-col items-center gap-4 order-1 lg:order-3 lg:justify-self-end max-w-full"
           >
             <!-- Social Media -->
-            <div class="flex flex-wrap justify-center gap-3">
+            <div class="flex flex-wrap justify-center gap-2">
               <!-- Facebook -->
               <a
                 href="https://www.facebook.com/zlotewrotamod"
-                class="group flex flex-col items-center gap-2 p-3 rounded-lg bg-amber-900/20 hover:bg-amber-900/40 transition-all duration-300 hover:scale-105"
+                class="group flex flex-col items-center gap-2 p-2 rounded-lg bg-amber-900/20 hover:bg-amber-900/40 transition-[background-color,transform] duration-300 hover:scale-105"
                 aria-label="Facebook"
               >
                 <Icon
@@ -98,7 +98,7 @@
               <!-- YouTube -->
               <a
                 href="https://www.youtube.com/@ZloteWrotaTeam"
-                class="group flex flex-col items-center gap-2 p-3 rounded-lg bg-amber-900/20 hover:bg-amber-900/40 transition-all duration-300 hover:scale-105"
+                class="group flex flex-col items-center gap-2 p-2 rounded-lg bg-amber-900/20 hover:bg-amber-900/40 transition-[background-color,transform] duration-300 hover:scale-105"
                 aria-label="YouTube"
               >
                 <Icon
@@ -115,7 +115,7 @@
               <!-- Discord -->
               <a
                 href="https://discord.gg/rP2ZKy7pP8"
-                class="group flex flex-col items-center gap-2 p-3 rounded-lg bg-amber-900/20 hover:bg-amber-900/40 transition-all duration-300 hover:scale-105"
+                class="group flex flex-col items-center gap-2 p-2 rounded-lg bg-amber-900/20 hover:bg-amber-900/40 transition-[background-color,transform] duration-300 hover:scale-105"
                 aria-label="Discord"
               >
                 <Icon
@@ -132,7 +132,7 @@
               <!-- ModDB -->
               <a
                 href="https://www.moddb.com/company/golden-gate-team"
-                class="group flex flex-col items-center gap-2 p-3 rounded-lg bg-amber-900/20 hover:bg-amber-900/40 transition-all duration-300 hover:scale-105"
+                class="group flex flex-col items-center gap-2 p-2 rounded-lg bg-amber-900/20 hover:bg-amber-900/40 transition-[background-color,transform] duration-300 hover:scale-105"
                 aria-label="ModDB"
               >
                 <Icon
@@ -151,7 +151,7 @@
 
         <!-- Author / Translators Section - Center bottom -->
         <div class="text-center pt-6">
-          <p class="text-amber-200/50 text-sm">
+          <p class="text-(--gg-text-muted) text-sm">
             {{ t('common.website') }}
           </p>
           <p
@@ -162,7 +162,7 @@
 
           <!-- Translation credits -->
           <div v-if="translatorName" class="mt-4">
-            <p class="text-amber-200/50 text-sm">
+            <p class="text-(--gg-text-muted) text-sm">
               {{ t('common.translation') }}
             </p>
             <p
@@ -194,41 +194,14 @@ const translatorName = computed(() => translators[locale.value] || '');
 <style lang="scss" scoped>
 .consistent-footer {
   position: relative;
-  background: linear-gradient(180deg, #190c06 0%, #0f0804 100%);
-  border-top: 1px solid rgba(245, 158, 11, 0.3);
+  background: var(--gg-gradient);
+  border-top: 1px solid var(--gg-gold-border);
   border-radius: 8px 8px 0 0;
-  transition: all 0.3s ease;
+  transition: border-color 0.3s ease;
 }
 
 .consistent-footer:hover {
-  border-top-color: rgba(245, 158, 11, 0.5);
-}
-
-@media (max-width: 640px) {
-  .consistent-footer .flex.gap-3 {
-    gap: 0.5rem;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .consistent-footer .group {
-    padding: 0.75rem 0.5rem;
-    min-width: 75px;
-  }
-
-  .consistent-footer .group i {
-    font-size: 1rem;
-  }
-
-  .consistent-footer .group span {
-    font-size: 0.625rem;
-    line-height: 1;
-  }
-
-  .consistent-footer .inline-flex {
-    padding: 0.5rem 0.75rem;
-    font-size: 0.75rem;
-  }
+  border-top-color: var(--gg-gold-border-hover);
 }
 
 .group:hover {
@@ -239,6 +212,9 @@ const translatorName = computed(() => translators[locale.value] || '');
   .group:hover,
   .consistent-footer {
     transform: none;
+    /* Reset Tailwind scale variables; CSS minification can lower scale: none. */
+    --tw-scale-x: 1;
+    --tw-scale-y: 1;
     transition: none;
   }
 }
@@ -246,6 +222,6 @@ const translatorName = computed(() => translators[locale.value] || '');
 .group:focus {
   outline: 2px solid #f59e0b;
   outline-offset: 2px;
-  border-radius: 8px;
+  border-radius: var(--gg-radius-control);
 }
 </style>

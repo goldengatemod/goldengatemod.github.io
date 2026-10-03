@@ -1,5 +1,6 @@
 <template>
-  <main class="golden-gate-page">
+  <main class="golden-gate-page gg-page-gold">
+    <h1 class="sr-only">{{ t('navigation.team') }}</h1>
     <TeamMembersList />
   </main>
 </template>
@@ -16,7 +17,7 @@ useHead({ title });
 .golden-gate-page {
   min-height: 100vh;
   position: relative;
-  background: linear-gradient(180deg, #190c06 0%, #0f0804 100%);
+  background: var(--gg-gradient);
   background-image:
     linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url('~/assets/img/golden-gate/gg-background-lg.webp');
@@ -24,9 +25,6 @@ useHead({ title });
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
-
-  image-rendering: -webkit-optimize-contrast;
-  image-rendering: crisp-edges;
 
   @media (max-width: 1024px) {
     background-image:
@@ -58,12 +56,6 @@ useHead({ title });
 }
 
 @media (prefers-reduced-motion: reduce) {
-  * {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
-
   .golden-gate-page {
     background-attachment: scroll;
   }

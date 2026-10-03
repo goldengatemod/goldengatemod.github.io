@@ -1,32 +1,30 @@
 <template>
-  <div class="container mx-auto max-w-5xl py-6">
+  <div class="gg-content py-6">
     <SectionDivider class="active-member-divider" />
 
     <!-- Active Members Section -->
     <div class="container mx-auto mb-8">
-      <SectionHeader text-class="!text-amber-400" title="Golden Gate Team" />
+      <SectionHeader title="Golden Gate Team" />
       <p
-        class="text-center text-gray-300 text-base font-medium mb-6 max-w-2xl mx-4 sm:mx-auto"
+        class="text-center text-gray-300 text-base font-medium mb-6 max-w-2xl mx-auto"
       >
         {{ t('team.goldenGateTeam.description') }}
       </p>
     </div>
 
     <div
-      class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mx-4 sm:mx-0"
+      class="grid grid-cols-[repeat(auto-fit,minmax(min(100%,15rem),1fr))] gap-4 mx-auto"
     >
       <div
         v-for="(member, index) in activeMembers"
         :key="`member-${index}`"
-        class="group p-4 rounded-lg bg-linear-to-br from-amber-900/20 to-amber-800/10 border border-amber-800/30 hover:border-amber-600/50 transition-all duration-300 hover:shadow-lg hover:shadow-amber-900/20"
+        class="group p-4 rounded-lg bg-linear-to-br from-amber-900/20 to-amber-800/10 border border-amber-800/30 hover:border-amber-600/50 transition-[border-color,box-shadow] duration-300 hover:shadow-lg hover:shadow-amber-900/20"
       >
         <div class="flex items-start gap-3">
           <div
             class="w-10 h-10 rounded-full bg-amber-500/25 flex items-center justify-center shrink-0 group-hover:bg-amber-500/35 transition-colors duration-300 border border-amber-600/30"
           >
-            <span
-              class="text-amber-300 font-bebas-neue text-lg font-bold drop-shadow-sm"
-            >
+            <span class="text-amber-300 font-bebas-neue text-lg drop-shadow-sm">
               {{ member.nick ? member.nick.charAt(0).toUpperCase() : '?' }}
             </span>
           </div>
@@ -42,7 +40,7 @@
                   ? member.roles
                   : []"
                 :key="roleIndex"
-                class="inline-block px-2 py-1 text-xs bg-amber-800/40 text-amber-200 rounded-full border border-amber-700/50"
+                class="inline-block max-w-full [overflow-wrap:anywhere] px-2 py-1 text-xs bg-amber-800/40 text-amber-200 rounded-full border border-amber-700/50"
               >
                 {{ capitalize(translateRole(role)) }}
               </span>
@@ -57,23 +55,23 @@
     <!-- Former Members Section -->
     <div class="container mx-auto mb-8">
       <SectionHeader
-        text-class="!text-amber-200"
+        text-class="text-amber-200"
         title="team.formerMembers.title"
       />
       <p
-        class="text-center text-gray-400 text-base font-medium mb-6 max-w-2xl mx-4 lg:mx-auto"
+        class="text-center text-(--gg-text-muted) text-base font-medium mb-6 max-w-2xl mx-auto"
       >
         {{ t('team.formerMembers.description') }}
       </p>
     </div>
 
     <div
-      class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mx-4 lg:mx-0"
+      class="grid grid-cols-[repeat(auto-fit,minmax(min(100%,15rem),1fr))] gap-4 mx-auto"
     >
       <div
         v-for="(member, memberIndex) in inactiveMembers"
         :key="`exmember-${memberIndex}`"
-        class="group p-4 rounded-lg bg-linear-to-br from-gray-800/20 to-gray-700/10 border border-gray-700/30 hover:border-amber-200/30 transition-all duration-300"
+        class="group p-4 rounded-lg bg-linear-to-br from-gray-800/20 to-gray-700/10 border border-gray-700/30 hover:border-amber-200/30 transition-[border-color,box-shadow] duration-300"
       >
         <div class="flex items-start gap-2">
           <div
@@ -95,7 +93,7 @@
                   ? member.roles
                   : []"
                 :key="`${member.nick}-role-${roleIndex}`"
-                class="inline-block px-2 py-0.5 text-xs bg-gray-700/40 text-gray-300 rounded-full border border-gray-600/50"
+                class="inline-block max-w-full [overflow-wrap:anywhere] px-2 py-0.5 text-xs bg-gray-700/40 text-gray-300 rounded-full border border-gray-600/50"
               >
                 {{ capitalize(translateRole(role)) }}
               </span>
@@ -107,7 +105,7 @@
 
     <!-- Statistics Section -->
     <div
-      class="mt-12 p-6 rounded-xl bg-linear-to-r from-amber-900/20 to-amber-800/10 border border-amber-800/30 mx-4 lg:mx-0"
+      class="mt-12 p-6 rounded-xl bg-linear-to-r from-amber-900/20 to-amber-800/10 border border-amber-800/30 mx-auto"
     >
       <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
         <div class="space-y-2">
@@ -122,7 +120,7 @@
           <div class="text-2xl font-bebas-neue text-amber-200">
             {{ inactiveMembers.length }}
           </div>
-          <div class="text-sm text-gray-400 font-medium">
+          <div class="text-sm text-(--gg-text-muted) font-medium">
             {{ t('team.summary.formerMembers') }}
           </div>
         </div>
@@ -273,16 +271,11 @@ const inactiveMembers = computed(() =>
 );
 </script>
 
-<style lang="scss" scoped>
-:deep(.active-member-divider > .gg-divider > div) {
-  border-color: rgba(245, 158, 11, 0.3);
-}
-:deep(.member-divider > .gg-divider > div) {
-  border-color: rgba(245, 158, 11, 0.3);
-}
-:deep(.gg-icon) {
-  fill: var(--color-amber-400);
-  filter: drop-shadow(0 4px 8px rgba(219, 184, 119, 0.3));
-  transition: all 0.3s ease;
+<style scoped>
+@media (prefers-reduced-motion: reduce) {
+  .group,
+  .group [class*='transition-'] {
+    transition: none;
+  }
 }
 </style>

@@ -2,9 +2,10 @@
   <section id="locations">
     <div class="mx-auto">
       <SectionHeader title="goldenGate2.world.title" />
-      <div class="text-gray-200 text-base md:text-lg mx-4 md:mx-auto">
+      <div class="gg-copy">
         <p class="pb-6">{{ t('goldenGate2.world.description') }}</p>
         <InteractiveMap
+          class="gg-map-white"
           :map-url="SamoaMap"
           :original-width="1024"
           :original-height="1024"
@@ -85,12 +86,9 @@ const markers = ref<Marker[]>([
 ]);
 </script>
 
-<style lang="css" scoped>
-:deep(.marker-icon) {
-  color: white !important;
-
-  .map-marker:hover & {
-    color: white !important;
-  }
+<style scoped>
+.gg-map-white {
+  --gg-marker-color: var(--gg-text);
+  --gg-marker-hover: var(--gg-text);
 }
 </style>

@@ -3,7 +3,7 @@
     <div class="container mx-auto">
       <SectionHeader title="goldenGate.guilds.title" />
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8 mx-4 md:mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
         <UPageCard
           v-for="(prop, index) in guildProps"
           :key="`guild-${index}`"
@@ -11,15 +11,12 @@
           :title="t(prop.title)"
           :description="t(prop.description)"
           :ui="{
-            title: 'text-white!',
             leadingIcon: 'size-8',
           }"
         />
       </div>
 
-      <p
-        class="text-gray-200 text-base md:text-lg mx-4 md:mx-auto mt-8 text-center"
-      >
+      <p class="gg-copy mt-8 text-center">
         {{ t('goldenGate.guilds.description') }}
       </p>
     </div>

@@ -27,11 +27,9 @@
 
           <template #content>
             <div class="marker-tooltip">
-              <h4
-                class="marker-tooltip--title flex items-center justify-center"
-              >
+              <p class="marker-tooltip--title flex items-center justify-center">
                 {{ t(marker.title) }}
-              </h4>
+              </p>
               <p v-if="marker.description" class="text-sm">
                 {{ t(marker.description) }}
               </p>
@@ -105,7 +103,6 @@ onMounted(updateImageSize);
   width: 100%;
   border-radius: 12px;
   overflow: hidden;
-  transition: all 0.3s ease;
 }
 
 .map-image-container {
@@ -136,13 +133,15 @@ onMounted(updateImageSize);
 .marker-icon {
   width: 32px;
   height: 32px;
-  color: var(--ui-primary);
+  color: var(--gg-marker-color, var(--ui-primary));
   filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.3));
-  transition: all 0.2s ease;
+  transition:
+    color 0.2s ease,
+    filter 0.2s ease;
 
   .map-marker:hover & {
     filter: drop-shadow(0 6px 8px rgba(0, 0, 0, 0.4));
-    color: var(--color-amber-400);
+    color: var(--gg-marker-hover, var(--gg-gold-hover));
   }
 }
 
@@ -150,7 +149,7 @@ onMounted(updateImageSize);
   padding: 0.75rem;
   max-width: 300px;
 
-  h4 {
+  .marker-tooltip--title {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 1.25rem;
     letter-spacing: 0.05em;
@@ -158,7 +157,7 @@ onMounted(updateImageSize);
     margin: 0 0 0.5rem 0;
   }
 
-  p {
+  p:not(.marker-tooltip--title) {
     margin: 0;
     color: #f3f4f6;
     line-height: 1.5;
@@ -193,9 +192,13 @@ onMounted(updateImageSize);
 }
 
 @media (prefers-reduced-motion: reduce) {
-  * {
-    transition: none !important;
-    animation: none !important;
+  .map-marker,
+  .marker-icon {
+    transition: none;
+  }
+
+  .map-marker:hover {
+    transform: translate(-50%, -100%);
   }
 }
 </style>

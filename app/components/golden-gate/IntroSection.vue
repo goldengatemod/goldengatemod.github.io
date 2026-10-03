@@ -1,9 +1,7 @@
 <template>
   <section id="intro">
     <div class="container mx-auto">
-      <p
-        class="mb-10 text-gray-200 text-base md:text-lg mx-4 md:mx-auto flex justify-center"
-      >
+      <p class="mb-8 gg-copy flex justify-center">
         {{ t('goldenGate.intro.description') }}
       </p>
       <div class="flex justify-center">

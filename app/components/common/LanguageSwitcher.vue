@@ -1,6 +1,10 @@
 <template>
   <UPopover v-model:open="open">
-    <button class="language-trigger">
+    <button
+      type="button"
+      class="language-trigger"
+      :aria-label="t('common.language')"
+    >
       <Icon :name="getFlagIcon(locale)" class="flag-icon" />
       <span class="language-name-mobile">{{ currentLanguageName }}</span>
     </button>
@@ -10,7 +14,9 @@
         <button
           v-for="language in dropdownLanguages"
           :key="language.code"
+          type="button"
           class="language-option"
+          :aria-pressed="locale === language.code"
           :class="{ active: locale === language.code }"
           @click="selectLanguage(language.code)"
         >
@@ -24,12 +30,12 @@
 </template>
 
 <script setup lang="ts">
-const { locale, setLocale, availableLocales } = useI18n();
+const { t, locale, setLocale, availableLocales } = useI18n();
 
 type AppLocale = (typeof availableLocales)[number];
 
 const open = ref(false);
-const isMobile = useMediaQuery('(max-width: 768px)');
+const isMobile = useMediaQuery('(width < 768px)');
 
 const localeNames: Record<AppLocale, string> = {
   pl: 'Polski',
@@ -70,8 +76,6 @@ const selectLanguage = async (code: AppLocale) => {
   await setLocale(code);
   open.value = false;
 };
-
-defineShortcuts({ o: () => (open.value = !open.value) });
 </script>
 
 <style lang="scss" scoped>
@@ -83,16 +87,19 @@ defineShortcuts({ o: () => (open.value = !open.value) });
   gap: 12px;
   padding: 8px 12px;
   margin: 0 4px;
-  color: #f3f4f6;
+  color: var(--gg-text-description);
   background: transparent;
   border: none;
-  border-radius: 8px;
+  border-radius: var(--gg-radius-control);
   min-width: 48px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition:
+    color 0.3s ease,
+    background-color 0.3s ease,
+    border-color 0.3s ease;
 
-  @media (max-width: 768px) {
-    border: 1px solid rgba(245, 158, 11, 0.3);
+  @media (width < 768px) {
+    border: 1px solid var(--gg-gold-border);
     background: rgba(245, 158, 11, 0.05);
     padding: 12px 16px;
     justify-content: flex-start;
@@ -102,8 +109,8 @@ defineShortcuts({ o: () => (open.value = !open.value) });
     color: var(--color-amber-400);
     background: rgba(245, 158, 11, 0.1);
 
-    @media (max-width: 768px) {
-      border-color: rgba(245, 158, 11, 0.5);
+    @media (width < 768px) {
+      border-color: var(--gg-gold-border-hover);
       background: rgba(245, 158, 11, 0.15);
     }
 
@@ -119,11 +126,11 @@ defineShortcuts({ o: () => (open.value = !open.value) });
 
   .language-name-mobile {
     display: none;
-    font-family: 'Bebas Neue', sans-serif;
+    font-family: var(--font-bebas-neue);
     font-size: 1.1rem;
     letter-spacing: 0.05em;
 
-    @media (max-width: 768px) {
+    @media (width < 768px) {
       display: inline-block;
     }
   }
@@ -135,8 +142,8 @@ defineShortcuts({ o: () => (open.value = !open.value) });
   gap: 4px;
   min-width: 160px;
   padding: 0.5rem;
-  background: linear-gradient(180deg, #190c06 0%, #0f0804 100%);
-  border-radius: 8px;
+  background: var(--gg-gradient);
+  border-radius: var(--gg-radius-control);
   backdrop-filter: blur(8px);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
 }
@@ -146,13 +153,16 @@ defineShortcuts({ o: () => (open.value = !open.value) });
   align-items: center;
   gap: 12px;
   padding: 10px 12px;
-  color: #f3f4f6;
+  color: var(--gg-text-description);
   background: transparent;
   border: none;
   border-radius: 6px;
   cursor: pointer;
-  transition: all 0.3s ease;
-  font-family: 'Bebas Neue', sans-serif;
+  transition:
+    color 0.3s ease,
+    background-color 0.3s ease,
+    border-color 0.3s ease;
+  font-family: var(--font-bebas-neue);
   font-size: 1.1rem;
   letter-spacing: 0.05em;
   text-align: left;
@@ -185,8 +195,10 @@ defineShortcuts({ o: () => (open.value = !open.value) });
 }
 
 @media (prefers-reduced-motion: reduce) {
-  * {
-    transition: none !important;
+  .language-trigger,
+  .language-option,
+  .language-trigger .flag-icon {
+    transition: none;
   }
 }
 </style>

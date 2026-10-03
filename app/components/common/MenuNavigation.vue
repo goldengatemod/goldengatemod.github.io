@@ -1,64 +1,68 @@
 <template>
-  <div class="mobile-menu-toggle md:hidden">
-    <button
-      class="menu-toggle-btn"
-      aria-label="Toggle navigation menu"
-      @click="toggleMobileMenu"
-    >
-      <Icon
-        :name="mobileMenuOpen ? 'heroicons:x-mark' : 'heroicons:bars-3'"
-        class="w-6 h-6"
-      />
-    </button>
-  </div>
-
-  <div
-    v-if="mobileMenuOpen"
-    class="mobile-menu-overlay md:hidden"
-    @click="closeMobileMenu"
+  <USlideover
+    v-model:open="mobileMenuOpen"
+    :title="t('common.navigation')"
+    :transition="!prefersReducedMotion"
+    :ui="{
+      overlay: 'mobile-menu-overlay z-[1250] bg-black/80 backdrop-blur-sm',
+      content: 'z-[1400] w-[min(100vw,20rem)] max-w-none ring-0',
+    }"
   >
-    <nav class="mobile-menu" @click.stop>
-      <div class="mobile-logo">
-        <NuxtLinkLocale
-          to="/"
-          aria-label="Close mobile navigation menu"
+    <button
+      type="button"
+      class="mobile-menu-toggle menu-toggle-btn md:hidden"
+      :aria-label="t('common.openMenu')"
+    >
+      <Icon name="heroicons:bars-3" class="w-6 h-6" />
+    </button>
+
+    <template #content>
+      <nav class="mobile-menu" :aria-label="t('common.navigation')">
+        <button
+          type="button"
+          class="mobile-menu-close menu-toggle-btn"
+          :aria-label="t('common.closeMenu')"
           @click="closeMobileMenu"
         >
-          <img
-            src="/gg-icon-96.webp"
-            alt="Golden Gate logo icon"
-            width="96"
-            height="96"
-            fetchpriority="high"
-            @contextmenu.prevent
-          />
-        </NuxtLinkLocale>
-      </div>
+          <Icon name="heroicons:x-mark" class="w-6 h-6" />
+        </button>
+        <div class="mobile-logo">
+          <NuxtLinkLocale to="/" @click="closeMobileMenu">
+            <img
+              src="/gg-icon-96.webp"
+              alt="Golden Gate logo icon"
+              width="96"
+              height="96"
+              fetchpriority="high"
+              @contextmenu.prevent
+            />
+          </NuxtLinkLocale>
+        </div>
 
-      <div class="mobile-language-switcher">
-        <CommonLanguageSwitcher class="w-full" />
-      </div>
+        <div class="mobile-language-switcher">
+          <CommonLanguageSwitcher class="w-full" />
+        </div>
 
-      <div class="mobile-menu-items">
-        <NuxtLinkLocale
-          v-for="item in items"
-          :key="item.url"
-          :to="item.url"
-          class="mobile-menu-item"
-          active-class="active"
-          aria-label="Close mobile navigation menu"
-          @click="closeMobileMenu"
-        >
-          <span>{{ getLabel(item.label) }}</span>
-        </NuxtLinkLocale>
-      </div>
+        <div class="mobile-menu-items">
+          <NuxtLinkLocale
+            v-for="item in items"
+            :key="item.url"
+            :to="item.url"
+            class="mobile-menu-item"
+            active-class="active"
+            @click="closeMobileMenu"
+          >
+            <span>{{ getLabel(item.label) }}</span>
+          </NuxtLinkLocale>
+        </div>
 
-      <div class="mobile-menu-spacer" />
-    </nav>
-  </div>
+        <div class="mobile-menu-spacer" />
+      </nav>
+    </template>
+  </USlideover>
 
   <nav class="sticky-menubar hidden md:block">
-    <NuxtLinkLocale to="/" aria-label="Go to home page">
+    <NuxtLinkLocale to="/" :aria-label="t('navigation.home')">
       <div class="emblemat">
         <img
           src="/gg-icon-96.webp"
@@ -106,7 +110,7 @@ const route = useRoute();
 
 const mobileMenuOpen = ref(false);
 const isDesktop = useMediaQuery('(min-width: 768px)');
-let previousOverflow = '';
+const prefersReducedMotion = useMediaQuery('(prefers-reduced-motion: reduce)');
 
 const items = ref<MenuItem[]>([
   {
@@ -130,36 +134,9 @@ const getLabel = (label: unknown): string => {
   return '';
 };
 
-const toggleMobileMenu = () => {
-  mobileMenuOpen.value = !mobileMenuOpen.value;
-  if (mobileMenuOpen.value) {
-    previousOverflow = document.body.style.overflow;
-    document.body.style.overflow = 'hidden';
-  } else {
-    document.body.style.overflow = previousOverflow;
-  }
-};
-
 const closeMobileMenu = () => {
-  if (!mobileMenuOpen.value) return;
   mobileMenuOpen.value = false;
-  document.body.style.overflow = previousOverflow;
 };
-
-const handleEscape = (e: KeyboardEvent) => {
-  if (e.key === 'Escape' && mobileMenuOpen.value) {
-    closeMobileMenu();
-  }
-};
-
-onMounted(() => {
-  document.addEventListener('keydown', handleEscape);
-});
-
-onUnmounted(() => {
-  document.removeEventListener('keydown', handleEscape);
-  closeMobileMenu();
-});
 
 watch(
   () => route.path,
@@ -180,44 +157,49 @@ watch(isDesktop, (desktop) => {
   right: 1rem;
   z-index: 1300;
 
-  .menu-toggle-btn {
-    background: rgba(25, 12, 6, 0.95);
-    border: 1px solid rgba(245, 158, 11, 0.3);
-    color: #f59e0b;
-    width: 48px;
-    height: 48px;
-    border-radius: 8px;
-    backdrop-filter: blur(4px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: all 0.3s ease;
-
-    &:hover {
-      background: rgba(25, 12, 6, 1);
-      border-color: rgba(245, 158, 11, 0.5);
+  @media (min-width: 768px) {
+    &.menu-toggle-btn {
+      display: none;
     }
   }
 }
 
-.mobile-menu-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.8);
-  z-index: 1250;
+.menu-toggle-btn {
+  background: var(--gg-panel);
+  border: 1px solid var(--gg-gold-border);
+  color: var(--gg-gold);
+  width: 48px;
+  height: 48px;
+  border-radius: var(--gg-radius-control);
   backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition:
+    color 0.3s ease,
+    background-color 0.3s ease,
+    border-color 0.3s ease;
+
+  &:hover {
+    background: var(--gg-bg);
+    border-color: var(--gg-gold-border-hover);
+  }
+}
+
+.mobile-menu-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
 }
 
 .mobile-menu {
-  position: fixed;
-  top: 0;
-  right: 0;
-  height: 100vh;
-  width: 280px;
-  background: linear-gradient(180deg, #190c06 0%, #0f0804 100%);
-  border-left: 1px solid rgba(245, 158, 11, 0.3);
-  padding: 2rem 1.5rem;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  background: var(--gg-gradient);
+  border-left: 1px solid var(--gg-gold-border);
+  padding: 5rem 1.5rem 2rem;
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -238,22 +220,25 @@ watch(isDesktop, (desktop) => {
 .mobile-menu-item {
   display: block;
   padding: 1rem;
-  color: #f3f4f6;
+  color: var(--gg-text-description);
   text-decoration: none;
-  border-radius: 8px;
-  transition: all 0.3s ease;
-  font-family: 'Bebas Neue', sans-serif;
+  border-radius: var(--gg-radius-control);
+  transition:
+    color 0.3s ease,
+    background-color 0.3s ease,
+    border-color 0.3s ease;
+  font-family: var(--font-bebas-neue);
   font-size: 1.25rem;
   letter-spacing: 0.05em;
 
   &:hover {
     background: rgba(245, 158, 11, 0.1);
-    color: #f59e0b;
+    color: var(--gg-gold);
   }
 
   &.active {
     background: rgba(245, 158, 11, 0.15);
-    color: #f59e0b;
+    color: var(--gg-gold);
     border-left: 3px solid #f59e0b;
   }
 }
@@ -267,26 +252,27 @@ watch(isDesktop, (desktop) => {
 
 .mobile-menu-spacer {
   flex-grow: 1;
+  min-width: 0;
+  flex-wrap: wrap;
 }
 
 .sticky-menubar {
   position: sticky;
   top: 0;
-  z-index: 1200 !important;
+  z-index: 1200;
   border: 0;
   border-radius: 0 0 8px 8px;
-  border-bottom: 1px solid rgba(245, 158, 11, 0.3);
-  background: linear-gradient(180deg, #190c06 0%, #0f0804 100%);
+  border-bottom: 1px solid var(--gg-gold-border);
+  background: var(--gg-gradient);
   backdrop-filter: blur(8px);
   padding: 0 0 0 140px;
-  transition: all 0.3s ease;
+  transition:
+    color 0.3s ease,
+    background-color 0.3s ease,
+    border-color 0.3s ease;
 
   &:hover {
-    border-bottom-color: rgba(245, 158, 11, 0.5);
-  }
-
-  @media (max-width: 768px) {
-    display: none;
+    border-bottom-color: var(--gg-gold-border-hover);
   }
 
   &.scrolled {
@@ -306,6 +292,8 @@ watch(isDesktop, (desktop) => {
   display: flex;
   align-items: center;
   flex-grow: 1;
+  min-width: 0;
+  flex-wrap: wrap;
 }
 
 .emblemat {
@@ -317,9 +305,12 @@ watch(isDesktop, (desktop) => {
   box-shadow:
     4px 5px 15px rgba(0, 0, 0, 0.4),
     inset 0 1px 0 rgba(245, 158, 11, 0.1);
-  z-index: 2000;
+  z-index: 1201;
   overflow: hidden;
-  transition: all 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    filter 0.3s ease,
+    box-shadow 0.3s ease;
   border: 1px solid transparent;
 
   &:hover {
@@ -354,13 +345,18 @@ watch(isDesktop, (desktop) => {
   display: flex;
   align-items: center;
   padding: 8px 12px;
-  color: #f3f4f6;
+  color: var(--gg-text-description);
   text-decoration: none;
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: var(--font-bebas-neue);
   font-size: 1.25rem;
   letter-spacing: 0.05em;
-  transition: all 0.3s ease;
+  transition:
+    color 0.3s ease,
+    background-color 0.3s ease,
+    border-color 0.3s ease;
   margin: 0 4px;
+  min-width: 0;
+  overflow-wrap: anywhere;
 
   &:hover {
     color: var(--color-amber-400);
@@ -395,7 +391,9 @@ watch(isDesktop, (desktop) => {
     width: 0;
     height: 2px;
     background: color-mix(in srgb, var(--color-amber-400) 60%, transparent);
-    transition: all 0.3s ease;
+    transition:
+      width 0.3s ease,
+      opacity 0.3s ease;
     opacity: 0;
   }
 }
@@ -404,6 +402,7 @@ watch(isDesktop, (desktop) => {
   display: flex;
   align-items: center;
   gap: 1rem;
+  flex-shrink: 0;
   padding-right: 1rem;
   margin-left: auto;
 }
@@ -419,10 +418,18 @@ watch(isDesktop, (desktop) => {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  * {
-    transition: none !important;
-    transform: none !important;
-    animation: none !important;
+  .menu-toggle-btn,
+  .mobile-menu-item,
+  .sticky-menubar,
+  .nav-item,
+  .nav-underline,
+  .emblemat,
+  .emblemat .logo-glow {
+    transition: none;
+  }
+
+  .emblemat:hover {
+    transform: none;
   }
 }
 </style>

@@ -1,23 +1,28 @@
 <template>
-  <section id="faq" class="text-white">
+  <section id="faq">
     <div class="container mx-auto">
       <SectionHeader title="FAQ" />
     </div>
-    <div class="container max-w-5xl mx-auto px-2 md:px-0">
+    <div class="mx-auto">
       <UAccordion
         type="multiple"
         trailing-icon="i-lucide-plus"
         :items="items"
         :ui="{
-          label: 'text-start text-base md:text-lg font-semibold break-words',
-          item: 'border-[#333]',
+          root: 'text-(--gg-text)',
+          trigger: 'text-(--gg-text)',
+          label:
+            'text-(--gg-text) text-start text-base md:text-lg font-semibold break-words',
+          content: 'text-(--gg-text)',
         }"
       >
         <template #default="{ item }">
           {{ t(item.label ?? '') }}
         </template>
         <template #content="{ item }">
-          <div class="text-base md:text-lg pb-3.5">
+          <div
+            class="text-(--gg-text) text-base md:text-lg leading-relaxed pb-3.5"
+          >
             {{ t(item.content ?? '') }}
           </div>
         </template>
@@ -61,21 +66,3 @@ const items = ref<AccordionItem[]>([
   },
 ]);
 </script>
-
-<style lang="scss" scoped>
-.container {
-  &.max-w-screen-lg {
-    @media (max-width: 1024px) {
-      max-width: calc(100vw - 2rem);
-    }
-
-    @media (max-width: 768px) {
-      max-width: calc(100vw - 1.5rem);
-    }
-
-    @media (max-width: 480px) {
-      max-width: calc(100vw - 1rem);
-    }
-  }
-}
-</style>

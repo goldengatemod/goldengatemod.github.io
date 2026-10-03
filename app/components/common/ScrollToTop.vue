@@ -1,9 +1,9 @@
 <template>
   <Transition
-    enter-active-class="transition-all duration-300 ease-out"
+    enter-active-class="transition-[opacity,transform] duration-300 ease-out"
     enter-from-class="opacity-0 scale-90 translate-y-2"
     enter-to-class="opacity-100 scale-100 translate-y-0"
-    leave-active-class="transition-all duration-200 ease-in"
+    leave-active-class="transition-[opacity,transform] duration-200 ease-in"
     leave-from-class="opacity-100 scale-100 translate-y-0"
     leave-to-class="opacity-0 scale-90 translate-y-2"
   >
@@ -11,7 +11,7 @@
       v-show="isVisible"
       class="scroll-to-top-btn fixed bottom-6 right-6 z-50"
       :class="[
-        'transition-all duration-300',
+        'transition-[opacity,transform] duration-300',
         isVisible ? 'translate-y-0' : 'translate-y-16',
         isScrolling && 'loading',
       ]"
@@ -130,25 +130,32 @@ defineExpose({
 
 <style scoped>
 .scroll-to-top-btn {
-  background: rgba(25, 12, 6, 0.95);
-  border: 1px solid rgba(245, 158, 11, 0.3);
-  color: #f59e0b;
+  background: var(--gg-panel);
+  border: 1px solid var(--gg-gold-border);
+  color: var(--gg-gold);
   width: 48px;
   height: 48px;
-  border-radius: 8px;
+  border-radius: var(--gg-radius-control);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition:
+    opacity 0.3s ease,
+    scale 0.3s ease,
+    translate 0.3s ease,
+    transform 0.3s ease,
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .scroll-to-top-btn:hover:not(:disabled) {
-  background: rgba(25, 12, 6, 1);
-  border-color: rgba(245, 158, 11, 0.5);
+  background: var(--gg-bg);
+  border-color: var(--gg-gold-border-hover);
   transform: translateY(-1px);
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
 }
@@ -187,5 +194,18 @@ defineExpose({
 
 .animate-spin {
   animation: spin 1s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .scroll-to-top-btn {
+    transition: none;
+  }
+
+  .scroll-to-top-btn:hover {
+    transform: none;
+  }
+
+  .animate-spin {
+    animation: none;
+  }
 }
 </style>

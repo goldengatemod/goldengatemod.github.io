@@ -19,9 +19,3 @@ useHead({
   title: `${t('navigation.goldenGate', 'Złote Wrota')}`,
 });
 </script>
-
-<style lang="css">
-body {
-  font-family: 'Poppins', 'Roboto', sans-serif;
-}
-</style>

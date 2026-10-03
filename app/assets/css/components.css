@@ -1,0 +1,156 @@
+@layer components {
+  .gg-content {
+    width: calc(100% - 2 * var(--gg-gutter));
+    max-width: 64rem;
+    margin-inline: auto;
+  }
+
+  .gg-section-heading {
+    margin-bottom: var(--gg-heading-space);
+    color: var(--gg-section-heading);
+    font-family: var(--font-bebas-neue);
+    font-weight: 400;
+    font-size: clamp(1.875rem, 4vw, 3rem);
+    line-height: 1.15;
+    letter-spacing: 0.025em;
+    text-align: center;
+    overflow-wrap: anywhere;
+  }
+
+  .gg-copy {
+    color: var(--gg-text-description);
+    font-size: 1rem;
+    line-height: 1.7;
+    overflow-wrap: break-word;
+  }
+
+  .gg-media-gap {
+    margin-top: var(--gg-media-space);
+  }
+
+  .gg-section-divider {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding-block: var(--gg-section-space);
+  }
+
+  .gg-divider-icon {
+    flex-shrink: 0;
+    height: 4rem;
+    width: auto;
+    fill: var(--gg-divider-color);
+  }
+
+  @media (min-width: 768px) {
+    .gg-copy {
+      font-size: 1.125rem;
+    }
+  }
+
+  .gg-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    padding: 9px 24px;
+    min-height: 48px;
+    max-width: 100%;
+    border: 1px solid var(--gg-accent-border);
+    border-radius: var(--gg-radius-control);
+    color: var(--gg-accent);
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(4px);
+    box-shadow: var(--gg-shadow-panel);
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    text-align: center;
+    overflow-wrap: anywhere;
+    cursor: pointer;
+    transition:
+      color var(--gg-duration-fast) ease,
+      background-color var(--gg-duration-fast) ease,
+      border-color var(--gg-duration-fast) ease,
+      transform var(--gg-duration-fast) ease,
+      box-shadow var(--gg-duration-fast) ease;
+
+    &:disabled,
+    &[aria-disabled='true'] {
+      opacity: 0.5;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
+
+    &:hover:not(:disabled):not([aria-disabled='true']) {
+      color: var(--gg-accent-hover);
+      background-color: var(--gg-accent-surface);
+      border-color: var(--gg-accent-border-hover);
+      transform: translateY(-2px);
+      box-shadow: var(--gg-shadow-panel-hover);
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--gg-accent-hover);
+      outline-offset: 3px;
+    }
+
+    &:active {
+      transform: translateY(0);
+      box-shadow: var(--gg-shadow-panel-active);
+    }
+  }
+
+  .gg-download-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .gg-download-icon {
+    height: 1.75rem;
+    width: auto;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
+  }
+
+  .gg-description-shadow {
+    text-shadow: var(--gg-shadow-text);
+  }
+
+  @media (max-width: 640px) {
+    .gg-download-buttons {
+      flex-direction: column;
+    }
+
+    .gg-button--download {
+      padding: 9px 20px;
+      min-height: 44px;
+      font-size: 0.9rem;
+    }
+
+    .gg-download-icon {
+      height: 1.5rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .gg-button {
+      transition: none;
+
+      &:hover {
+        transform: none;
+      }
+    }
+  }
+}
+
+@layer components {
+  @media (forced-colors: active) {
+    .gg-button {
+      border-color: ButtonText;
+    }
+  }
+}

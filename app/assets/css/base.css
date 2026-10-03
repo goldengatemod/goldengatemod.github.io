@@ -1,0 +1,30 @@
+/* Nuxt UI also styles body in its base layer, including scheme-light. */
+html,
+body {
+  color-scheme: dark;
+  background-color: var(--gg-bg);
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  color: var(--gg-text);
+}
+
+@layer base {
+  :where(a, button, [tabindex]):focus-visible {
+    outline: 2px solid var(--gg-accent-hover, var(--gg-gold-hover));
+    outline-offset: 3px;
+  }
+
+  :where(button, a)[aria-disabled='true'],
+  button:disabled {
+    cursor: not-allowed;
+  }
+
+  @media (forced-colors: active) {
+    :where(a, button, [tabindex]):focus-visible {
+      outline-color: Highlight;
+    }
+  }
+}

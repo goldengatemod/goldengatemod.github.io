@@ -1,5 +1,11 @@
 export default {
   common: {
+    gallery: 'Galleria',
+    features: 'Caratteristiche',
+    navigation: 'Navigazione',
+    openMenu: 'Apri il menu di navigazione',
+    closeMenu: 'Chiudi il menu di navigazione',
+    language: 'Scegli la lingua',
     learnMore: 'Scopri di più',
     allRightsReserved: 'Tutti i diritti riservati',
     website: 'Sito web',

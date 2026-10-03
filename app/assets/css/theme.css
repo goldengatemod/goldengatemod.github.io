@@ -1,0 +1,92 @@
+@theme {
+  --font-sans: 'Poppins', sans-serif;
+  --font-poppins: 'Poppins', sans-serif;
+  --font-bebas-neue: 'Bebas Neue', sans-serif;
+}
+
+/* Keep fixed theme tokens outside layers so Nuxt UI cannot override them
+ when its stylesheet is injected first or refreshed during development. */
+:root {
+  --gg-bg: #190c06;
+  --gg-bg-dark: #0f0804;
+  --gg-gradient: linear-gradient(180deg, var(--gg-bg), var(--gg-bg-dark));
+  --gg-panel: rgba(25, 12, 6, 0.95);
+  --gg-card: rgba(25, 12, 6, 0.88);
+  --gg-text: #fff;
+  --gg-text-description: #e5e7eb;
+  --gg-text-muted: #d1d5db;
+  --gg-text-dimmed: #9ca3af;
+  --gg-gold: #f59e0b;
+  --gg-gold-hover: #fbbf24;
+  --gg-gold-border: rgba(245, 158, 11, 0.3);
+  --gg-gold-border-hover: rgba(245, 158, 11, 0.5);
+  --gg-red: var(--color-red-400);
+  --gg-red-hover: var(--color-red-300);
+  --gg-red-icon: #ef5350;
+  --gg-border-neutral: #333;
+  --gg-radius-control: 8px;
+  --gg-radius-panel: 12px;
+  --gg-shadow-panel: 0 4px 12px rgba(0, 0, 0, 0.2);
+  --gg-shadow-panel-hover: 0 6px 16px rgba(0, 0, 0, 0.25);
+  --gg-shadow-panel-active: 0 2px 8px rgba(0, 0, 0, 0.2);
+  --gg-shadow-card:
+    0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --gg-shadow-media:
+    0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
+  --gg-shadow-text: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  --gg-duration-fast: 200ms;
+  --gg-duration-normal: 300ms;
+  --gg-gutter: 1rem;
+  --gg-section-space: 2.5rem;
+  --gg-heading-space: 1.5rem;
+  --gg-media-space: 2rem;
+  --gg-section-heading: var(--gg-text);
+  --gg-section-border: var(--gg-border-neutral);
+  --gg-divider-color: var(--gg-text);
+
+  --ui-primary: var(--gg-gold);
+  --ui-text: var(--gg-text);
+  --ui-text-highlighted: var(--gg-text);
+  --ui-text-toned: var(--gg-text-description);
+  --ui-text-muted: var(--gg-text-muted);
+  --ui-text-dimmed: var(--gg-text-dimmed);
+  --ui-text-inverted: var(--gg-bg-dark);
+  --ui-bg: var(--gg-bg);
+  --ui-bg-muted: #1e1009;
+  --ui-bg-elevated: #25150d;
+  --ui-bg-accented: #321d11;
+  --ui-bg-inverted: var(--gg-text);
+  --ui-border: var(--gg-gold-border);
+  --ui-border-muted: rgba(245, 158, 11, 0.15);
+  --ui-border-accented: var(--gg-gold-border-hover);
+  --ui-border-inverted: var(--gg-text);
+}
+
+@layer components {
+  .gg-accent-gold {
+    --gg-accent: var(--gg-gold);
+    --gg-accent-hover: var(--gg-gold-hover);
+    --gg-accent-border: rgba(245, 158, 11, 0.4);
+    --gg-accent-border-hover: rgba(245, 158, 11, 0.6);
+    --gg-accent-surface: rgba(245, 158, 11, 0.1);
+    --gg-accent-icon: var(--gg-gold);
+    --gg-pros-border: var(--gg-gold-border);
+  }
+
+  .gg-page-gold {
+    --gg-section-heading: var(--gg-gold-hover);
+    --gg-section-border: var(--gg-gold-border);
+    --gg-divider-color: var(--gg-gold-hover);
+  }
+
+  .gg-accent-red {
+    --ui-primary: var(--gg-red);
+    --gg-accent: var(--gg-red);
+    --gg-accent-hover: var(--gg-red-hover);
+    --gg-accent-border: rgba(239, 68, 68, 0.15);
+    --gg-accent-border-hover: rgba(239, 68, 68, 0.5);
+    --gg-accent-surface: rgba(239, 68, 68, 0.1);
+    --gg-accent-icon: var(--gg-red-icon);
+    --gg-pros-border: rgba(255, 255, 255, 0.1);
+  }
+}

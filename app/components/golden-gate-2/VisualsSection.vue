@@ -10,13 +10,13 @@
           height="1080"
           sizes="100vw sm:672px"
           densities="x1 x2"
-          class="w-full max-w-2xl h-auto mx-4 md:mx-auto rounded-xl"
+          class="w-full max-w-2xl h-auto rounded-xl"
           loading="lazy"
           decoding="async"
           @contextmenu.prevent
         />
       </div>
-      <p class="mt-10 text-gray-200 text-base md:text-lg mx-4 md:mx-auto">
+      <p class="gg-media-gap gg-copy">
         {{ t('goldenGate2.visuals.description') }}
       </p>
     </div>
@@ -33,8 +33,6 @@ const { t } = useI18n();
 img {
   position: relative;
   overflow: hidden;
-  box-shadow:
-    0 20px 25px -5px rgba(0, 0, 0, 0.3),
-    0 10px 10px -5px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--gg-shadow-media);
 }
 </style>

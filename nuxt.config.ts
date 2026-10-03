@@ -26,11 +26,12 @@ export default defineNuxtConfig({
     head: {
       title: 'Złote Wrota',
       link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
-      viewport: 'width=device-width, initial-scale=1, maximum-scale=1',
+      viewport: 'width=device-width, initial-scale=1',
     },
   },
   css: ['~/assets/css/main.css'],
   ui: {
+    colorMode: false,
     experimental: {
       componentDetection: true,
     },

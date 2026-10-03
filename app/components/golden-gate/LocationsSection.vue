@@ -2,7 +2,7 @@
   <section id="locations">
     <div class="mx-auto">
       <SectionHeader title="goldenGate.world.title" />
-      <div class="text-gray-200 text-base md:text-lg mx-4 md:mx-auto">
+      <div class="gg-copy">
         <p class="pb-6">{{ t('goldenGate.world.description') }}</p>
         <!-- Marker coordinates use a width of 1024; preserve the map's aspect ratio. -->
         <InteractiveMap

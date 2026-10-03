@@ -3,7 +3,7 @@
     <div class="mx-auto">
       <SectionHeader title="goldenGate2.quests.title" />
 
-      <div class="text-gray-200 text-base md:text-lg mx-4 md:mx-auto">
+      <div class="gg-copy">
         <p v-for="i in 4" :key="i" :class="{ 'mb-3': i < 4 }">
           {{ t(`goldenGate2.quests.description.${i - 1}`) }}
         </p>

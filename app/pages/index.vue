@@ -1,5 +1,6 @@
 <template>
-  <section id="saga" class="pb-0! relative overflow-hidden">
+  <main id="saga" class="pb-0! relative overflow-hidden">
+    <h1 class="sr-only">Golden Gate</h1>
     <div class="flex flex-col md:flex-row min-h-screen">
       <!-- Golden Gate Section -->
       <article
@@ -9,7 +10,7 @@
       >
         <!-- Background overlay -->
         <div
-          class="absolute inset-0 bg-linear-to-br from-yellow-700/30 via-amber-600/25 to-stone-800/60 transition-all duration-700 group-hover:from-yellow-600/40 group-hover:via-amber-500/35"
+          class="absolute inset-0 bg-linear-to-br from-yellow-700/30 via-amber-600/25 to-stone-800/60 transition-colors duration-700 group-hover:from-yellow-600/40 group-hover:via-amber-500/35"
         />
 
         <!-- Decorative border -->
@@ -25,7 +26,7 @@
           <div class="logo-container relative w-full max-w-xl">
             <NuxtLinkLocale
               to="/golden-gate"
-              class="block transform transition-all duration-500 hover:scale-105 focus:scale-105 focus:outline-none focus-visible:ring-4 focus-visible:ring-yellow-400/50 rounded-lg"
+              class="block transform transition-transform duration-500 hover:scale-105 focus:scale-105 focus:outline-none focus-visible:ring-4 focus-visible:ring-yellow-400/50 rounded-lg"
               :aria-label="t('navigation.goldenGate')"
             >
               <NuxtImg
@@ -62,7 +63,7 @@
           <div class="cta-container">
             <NuxtLinkLocale
               to="/golden-gate"
-              class="golden-gate-btn-primary flex items-center justify-center gap-2 cursor-pointer"
+              class="gg-button gg-accent-gold flex items-center justify-center gap-2 cursor-pointer"
               :aria-label="`${t('common.learnMore')}: ${t('navigation.goldenGate')}`"
             >
               {{ t('common.learnMore') }}
@@ -101,7 +102,7 @@
       >
         <!-- Background overlay -->
         <div
-          class="absolute inset-0 bg-linear-to-tl from-stone-700/35 via-red-800/30 to-stone-900/60 transition-all duration-700 group-hover:from-stone-600/45 group-hover:via-red-700/40"
+          class="absolute inset-0 bg-linear-to-tl from-stone-700/35 via-red-800/30 to-stone-900/60 transition-colors duration-700 group-hover:from-stone-600/45 group-hover:via-red-700/40"
         />
 
         <!-- Decorative border -->
@@ -117,7 +118,7 @@
           <div class="logo-container relative w-full max-w-xl">
             <NuxtLinkLocale
               to="/golden-gate-2"
-              class="block transform transition-all duration-500 hover:scale-105 focus:scale-105 focus:outline-none focus-visible:ring-4 focus-visible:ring-red-400/50 rounded-lg"
+              class="block transform transition-transform duration-500 hover:scale-105 focus:scale-105 focus:outline-none focus-visible:ring-4 focus-visible:ring-red-400/50 rounded-lg"
               :aria-label="t('navigation.goldenGate2')"
             >
               <NuxtImg
@@ -143,7 +144,7 @@
 
             <!-- Additional subtitle -->
             <p
-              class="text-error text-center text-sm md:text-base font-light italic pt-2"
+              class="text-(--gg-red) text-center text-sm md:text-base font-light italic pt-2"
             >
               {{ t('home.goldenGate2.subtitle') }}
             </p>
@@ -153,7 +154,7 @@
           <div class="cta-container">
             <NuxtLinkLocale
               to="/golden-gate-2"
-              class="golden-gate-2-btn-primary flex items-center justify-center gap-2 cursor-pointer"
+              class="gg-button gg-accent-red flex items-center justify-center gap-2 cursor-pointer"
               :aria-label="`${t('common.learnMore')}: ${t('navigation.goldenGate2')}`"
             >
               {{ t('common.learnMore') }}
@@ -176,7 +177,7 @@
         />
       </article>
     </div>
-  </section>
+  </main>
 </template>
 
 <script setup lang="ts">
@@ -212,10 +213,6 @@ useHead({
   background-position: top;
   background-repeat: no-repeat;
 
-  @container (max-width: 1024px) {
-    background-image: var(--gg-bg-overlay), var(--gg-bg-image-md);
-  }
-
   @media (max-width: 1024px) {
     background-image: var(--gg-bg-overlay), var(--gg-bg-image-md);
   }
@@ -248,10 +245,6 @@ useHead({
   background-position: top;
   background-repeat: no-repeat;
 
-  @container (max-width: 1024px) {
-    background-image: var(--gg2-bg-overlay), var(--gg2-bg-image-md);
-  }
-
   @media (max-width: 1024px) {
     background-image: var(--gg2-bg-overlay), var(--gg2-bg-image-md);
   }
@@ -268,7 +261,7 @@ useHead({
 .golden-gate-logo,
 .golden-gate-2-logo {
   filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
-  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: filter 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .golden-gate-logo:hover,
@@ -278,76 +271,6 @@ useHead({
 
 .text-content p {
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-}
-
-.golden-gate-btn-primary {
-  background: rgba(0, 0, 0, 0.2);
-  border: 1px solid rgba(245, 158, 11, 0.4) !important;
-  color: #f59e0b !important;
-  border-radius: 8px !important;
-  backdrop-filter: blur(4px);
-  padding: 12px 24px !important;
-  min-width: auto !important;
-  height: 48px !important;
-  font-weight: 600 !important;
-  font-size: 1rem !important;
-  transition: all 0.3s ease !important;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2) !important;
-
-  &:hover {
-    background-color: rgba(239, 68, 68, 0.1);
-    border-color: rgba(245, 158, 11, 0.6) !important;
-    color: #fbbf24 !important;
-    transform: translateY(-2px) !important;
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25) !important;
-  }
-
-  &:focus {
-    outline: none !important;
-    box-shadow:
-      0 4px 12px rgba(0, 0, 0, 0.2),
-      0 0 0 2px rgba(245, 158, 11, 0.4) !important;
-  }
-
-  &:active {
-    transform: translateY(0) !important;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important;
-  }
-}
-
-.golden-gate-2-btn-primary {
-  background: rgba(0, 0, 0, 0.2);
-  border: 1px solid rgba(239, 68, 68, 0.15) !important;
-  color: var(--color-red-400) !important;
-  border-radius: 8px !important;
-  backdrop-filter: blur(4px);
-  padding: 12px 24px !important;
-  min-width: auto !important;
-  height: 48px !important;
-  font-weight: 600 !important;
-  font-size: 1rem !important;
-  transition: all 0.3s ease !important;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2) !important;
-
-  &:hover {
-    background-color: rgba(239, 68, 68, 0.1);
-    border-color: rgba(239, 68, 68, 0.5) !important;
-    color: var(--color-red-500) !important;
-    transform: translateY(-2px) !important;
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25) !important;
-  }
-
-  &:focus {
-    outline: none !important;
-    box-shadow:
-      0 4px 12px rgba(0, 0, 0, 0.2),
-      0 0 0 2px rgba(239, 68, 68, 0.4) !important;
-  }
-
-  &:active {
-    transform: translateY(0) !important;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important;
-  }
 }
 
 @media (max-width: 768px) {
@@ -378,9 +301,19 @@ useHead({
 }
 
 @media (prefers-reduced-motion: reduce) {
-  * {
-    animation: none !important;
-    transition: none !important;
+  .golden-gate-logo,
+  .golden-gate-2-logo,
+  .group > .absolute,
+  .group a {
+    transition: none;
+  }
+
+  .group a:hover,
+  .group a:focus {
+    transform: none;
+    /* Reset Tailwind scale variables; CSS minification can lower scale: none. */
+    --tw-scale-x: 1;
+    --tw-scale-y: 1;
   }
 }
 
