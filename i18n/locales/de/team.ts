@@ -1,5 +1,10 @@
 export default {
   team: {
+    navigation: {
+      label: 'Teambereiche',
+      activeMembers: 'Aktuelles Team',
+      formerMembers: 'Ehemalige Mitglieder',
+    },
     goldenGateTeam: {
       description:
         'Aktive Teammitglieder, die an Das Goldene Tor 2: Das Herz der Göttin arbeiten.',

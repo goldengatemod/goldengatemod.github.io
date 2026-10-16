@@ -1,5 +1,10 @@
 export default {
   team: {
+    navigation: {
+      label: 'Sekcje zespołu',
+      activeMembers: 'Obecny zespół',
+      formerMembers: 'Byli członkowie',
+    },
     goldenGateTeam: {
       description:
         'Aktywni członkowie zespołu pracujący nad modyfikacją Złote Wrota 2: Serce Bogini.',

@@ -1,5 +1,10 @@
 export default {
   team: {
+    navigation: {
+      label: 'Team sections',
+      activeMembers: 'Current team',
+      formerMembers: 'Former members',
+    },
     goldenGateTeam: {
       description:
         'Active team members working on the Golden Gate 2: Goddess Heart.',

@@ -1,5 +1,10 @@
 export default {
   team: {
+    navigation: {
+      label: 'Sezioni del team',
+      activeMembers: 'Team attuale',
+      formerMembers: 'Ex membri',
+    },
     goldenGateTeam: {
       description:
         'Membri attivi del team che lavorano su Golden Gate 2: Cuore della Dea.',

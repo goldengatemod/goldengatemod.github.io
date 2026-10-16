@@ -2,7 +2,7 @@
   <div class="gg-content py-6">
     <SectionDivider class="active-member-divider" />
 
-    <!-- Active Members Section -->
+    <!-- Team introduction -->
     <div class="container mx-auto mb-8">
       <SectionHeader title="Golden Gate Team" />
       <p
@@ -12,100 +12,9 @@
       </p>
     </div>
 
-    <div
-      class="grid grid-cols-[repeat(auto-fit,minmax(min(100%,15rem),1fr))] gap-4 mx-auto"
-    >
-      <div
-        v-for="(member, index) in activeMembers"
-        :key="`member-${index}`"
-        class="group p-4 rounded-lg bg-linear-to-br from-amber-900/20 to-amber-800/10 border border-amber-800/30 hover:border-amber-600/50 transition-[border-color,box-shadow] duration-300 hover:shadow-lg hover:shadow-amber-900/20"
-      >
-        <div class="flex items-start gap-3">
-          <div
-            class="w-10 h-10 rounded-full bg-amber-500/25 flex items-center justify-center shrink-0 group-hover:bg-amber-500/35 transition-colors duration-300 border border-amber-600/30"
-          >
-            <span class="text-amber-300 font-bebas-neue text-lg drop-shadow-sm">
-              {{ member.nick ? member.nick.charAt(0).toUpperCase() : '?' }}
-            </span>
-          </div>
-          <div class="flex-1 min-w-0">
-            <h3
-              class="font-bebas-neue text-lg text-amber-400 group-hover:text-amber-300 transition-colors duration-300 wrap-break-word hyphens-auto leading-tight"
-            >
-              {{ member.nick ? member.nick.toUpperCase() : '' }}
-            </h3>
-            <div class="flex flex-wrap gap-1 mt-1">
-              <span
-                v-for="(role, roleIndex) in Array.isArray(member.roles)
-                  ? member.roles
-                  : []"
-                :key="roleIndex"
-                class="inline-block max-w-full [overflow-wrap:anywhere] px-2 py-1 text-xs bg-amber-800/40 text-amber-200 rounded-full border border-amber-700/50"
-              >
-                {{ capitalize(translateRole(role)) }}
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <SectionDivider class="member-divider" />
-
-    <!-- Former Members Section -->
-    <div class="container mx-auto mb-8">
-      <SectionHeader
-        text-class="text-amber-200"
-        title="team.formerMembers.title"
-      />
-      <p
-        class="text-center text-(--gg-text-muted) text-base font-medium mb-6 max-w-2xl mx-auto"
-      >
-        {{ t('team.formerMembers.description') }}
-      </p>
-    </div>
-
-    <div
-      class="grid grid-cols-[repeat(auto-fit,minmax(min(100%,15rem),1fr))] gap-4 mx-auto"
-    >
-      <div
-        v-for="(member, memberIndex) in inactiveMembers"
-        :key="`exmember-${memberIndex}`"
-        class="group p-4 rounded-lg bg-linear-to-br from-gray-800/20 to-gray-700/10 border border-gray-700/30 hover:border-amber-200/30 transition-[border-color,box-shadow] duration-300"
-      >
-        <div class="flex items-start gap-2">
-          <div
-            class="w-10 h-10 rounded-full bg-amber-200/10 flex items-center justify-center shrink-0 group-hover:bg-amber-200/20 transition-colors duration-300 border border-amber-300/30"
-          >
-            <span class="text-amber-200/70 font-bebas-neue text-lg">
-              {{ member.nick ? member.nick.charAt(0).toUpperCase() : '?' }}
-            </span>
-          </div>
-          <div class="flex-1 min-w-0">
-            <h3
-              class="font-bebas-neue text-lg text-amber-200 group-hover:text-amber-100 transition-colors duration-300 wrap-break-word hyphens-auto leading-tight"
-            >
-              {{ member.nick ? member.nick.toUpperCase() : '' }}
-            </h3>
-            <div class="flex flex-wrap gap-1 mt-1">
-              <span
-                v-for="(role, roleIndex) in Array.isArray(member.roles)
-                  ? member.roles
-                  : []"
-                :key="`${member.nick}-role-${roleIndex}`"
-                class="inline-block max-w-full [overflow-wrap:anywhere] px-2 py-0.5 text-xs bg-gray-700/40 text-gray-300 rounded-full border border-gray-600/50"
-              >
-                {{ capitalize(translateRole(role)) }}
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <!-- Statistics Section -->
     <div
-      class="mt-12 p-6 rounded-xl bg-linear-to-r from-amber-900/20 to-amber-800/10 border border-amber-800/30 mx-auto"
+      class="team-summary mb-8 p-6 rounded-xl border border-amber-800/30 mx-auto"
     >
       <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
         <div class="space-y-2">
@@ -142,6 +51,123 @@
         </div>
       </div>
     </div>
+
+    <nav class="team-section-nav" :aria-label="t('team.navigation.label')">
+      <a class="team-jump-link" href="#active-members">
+        {{ t('team.navigation.activeMembers') }}
+        <Icon name="i-lucide-arrow-down" class="w-4 h-4" aria-hidden="true" />
+      </a>
+      <a class="team-jump-link" href="#former-members">
+        {{ t('team.navigation.formerMembers') }}
+        <Icon name="i-lucide-arrow-down" class="w-4 h-4" aria-hidden="true" />
+      </a>
+    </nav>
+
+    <section
+      id="active-members"
+      class="team-member-section"
+      aria-labelledby="active-members-title"
+    >
+      <SectionHeader
+        id="active-members-title"
+        title="team.navigation.activeMembers"
+      />
+      <div class="team-member-grid">
+        <div
+          v-for="(member, index) in activeMembers"
+          :key="`member-${index}`"
+          class="member-card member-card--active group p-4 rounded-lg border border-amber-800/30 hover:border-amber-600/50 transition-[border-color,box-shadow] duration-300 hover:shadow-lg hover:shadow-amber-900/20"
+        >
+          <div class="flex items-start gap-3">
+            <div
+              class="w-10 h-10 rounded-full bg-amber-500/25 flex items-center justify-center shrink-0 group-hover:bg-amber-500/35 transition-colors duration-300 border border-amber-600/30"
+            >
+              <span
+                class="text-amber-300 font-bebas-neue text-lg drop-shadow-sm"
+              >
+                {{ member.nick ? member.nick.charAt(0).toUpperCase() : '?' }}
+              </span>
+            </div>
+            <div class="flex-1 min-w-0">
+              <h3
+                class="member-name text-amber-400 group-hover:text-amber-300 transition-colors duration-300"
+              >
+                {{ member.nick }}
+              </h3>
+              <div class="flex flex-wrap gap-1 mt-1">
+                <span
+                  v-for="(role, roleIndex) in Array.isArray(member.roles)
+                    ? member.roles
+                    : []"
+                  :key="roleIndex"
+                  class="inline-block max-w-full [overflow-wrap:anywhere] px-2 py-1 text-xs bg-amber-800/40 text-amber-200 rounded-full border border-amber-700/50"
+                >
+                  {{ capitalize(translateRole(role)) }}
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <SectionDivider class="member-divider" />
+
+    <section
+      id="former-members"
+      class="team-member-section"
+      aria-labelledby="former-members-title"
+    >
+      <!-- Former Members Section -->
+      <div class="container mx-auto mb-8">
+        <SectionHeader
+          id="former-members-title"
+          text-class="text-amber-200"
+          title="team.formerMembers.title"
+        />
+        <p
+          class="text-center text-(--gg-text-muted) text-base font-medium mb-6 max-w-2xl mx-auto"
+        >
+          {{ t('team.formerMembers.description') }}
+        </p>
+      </div>
+
+      <div class="team-member-grid">
+        <div
+          v-for="(member, memberIndex) in inactiveMembers"
+          :key="`exmember-${memberIndex}`"
+          class="member-card member-card--former group p-4 rounded-lg border border-gray-700/30 hover:border-amber-200/30 transition-[border-color,box-shadow] duration-300"
+        >
+          <div class="flex items-start gap-2">
+            <div
+              class="w-10 h-10 rounded-full bg-amber-200/10 flex items-center justify-center shrink-0 group-hover:bg-amber-200/20 transition-colors duration-300 border border-amber-300/30"
+            >
+              <span class="text-amber-200/70 font-bebas-neue text-lg">
+                {{ member.nick ? member.nick.charAt(0).toUpperCase() : '?' }}
+              </span>
+            </div>
+            <div class="flex-1 min-w-0">
+              <h3
+                class="member-name text-amber-200 group-hover:text-amber-100 transition-colors duration-300"
+              >
+                {{ member.nick }}
+              </h3>
+              <div class="flex flex-wrap gap-1 mt-1">
+                <span
+                  v-for="(role, roleIndex) in Array.isArray(member.roles)
+                    ? member.roles
+                    : []"
+                  :key="`${member.nick}-role-${roleIndex}`"
+                  class="inline-block max-w-full [overflow-wrap:anywhere] px-2 py-0.5 text-xs bg-gray-700/40 text-gray-300 rounded-full border border-gray-600/50"
+                >
+                  {{ capitalize(translateRole(role)) }}
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </div>
 </template>
 
@@ -272,7 +298,89 @@ const inactiveMembers = computed(() =>
 </script>
 
 <style scoped>
+.team-summary {
+  background: var(--gg-card);
+}
+
+.team-section-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.team-jump-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  min-height: 48px;
+  max-width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--gg-gold-border);
+  border-radius: var(--gg-radius-control);
+  background: var(--gg-card);
+  color: var(--gg-gold-hover);
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-align: center;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.team-jump-link:hover {
+  background: var(--gg-panel);
+  border-color: var(--gg-gold-border-hover);
+}
+
+.team-member-section {
+  scroll-margin-top: 7.5rem;
+}
+
+.team-member-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1rem;
+}
+
+.member-card--active {
+  background: var(--gg-bg);
+}
+
+.member-card--former {
+  background: var(--gg-bg-dark);
+}
+
+.member-name {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+@media (min-width: 640px) {
+  .team-member-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .team-member-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 767px) {
+  .team-member-section {
+    scroll-margin-top: 5rem;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
+  .team-jump-link,
   .group,
   .group [class*='transition-'] {
     transition: none;
