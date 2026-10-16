@@ -1,7 +1,7 @@
 <template>
   <main id="saga" class="pb-0! relative overflow-hidden">
     <h1 class="sr-only">Golden Gate</h1>
-    <div class="flex flex-col md:flex-row min-h-screen">
+    <div class="saga-panels flex flex-col md:flex-row">
       <!-- Golden Gate Section -->
       <article
         id="golden-gate-section"
@@ -10,7 +10,7 @@
       >
         <!-- Background overlay -->
         <div
-          class="absolute inset-0 bg-linear-to-br from-yellow-700/30 via-amber-600/25 to-stone-800/60 transition-colors duration-700 group-hover:from-yellow-600/40 group-hover:via-amber-500/35"
+          class="absolute inset-0 bg-linear-to-br from-yellow-700/10 via-amber-600/5 to-stone-800/15 pointer-events-none"
         />
 
         <!-- Decorative border -->
@@ -20,7 +20,7 @@
 
         <!-- Content container -->
         <div
-          class="relative z-10 flex flex-col items-center justify-center gap-6 max-w-2xl mx-auto"
+          class="panel-content relative z-10 flex flex-col items-center justify-center gap-6 max-w-2xl mx-auto"
         >
           <!-- Logo with enhanced interactions -->
           <div class="logo-container relative w-full max-w-xl">
@@ -63,7 +63,7 @@
           <div class="cta-container">
             <NuxtLinkLocale
               to="/golden-gate"
-              class="gg-button gg-accent-gold flex items-center justify-center gap-2 cursor-pointer"
+              class="gg-button gg-accent-gold home-cta flex items-center justify-center gap-2 cursor-pointer"
               :aria-label="`${t('common.learnMore')}: ${t('navigation.goldenGate')}`"
             >
               {{ t('common.learnMore') }}
@@ -102,7 +102,7 @@
       >
         <!-- Background overlay -->
         <div
-          class="absolute inset-0 bg-linear-to-tl from-stone-700/35 via-red-800/30 to-stone-900/60 transition-colors duration-700 group-hover:from-stone-600/45 group-hover:via-red-700/40"
+          class="absolute inset-0 bg-linear-to-tl from-stone-700/10 via-red-800/10 to-stone-900/20 pointer-events-none"
         />
 
         <!-- Decorative border -->
@@ -112,7 +112,7 @@
 
         <!-- Content container -->
         <div
-          class="relative z-10 flex flex-col items-center justify-center gap-6 max-w-2xl mx-auto"
+          class="panel-content relative z-10 flex flex-col items-center justify-center gap-6 max-w-2xl mx-auto"
         >
           <!-- Logo with enhanced interactions -->
           <div class="logo-container relative w-full max-w-xl">
@@ -154,7 +154,7 @@
           <div class="cta-container">
             <NuxtLinkLocale
               to="/golden-gate-2"
-              class="gg-button gg-accent-red flex items-center justify-center gap-2 cursor-pointer"
+              class="gg-button gg-accent-red home-cta flex items-center justify-center gap-2 cursor-pointer"
               :aria-label="`${t('common.learnMore')}: ${t('navigation.goldenGate2')}`"
             >
               {{ t('common.learnMore') }}
@@ -197,8 +197,8 @@ useHead({
 #golden-gate-section {
   --gg-bg-overlay: linear-gradient(
     135deg,
-    rgba(0, 0, 0, 0.4) 0%,
-    rgba(139, 69, 19, 0.3) 50%,
+    rgba(0, 0, 0, 0.25) 0%,
+    rgba(139, 69, 19, 0.12) 50%,
     rgba(0, 0, 0, 0.6) 100%
   );
   --gg-bg-image-lg: url('~/assets/img/golden-gate/gg-background-lg.webp');
@@ -206,7 +206,7 @@ useHead({
   --gg-bg-image-sm: url('~/assets/img/golden-gate/gg-background-sm.webp');
   --gg-bg-image-xs: url('~/assets/img/golden-gate/gg-background-xs.webp');
 
-  min-height: 100vh;
+  min-height: calc(100svh - 3rem);
   position: relative;
   background-image: var(--gg-bg-overlay), var(--gg-bg-image-lg);
   background-size: cover;
@@ -229,8 +229,8 @@ useHead({
 #golden-gate-2-section {
   --gg2-bg-overlay: linear-gradient(
     225deg,
-    rgba(0, 0, 0, 0.5) 0%,
-    rgba(87, 83, 78, 0.3) 50%,
+    rgba(0, 0, 0, 0.25) 0%,
+    rgba(87, 83, 78, 0.1) 50%,
     rgba(0, 0, 0, 0.6) 100%
   );
   --gg2-bg-image-lg: url('~/assets/img/golden-gate-2/gg2-goddess-lg.webp');
@@ -238,7 +238,7 @@ useHead({
   --gg2-bg-image-sm: url('~/assets/img/golden-gate-2/gg2-goddess-sm.webp');
   --gg2-bg-image-xs: url('~/assets/img/golden-gate-2/gg2-goddess-xs.webp');
 
-  min-height: 100vh;
+  min-height: calc(100svh - 3rem);
   position: relative;
   background-image: var(--gg2-bg-overlay), var(--gg2-bg-image-lg);
   background-size: cover;
@@ -270,33 +270,94 @@ useHead({
 }
 
 .text-content p {
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9);
 }
 
-@media (max-width: 768px) {
+.home-cta {
+  min-height: 52px;
+  padding-inline: 1.75rem;
+  color: var(--gg-bg-dark);
+  background: var(--gg-accent);
+  border-color: var(--gg-accent);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+
+  &:hover {
+    color: var(--gg-bg-dark);
+    background: var(--gg-accent-hover);
+    border-color: var(--gg-accent-hover);
+  }
+
+  &:focus-visible {
+    outline: 3px solid white;
+    outline-offset: 4px;
+  }
+}
+
+@media (min-width: 768px) {
+  .logo-container {
+    aspect-ratio: 4 / 3;
+    display: flex;
+    align-items: center;
+
+    > a {
+      width: 100%;
+      height: 100%;
+    }
+
+    img {
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
+  .text-content {
+    min-height: 10rem;
+  }
+}
+
+@media (max-width: 767px) {
   #golden-gate-section,
   #golden-gate-2-section {
-    min-height: 80vh;
+    min-height: auto;
     background-attachment: scroll;
-    padding: 1.5rem;
+    padding: 1.75rem 1.25rem;
+  }
+
+  .panel-content {
+    gap: 1rem;
+  }
+
+  .logo-container {
+    max-width: clamp(12rem, 58vw, 16rem);
   }
 
   .golden-gate-logo,
   .golden-gate-2-logo {
-    max-width: 85%;
+    max-width: 100%;
   }
-}
 
-@media (max-width: 480px) {
-  #golden-gate-section,
-  #golden-gate-2-section {
-    min-height: 70vh;
-    padding: 1rem;
+  .text-content {
+    max-width: 32rem;
+  }
+
+  .text-content > p + p {
+    margin-top: 0.75rem;
+    padding-top: 0;
   }
 
   .text-content p {
     font-size: 0.875rem;
-    line-height: 1.4;
+    line-height: 1.5;
+  }
+
+  .cta-container,
+  .home-cta {
+    width: 100%;
+    max-width: 20rem;
+  }
+
+  .home-cta {
+    min-height: 48px;
   }
 }
 
