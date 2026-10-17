@@ -1,6 +1,8 @@
 export default {
   common: {
     gallery: 'Galleria',
+    showAllImages: 'Mostra tutte le immagini ({count})',
+    showFewerImages: 'Mostra meno immagini',
     features: 'Caratteristiche',
     navigation: 'Navigazione',
     openMenu: 'Apri il menu di navigazione',

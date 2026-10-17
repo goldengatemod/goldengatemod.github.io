@@ -1,5 +1,5 @@
 <template>
-  <ImageGallery :images="images" />
+  <ImageGallery :images="images" :preview-limit="4" accent="red" />
 </template>
 
 <script lang="ts" setup>
@@ -55,12 +55,4 @@ const images = ref([
     fullSrc: 'golden-gate-2/preview/gg2-preview-15.webp',
   },
 ]);
-
-// const activeIndex = ref(0)
-// const displayCustom = ref(false)
-
-// const imageClick = (index: number) => {
-//   activeIndex.value = index
-//   displayCustom.value = true
-// }
 </script>

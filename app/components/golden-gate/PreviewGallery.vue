@@ -1,5 +1,5 @@
 <template>
-  <ImageGallery :images="images" />
+  <ImageGallery :images="images" :preview-limit="4" />
 </template>
 
 <script lang="ts" setup>

@@ -1,6 +1,8 @@
 export default {
   common: {
     gallery: 'Gallery',
+    showAllImages: 'Show all screenshots ({count})',
+    showFewerImages: 'Show fewer screenshots',
     features: 'Features',
     navigation: 'Navigation',
     openMenu: 'Open navigation menu',

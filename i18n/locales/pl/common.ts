@@ -1,6 +1,8 @@
 export default {
   common: {
     gallery: 'Galeria',
+    showAllImages: 'Pokaż wszystkie zdjęcia ({count})',
+    showFewerImages: 'Pokaż mniej zdjęć',
     features: 'Cechy gry',
     navigation: 'Nawigacja',
     openMenu: 'Otwórz menu nawigacji',

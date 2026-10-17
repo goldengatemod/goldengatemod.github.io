@@ -1,16 +1,20 @@
 <template>
   <section id="gallery">
     <h2 class="sr-only">{{ t('common.gallery') }}</h2>
-    <div class="container mx-auto max-w-screen-2xl">
+    <div class="container mx-auto max-w-screen-2xl pb-10">
       <div
         v-if="images && images.length"
-        class="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mx-auto pb-10 px-4"
+        :id="gridId"
+        class="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mx-auto px-4"
       >
         <button
           v-for="(image, index) of images"
           :key="image.thumbnailSrc"
           type="button"
           class="gallery-item"
+          :class="{
+            'gallery-item--collapsed': !isExpanded && index >= previewCount,
+          }"
           @click="openLightbox(index)"
         >
           <NuxtImg
@@ -25,6 +29,27 @@
             loading="lazy"
             decoding="async"
             @contextmenu.prevent
+          />
+        </button>
+      </div>
+      <div v-if="hasMoreImages" class="mt-6 flex justify-center px-4 md:hidden">
+        <button
+          type="button"
+          class="gg-button"
+          :class="`gg-accent-${props.accent}`"
+          :aria-expanded="isExpanded"
+          :aria-controls="gridId"
+          @click="isExpanded = !isExpanded"
+        >
+          {{
+            isExpanded
+              ? t('common.showFewerImages')
+              : t('common.showAllImages', { count: images.length })
+          }}
+          <UIcon
+            :name="isExpanded ? 'i-lucide-chevron-up' : 'i-lucide-chevron-down'"
+            class="size-5 shrink-0"
+            aria-hidden="true"
           />
         </button>
       </div>
@@ -117,11 +142,21 @@ interface GalleryImage {
 
 interface Props {
   images?: GalleryImage[];
+  previewLimit?: number;
+  accent?: 'gold' | 'red';
 }
 
 const { t } = useI18n();
-const props = defineProps<Props>();
+const props = withDefaults(defineProps<Props>(), {
+  images: () => [],
+  previewLimit: undefined,
+  accent: 'gold',
+});
 const images = computed(() => props.images ?? []);
+const gridId = useId();
+const isExpanded = ref(false);
+const previewCount = computed(() => props.previewLimit ?? images.value.length);
+const hasMoreImages = computed(() => images.value.length > previewCount.value);
 
 if (import.meta.server) {
   // Full-size images must exist on static hosting without preloading them in the browser.
@@ -214,6 +249,12 @@ onUnmounted(() => {
   cursor: pointer;
   transition: filter 0.3s ease;
   border-radius: inherit;
+}
+
+@media (max-width: 767px) {
+  .gallery-item--collapsed {
+    display: none;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
