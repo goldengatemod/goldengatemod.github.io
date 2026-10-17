@@ -5,11 +5,6 @@
     <!-- Team introduction -->
     <div class="container mx-auto mb-8">
       <SectionHeader title="Golden Gate Team" />
-      <p
-        class="text-center text-gray-300 text-base font-medium mb-6 max-w-2xl mx-auto"
-      >
-        {{ t('team.goldenGateTeam.description') }}
-      </p>
     </div>
 
     <!-- Statistics Section -->
@@ -72,6 +67,11 @@
         id="active-members-title"
         title="team.navigation.activeMembers"
       />
+      <p
+        class="text-center text-gray-300 text-base font-medium mb-6 max-w-2xl mx-auto"
+      >
+        {{ t('team.goldenGateTeam.description') }}
+      </p>
       <div class="team-member-grid">
         <div
           v-for="(member, index) in activeMembers"
