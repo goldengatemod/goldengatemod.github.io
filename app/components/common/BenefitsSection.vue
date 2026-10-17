@@ -1,5 +1,9 @@
 <template>
-  <section id="pros" class="gg-pros" :class="`gg-accent-${accent}`">
+  <section
+    id="pros"
+    class="gg-pros"
+    :class="[`gg-accent-${accent}`, { 'gg-pros--compact': compact }]"
+  >
     <h2 class="sr-only">{{ t('common.features') }}</h2>
     <div class="gg-pros-grid gg-content">
       <article
@@ -19,9 +23,17 @@
 <script setup lang="ts">
 import type { Benefit } from '~/types/benefit';
 
-withDefaults(defineProps<{ benefits: Benefit[]; accent?: 'gold' | 'red' }>(), {
-  accent: 'gold',
-});
+withDefaults(
+  defineProps<{
+    benefits: Benefit[];
+    accent?: 'gold' | 'red';
+    compact?: boolean;
+  }>(),
+  {
+    accent: 'gold',
+    compact: false,
+  },
+);
 
 const { t } = useI18n();
 </script>
@@ -108,6 +120,69 @@ const { t } = useI18n();
     padding: 1.5rem 1rem;
     min-height: 180px;
     justify-content: center;
+  }
+}
+
+.gg-pros--compact .gg-pros-grid {
+  --gg-pros-gap: 0.75rem;
+  margin-block: 1.5rem 0.25rem;
+  box-shadow: none;
+}
+
+.gg-pros--compact .gg-pros-card {
+  flex-basis: 100%;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 0;
+  padding: 0.875rem;
+  gap: 0.75rem;
+}
+
+.gg-pros--compact .gg-pros-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  flex-shrink: 0;
+}
+
+.gg-pros--compact .gg-pros-title {
+  font-size: 0.875rem;
+  text-transform: none;
+  letter-spacing: normal;
+  text-align: left;
+  line-height: 1.5;
+}
+
+@media (min-width: 640px) {
+  .gg-pros--compact .gg-pros-card {
+    flex-basis: calc((100% - var(--gg-pros-gap)) / 2);
+    min-height: 100px;
+    padding: 1.125rem;
+    gap: 1rem;
+  }
+
+  .gg-pros--compact .gg-pros-icon {
+    width: 3rem;
+    height: 3rem;
+  }
+
+  .gg-pros--compact .gg-pros-title {
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .gg-pros--compact .gg-pros-card {
+    flex-basis: calc((100% - 4 * var(--gg-pros-gap)) / 5);
+    flex-direction: column;
+    justify-content: center;
+    min-height: 148px;
+    padding: 1.25rem 1rem;
+    gap: 0.75rem;
+  }
+
+  .gg-pros--compact .gg-pros-title {
+    text-align: center;
   }
 }
 </style>

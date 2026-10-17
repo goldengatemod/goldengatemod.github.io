@@ -1,5 +1,5 @@
 <template>
-  <BenefitsSection :benefits="benefits" accent="red" />
+  <BenefitsSection :benefits="benefits" accent="red" compact />
 </template>
 
 <script setup lang="ts">
