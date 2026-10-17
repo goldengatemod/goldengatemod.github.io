@@ -62,7 +62,7 @@
       </div>
     </div>
 
-    <ModPros />
+    <ModPros class="relative z-10" />
   </section>
 </template>
 
@@ -78,11 +78,12 @@ const logoSrc = computed(() => `/gg-logo-${locale.value}.webp`);
 
 <style lang="scss" scoped>
 .introduction-section {
+  --intro-fade-height: clamp(6rem, 13.5vw, 12rem);
   --bg-overlay: linear-gradient(
-    135deg,
-    rgba(0, 0, 0, 0.4) 0%,
-    rgba(139, 69, 19, 0.3) 50%,
-    rgba(0, 0, 0, 0.6) 100%
+    180deg,
+    rgba(15, 8, 4, 0.12) 0%,
+    rgba(95, 50, 15, 0.16) 45%,
+    rgba(15, 8, 4, 0.55) 100%
   );
   --bg-image-lg: url('~/assets/img/golden-gate/gg-background-lg.webp');
   --bg-image-md: url('~/assets/img/golden-gate/gg-background-md.webp');
@@ -93,11 +94,21 @@ const logoSrc = computed(() => `/gg-logo-${locale.value}.webp`);
   display: flex;
   flex-direction: column;
   position: relative;
+  padding-bottom: var(--intro-fade-height);
   background-image: var(--bg-overlay), var(--bg-image-lg);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: auto 0 0;
+    height: var(--intro-fade-height);
+    background: linear-gradient(180deg, transparent, var(--gg-bg));
+    pointer-events: none;
+  }
 
   @media (max-width: 1024px) {
     background-image: var(--bg-overlay), var(--bg-image-md);

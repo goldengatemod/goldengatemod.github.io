@@ -70,7 +70,7 @@
       </div>
     </div>
 
-    <ModPros />
+    <ModPros class="relative z-10" />
   </section>
 </template>
 
@@ -86,18 +86,32 @@ const logoSrc = computed(() => `/gg2-logo-${locale.value}.webp`);
 
 <style lang="scss" scoped>
 .introduction-section {
+  --intro-fade-height: clamp(6rem, 13.5vw, 12rem);
+  --intro-bg-overlay: linear-gradient(
+    180deg,
+    rgba(10, 5, 8, 0.18) 0%,
+    rgba(75, 10, 22, 0.2) 45%,
+    rgba(10, 5, 8, 0.6) 100%
+  );
   position: relative;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  padding-bottom: var(--intro-fade-height);
+}
+
+.introduction-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  mask-image: linear-gradient(
+    to bottom,
+    #000 calc(100% - var(--intro-fade-height)),
+    transparent
+  );
   background-image:
-    linear-gradient(
-      135deg,
-      rgba(0, 0, 0, 0.4) 0%,
-      rgba(100, 11, 11, 0.3) 50%,
-      rgba(0, 0, 0, 0.6) 80%,
-      rgba(0, 0, 0, 0) 100%
-    ),
+    var(--intro-bg-overlay),
     url('~/assets/img/golden-gate-2/gg2-goddess-lg.webp');
   background-size: cover;
   background-position: top;
@@ -106,38 +120,20 @@ const logoSrc = computed(() => `/gg2-logo-${locale.value}.webp`);
 
   @media (max-width: 1024px) {
     background-image:
-      linear-gradient(
-        135deg,
-        rgba(0, 0, 0, 0.4) 0%,
-        rgba(100, 11, 11, 0.3) 50%,
-        rgba(0, 0, 0, 0.6) 80%,
-        rgba(0, 0, 0, 0) 100%
-      ),
+      var(--intro-bg-overlay),
       url('~/assets/img/golden-gate-2/gg2-goddess-md.webp');
   }
 
   @media (max-width: 768px) {
     background-image:
-      linear-gradient(
-        135deg,
-        rgba(0, 0, 0, 0.4) 0%,
-        rgba(100, 11, 11, 0.3) 50%,
-        rgba(0, 0, 0, 0.6) 80%,
-        rgba(0, 0, 0, 0) 100%
-      ),
+      var(--intro-bg-overlay),
       url('~/assets/img/golden-gate-2/gg2-goddess-sm.webp');
     background-attachment: scroll;
   }
 
   @media (max-width: 480px) {
     background-image:
-      linear-gradient(
-        135deg,
-        rgba(0, 0, 0, 0.4) 0%,
-        rgba(100, 11, 11, 0.3) 50%,
-        rgba(0, 0, 0, 0.6) 80%,
-        rgba(0, 0, 0, 0) 100%
-      ),
+      var(--intro-bg-overlay),
       url('~/assets/img/golden-gate-2/gg2-goddess-xs.webp');
     background-attachment: scroll;
   }
