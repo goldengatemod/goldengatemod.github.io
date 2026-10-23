@@ -27,3 +27,5 @@ overrides:
   # Security fixes outside the versions selected by upstream dependencies.
   valibot@<1.4.2: 1.4.2
   esbuild@>=0.27.3 <0.28.1: 0.28.2
+  # serve pins a compression version affected by CVE-2026-87776.
+  compression@<1.8.2: 1.8.2
