@@ -11,6 +11,7 @@ export default {
       'Pełny polski dubbing',
       'Autorska ścieżka dźwiękowa',
       'Świat stworzony od podstaw',
+      '36 osiągnięć',
     ],
     lore: {
       title: 'Lore',

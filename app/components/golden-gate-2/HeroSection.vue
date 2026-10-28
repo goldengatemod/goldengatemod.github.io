@@ -6,7 +6,7 @@
       <div class="flex justify-center">
         <NuxtImg
           class="w-full max-w-2xl h-auto rounded-xl"
-          src="golden-gate-2/preview/gg2-preview-01-thumbnail.webp"
+          src="golden-gate-2/preview/gg2-preview-01.webp"
           alt="Morris in trouble"
           width="1920"
           height="1080"

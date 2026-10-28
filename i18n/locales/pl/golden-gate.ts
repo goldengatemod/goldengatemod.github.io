@@ -10,6 +10,7 @@ export default {
       '3 grywalne gildie',
       'Walki na arenie',
       'Pełny polski dubbing',
+      '33 osiągnięcia',
     ],
     intro: {
       description: 'Sprawdź wstęp do tej fascynującej historii i zobacz INTRO!',
@@ -67,21 +68,6 @@ export default {
       },
       description:
         'Każda gildia posiada własne unikalne zadania, a wybór stronnictwa ma wpływ na dalszy przebieg fabuły!',
-    },
-    patch12: {
-      description: [
-        'Z okazji premiery Złotych Wrót 2: Serce Bogini przygotowaliśmy dla was nowy patch, który wprowadza:',
-        'Zagraj w najlepszą wersję Złotych Wrót już teraz!',
-      ],
-      changes: [
-        'nowe intro',
-        'poprawiony dubbing',
-        'poprawki fabularne',
-        'poprawa balansu maga',
-        'nowy wygląd GUI',
-        'nowe utwory muzyczne',
-        'poprawki quality of life',
-      ],
     },
   },
 };

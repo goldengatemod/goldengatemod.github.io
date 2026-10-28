@@ -4,7 +4,7 @@
       <SectionHeader title="goldenGate2.visuals.title" />
       <div class="flex justify-center">
         <NuxtImg
-          src="golden-gate-2/preview/gg2-preview-06-thumbnail.webp"
+          src="golden-gate-2/preview/gg2-preview-06.webp"
           alt="Morris and Sara"
           width="1920"
           height="1080"

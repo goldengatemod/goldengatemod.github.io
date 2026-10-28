@@ -11,6 +11,7 @@ export default {
       'Vollständige polnische Synchronisation',
       'Originaler Soundtrack',
       'Von Grund auf neo geschaffene Welt',
+      '36 Erfolge',
     ],
     lore: {
       title: 'Geschichte',

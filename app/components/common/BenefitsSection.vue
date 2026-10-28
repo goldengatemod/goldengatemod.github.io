@@ -173,7 +173,7 @@ const { t } = useI18n();
 
 @media (min-width: 1024px) {
   .gg-pros--compact .gg-pros-card {
-    flex-basis: calc((100% - 4 * var(--gg-pros-gap)) / 5);
+    flex-basis: calc((100% - 2 * var(--gg-pros-gap)) / 3);
     flex-direction: column;
     justify-content: center;
     min-height: 148px;
@@ -182,6 +182,10 @@ const { t } = useI18n();
   }
 
   .gg-pros--compact .gg-pros-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 3em;
     text-align: center;
   }
 }

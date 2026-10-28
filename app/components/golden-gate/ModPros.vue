@@ -28,6 +28,10 @@ withDefaults(defineProps<{ benefits?: Benefit[] }>(), {
       label: 'goldenGate.pros.4',
       icon: 'i-lucide-mic',
     },
+    {
+      label: 'goldenGate.pros.5',
+      icon: 'i-lucide-trophy',
+    },
   ],
 });
 </script>

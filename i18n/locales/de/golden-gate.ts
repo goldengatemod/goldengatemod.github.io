@@ -10,6 +10,7 @@ export default {
       '3 spielbare Gilden',
       'Arenakämpfe',
       'Vollständige polnische Synchronisation',
+      '33 Erfolge',
     ],
     intro: {
       description:
@@ -68,21 +69,6 @@ export default {
       },
       description:
         'Jede Gilde hat ihre eigenen einzigartigen Quests, und die Wahl zwischen ihnen beeinflusst die Hauptgeschichte!',
-    },
-    patch12: {
-      description: [
-        'Anlässlich der Veröffentlichung des Goldenen Tores 2: Das Herz der Göttin haben wir einen neuen Patch für euch vorbereitet, der Folgendes hinzufügt:',
-        'Spiele jetzt die beste Version des Goldenen Tores!',
-      ],
-      changes: [
-        'Neue Intro',
-        'verbesserte Sprachausgabe',
-        'korrigierte Story',
-        'verbesserte Balance des Magier-Builds',
-        'neues GUI',
-        'neuer Soundtrack',
-        'Verbesserung der allgemeinen Qualität',
-      ],
     },
   },
 };

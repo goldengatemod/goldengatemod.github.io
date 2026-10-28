@@ -14,8 +14,6 @@
         <SectionDivider />
         <LazyGoldenGateGuildsSection hydrate-on-visible />
         <SectionDivider />
-        <GoldenGatePatchSection />
-        <SectionDivider />
       </div>
       <GoldenGatePreviewGallery />
     </div>

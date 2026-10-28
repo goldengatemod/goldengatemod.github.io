@@ -15,7 +15,7 @@ export default defineNuxtConfig({
     },
   },
   nitro: {
-    preset: 'static',
+    preset: 'github-pages',
     compressPublicAssets: true,
     minify: true,
     routeRules: {
@@ -68,7 +68,7 @@ export default defineNuxtConfig({
     detectBrowserLanguage: false,
   },
   image: {
-    format: ['avif', 'webp'],
+    quality: 85,
     screens: {
       xs: 320,
       sm: 640,

@@ -158,10 +158,12 @@ const logoSrc = computed(() => `/gg-logo-${locale.value}.webp`);
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-block: 2rem;
+  padding-top: 2rem;
+  padding-bottom: 1rem;
 
   @media (min-width: 768px) {
-    padding-block: 3rem;
+    padding-top: 3rem;
+    padding-bottom: 1.5rem;
   }
 }
 
@@ -189,7 +191,8 @@ const logoSrc = computed(() => `/gg-logo-${locale.value}.webp`);
 
 @media (max-width: 480px) {
   .gg-introduction-content {
-    padding-block: 1rem;
+    padding-top: 1rem;
+    padding-bottom: 0.75rem;
   }
 
   .logo-container .logo-image {

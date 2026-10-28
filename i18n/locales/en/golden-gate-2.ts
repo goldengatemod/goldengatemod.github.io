@@ -11,6 +11,7 @@ export default {
       'Full Polish dubbing',
       'Original soundtrack',
       'World created from scratch',
+      '36 achievements',
     ],
     lore: {
       title: 'Lore',

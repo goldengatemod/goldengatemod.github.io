@@ -10,6 +10,7 @@ export default {
       '3 gilde giocabili',
       'Combattimenti in arena',
       'Doppiaggio completo in Polacco',
+      '33 obiettivi',
     ],
     intro: {
       description:
@@ -68,21 +69,6 @@ export default {
       },
       description:
         'Ogni gilda ha le sue missioni uniche e la scelta tra di esse influenza la trama principale!',
-    },
-    patch12: {
-      description: [
-        "In occasione dell'uscita di Golden Gate 2: Cuore della Dea, abbiamo preparato per te una nuova patch che aggiunge:",
-        'Gioca subito alla miglior versione di Golden Gate! - la versione italiana non è ancora disponibile.',
-      ],
-      changes: [
-        'nuova introduzione',
-        'doppiaggio migliorato',
-        'storia corretta',
-        'bilanciamento carriera da mago corretto',
-        'nuova interfaccia grafica',
-        'nuova colonna sonora',
-        "migliorie legate all'esperienza di gioco",
-      ],
     },
   },
 };

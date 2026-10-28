@@ -10,6 +10,7 @@ export default {
       '3 playable guilds',
       'Arena fights',
       'Full Polish dubbing',
+      '33 achievements',
     ],
     intro: {
       description:
@@ -68,21 +69,6 @@ export default {
       },
       description:
         'Each guild has its own unique quests, and the choice between them influences the main story!',
-    },
-    patch12: {
-      description: [
-        'Due to the release of Golden Gate 2: Goddess Heart, we have prepared for you a new patch, which adds:',
-        'Play the best version of Golden Gate now!',
-      ],
-      changes: [
-        'new intro',
-        'improved dubbing',
-        'corrected story',
-        'fixed mage-build balance',
-        'new GUI',
-        'new soundtrack',
-        'quality of life fixes',
-      ],
     },
   },
 };

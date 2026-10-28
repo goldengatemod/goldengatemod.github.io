@@ -11,6 +11,7 @@ export default {
       'Doppiaggio completo in Polacco',
       'Colonne sonore originali',
       'Mondo di gioco creato da zero',
+      '36 obiettivi',
     ],
     lore: {
       title: 'Ambientazione',

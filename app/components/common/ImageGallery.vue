@@ -9,7 +9,7 @@
       >
         <button
           v-for="(image, index) of images"
-          :key="image.thumbnailSrc"
+          :key="image.src"
           type="button"
           class="gallery-item"
           :class="{
@@ -18,7 +18,7 @@
           @click="openLightbox(index)"
         >
           <NuxtImg
-            :src="image.thumbnailSrc"
+            :src="image.src"
             :alt="image.alt || `Gallery image ${index + 1}`"
             width="600"
             height="450"
@@ -100,10 +100,7 @@
             <NuxtImg
               v-if="images[currentIndex]"
               :key="currentIndex"
-              :src="
-                images[currentIndex]?.fullSrc ||
-                images[currentIndex]?.thumbnailSrc
-              "
+              :src="images[currentIndex]?.src"
               :alt="
                 images[currentIndex]?.alt || `Gallery image ${currentIndex + 1}`
               "
@@ -135,8 +132,7 @@
 
 <script setup lang="ts">
 interface GalleryImage {
-  thumbnailSrc: string;
-  fullSrc?: string;
+  src: string;
   alt?: string;
 }
 
@@ -162,7 +158,9 @@ if (import.meta.server) {
   // Full-size images must exist on static hosting without preloading them in the browser.
   const imageUrl = useImage();
   prerenderRoutes(
-    images.value.map((image) => imageUrl(image.fullSrc || image.thumbnailSrc)),
+    images.value.map((image) =>
+      imageUrl(image.src, { quality: imageUrl.options.quality }),
+    ),
   );
 }
 
