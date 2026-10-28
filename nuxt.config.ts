@@ -52,10 +52,12 @@ export default defineNuxtConfig({
   },
   sitemap: {
     autoLastmod: true,
+    zeroRuntime: true,
   },
   seo: {
     // Every page supplies its own translated title.
     fallbackTitle: false,
+    validateAppHead: false,
   },
   i18n: {
     baseUrl: 'https://goldengatemod.com',

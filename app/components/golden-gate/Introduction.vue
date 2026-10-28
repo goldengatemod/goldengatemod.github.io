@@ -33,6 +33,14 @@
             <span>Steam Workshop</span>
           </a>
           <a
+            href="https://www.gog.com/game/golden_gate"
+            target="_blank"
+            class="gg-button gg-button--download gg-accent-gold"
+          >
+            <Icon name="simple-icons-gogdotcom" class="text-3xl text-white" />
+            <span>GOG.com</span>
+          </a>
+          <a
             href="https://www.moddb.com/mods/the-golden-gate/downloads"
             target="_blank"
             class="gg-button gg-button--download gg-accent-gold"
@@ -79,7 +87,7 @@ const logoSrc = computed(() => `/gg-logo-${locale.value}.webp`);
 <style lang="scss" scoped>
 .introduction-section {
   --intro-fade-height: clamp(6rem, 13.5vw, 12rem);
-  --bg-overlay: linear-gradient(
+  --intro-bg-overlay: linear-gradient(
     180deg,
     rgba(15, 8, 4, 0.12) 0%,
     rgba(95, 50, 15, 0.16) 45%,
@@ -95,23 +103,26 @@ const logoSrc = computed(() => `/gg-logo-${locale.value}.webp`);
   flex-direction: column;
   position: relative;
   padding-bottom: var(--intro-fade-height);
-  background-image: var(--bg-overlay), var(--bg-image-lg);
+}
+
+.introduction-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  mask-image: linear-gradient(
+    to bottom,
+    #000 calc(100% - var(--intro-fade-height)),
+    transparent
+  );
+  background-image: var(--intro-bg-overlay), var(--bg-image-lg);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
 
-  &::after {
-    content: '';
-    position: absolute;
-    inset: auto 0 0;
-    height: var(--intro-fade-height);
-    background: linear-gradient(180deg, transparent, var(--gg-bg));
-    pointer-events: none;
-  }
-
   @media (max-width: 1024px) {
-    background-image: var(--bg-overlay), var(--bg-image-md);
+    background-image: var(--intro-bg-overlay), var(--bg-image-md);
   }
 
   @media (max-width: 768px) {
